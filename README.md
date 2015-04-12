@@ -17,4 +17,4 @@
 1. [Wikipedia:Quantization](http://en.wikipedia.org/wiki/Quantization_%28signal_processing%29)
 2. [GitHub Markdown](https://help.github.com/articles/markdown-basics/)
 3. ["Quantization Noise"](http://oldweb.mit.bme.hu/books/quantization/) by Widrow and Kollar
-4. 
+4. ["Dither Breakfast"](http://electronicdesign.com/analog/dither-it-s-not-just-breakfast-anymore)
