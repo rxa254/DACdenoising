@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 \documentclass[colorlinks=true,pdfstartview=FitV,linkcolor=blue,
@@ -24,6 +25,25 @@
 
 
  \section{Introduction}
+=======
+\documentclass{article} % Loads settings for the document layout
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\title{Quantization Noise in Digital Control Systems}
+\date{2015-04-25}
+\author{Ayush Pandey}
+
+% Main document
+
+\begin{document} % The document starts here
+	\pagenumbering{gobble}
+    \maketitle
+	\newpage
+	\pagenumbering{arabic}
+    \section{Introduction}
+>>>>>>> 624c3db9564088e494534eba4feb159626de88e2
     \subsection{General Technical Area}
 The project would see its application in the Advanced Laser Interferometer Gravitational Wave Observatory (aLIGO) which is an upgrade over the original LIGO \cite{LIGO} setup. The LIGO aims to detect gravitational waves \cite{GWD} which would give us an opportunity to get access to completely new and exciting astronomical insights and research. The LIGO setup consists of Laser interferometer \cite{Interferometer} which is at the heart of detection of the gravitational waves. The displacement produced is measured as strain, due to the constructive or destructive interference between the original wave and the reflected gravitational wave. To achieve reflection, dynamically moving mirrors are kept at the other end of the interferometer in both of its perpendicular arms \cite{Interferometer}. There are many controllers which are used to control and suppress the mirror motion. \cite{Control} describes why movement of the mirrors and hence the motion control is necessary. Since, the strain measurement being done is of the order of $10^{-19}$, all kinds of noises and disturbances need to be analyzed and looked into closely so as to maximize the Signal to Noise Ratio (SNR) which is of prime importance in the process of Gravitational wave detection of such a low magnitude (the astronomical strains being measured are one thousand times lesser than the diameter of a proton!). The quantization noise is one such noise that occurs in the digitally implemented controllers of the mirror motion. It, in layman's terms, is the rounding off error that occurs while rounding a number to its nearest allowed level. It is inevitable in digital domain since the number of bits used to represent a number in a digital controller or a computer is directly proportional to the memory required, which obviously cannot be infinite. Hence, rounding off needs to be done to numbers which leads to quantization noise. In a digital control loop it can occur at three places: Analog to Digital Converters (ADCs),
 Digital to Analog Converters (DACs) and
@@ -114,6 +134,7 @@ Here are some milestones to look forward to throughout the project along with th
 \subsection{Optimization of Filter Design}For the next two to three weeks, we would be optimizing the aLIGO filter designs against quantization noise using various design strategies and optimization methods. The analysis of the optimized filters would be done using the software tool.
 \subsection{DAC Noise Shaping}The project would conclude with implementation of noise shaping in the DACs. The current LIGO digital control systems involve the DACs which do not take advantage of noise shaping. If the noise shaping is implemented successfully in the DACs, then the quantization noise could be reduced to a great extent in the desired frequency band. This part of the project could take upto three weeks.
 
+<<<<<<< HEAD
 \begin{thebibliography}{13}  
 \bibitem{LIGO} B. P. Abott et. al.,  
 				\emph{LIGO: the laser Interferometer Gravitational Wave Observatory} 							\url{http://dx.doi.org/10.1088/0034-4885/72/7/076901}
@@ -140,6 +161,22 @@ Here are some milestones to look forward to throughout the project along with th
 \bibitem{Sheingold} D. H. Sheingold, \emph{Analog-Digital Conversion Handbook}
 \bibitem{Tretter} S. A. Tretter, \emph{Introduction to Discrete Time Signal Processing John Wiley and Sons, New York, 1976}
 \bibitem{Kollar} B. Widrow and I. Kollar, \emph{Statistical Theory of Quantization}
+=======
+\begin{thebibliography}{100}  
+\bibitem{LIGO} B. P. Abott et. al. "LIGO: the laser Interferometer Gravitational Wave Observatory" http://dx.doi.org/10.1088/0034-4885/72/7/076901
+\bibitem{GWD} On Gravitational Wave Detection: $https://nodus.ligo.caltech.edu:30889/wiki/doku.php?id=gw_detection_101_for_surf$
+\bibitem{Interferometer} Frederick J Raab "Overview of LIGO Instrumentation"
+\bibitem{WhyDigital} "Why Digital Control instead of Analogue?" http://www.uotechnology.edu.iq
+\bibitem{Control} L. Carbone et al. "Sensors and Actuators for the Advanced LIGO Mirror Suspensions" http://arxiv.org/pdf/1205.5643v1/
+\bibitem{Widrow} A book by Widrow and Kollar on Quantization Noise: http://www.mit.bme.hu/books/quantization
+\bibitem{Dehner} Dehner's Noise Optimized Filter Design:https://dx.doi.org/10.1016/s0165-1684(03)00075-6
+\bibitem{AnalogDevices} Application Note on Sigma Delta ADC's and DAC's: http://www.analog.com/media/en/technical-documentation/application-notes/292524291525717245054923680458171AN283.pdf
+\bibitem{Interpolation}Oversampling Interpolating DAC:http://www.analog.com/media/cn/training-seminars/tutorials/MT-017.pdf
+\bibitem{SNR}SNR Calculation: http://www.analog.com/media/en/training-seminars/tutorials/MT-001.pdf
+\bibitem{Sheingold} D. H. Sheingold Analog-Digital Conversion Handbook, Analog Devices, Inc., Norwood, MA02062, 1972.
+\bibitem{Tretter} S. A. Tretter, Introduction to Discrete Time Signal Processing, John Wiley and Sons, New York, 1976.
+\bibitem{Kollar} B. Widrow and I. Kollar : Statistical Theory of Quantization
+>>>>>>> 624c3db9564088e494534eba4feb159626de88e2
 
 \end{thebibliography}        
 \end{document} % The document ends here
