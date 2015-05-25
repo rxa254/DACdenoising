@@ -24,4 +24,5 @@ Added to that, I have completed the following: (already pushed before reading yo
 3. Frequency Spectrum for the same (of the error, noise shaped)
 4. LaTeX document covering all the above.
 
-
+***
+Update (on 25th May): All changes mentioned above have been made and pushed.
