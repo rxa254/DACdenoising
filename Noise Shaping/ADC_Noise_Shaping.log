@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.26)  21 MAY 2015 21:32
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.26)  25 MAY 2015 02:51
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **ADC_Noise_Shaping.tex
 (./ADC_Noise_Shaping.tex
@@ -308,76 +308,135 @@ Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
 \c@LT@chunks=\count117
 \LT@p@ftn=\toks21
 )
+(/usr/share/texlive/texmf-dist/tex/latex/svg/svg.sty
+Package: svg 2012/09/05 v1.0 SVG inclusion and extraction
+
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2012/10/14 v2.6b package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+\XKV@toks=\toks22
+\XKV@tempa@toks=\toks23
+\XKV@depth=\count118
+File: xkeyval.tex 2012/10/14 v2.6b key=value parser (HA)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen125
+\captionmargin@=\dimen126
+\captionwidth=\dimen127
+\caption@tempdima=\dimen128
+\caption@indent=\dimen129
+\caption@parindent=\dimen130
+\caption@hangindent=\dimen131
+)
+\c@ContinuedFloat=\count119
+Package caption Info: hyperref package is loaded.
+Package caption Info: longtable package is loaded.
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2013/02/03 v1.3-62 longtable captions (AR)
+))
+\c@KVtest=\count120
+\sf@farskip=\skip56
+\sf@captopadj=\dimen132
+\sf@capskip=\skip57
+\sf@nearskip=\skip58
+\c@subfigure=\count121
+\c@subfigure@save=\count122
+\c@lofdepth=\count123
+\c@subtable=\count124
+\c@subtable@save=\count125
+\c@lotdepth=\count126
+\sf@top=\skip59
+\sf@bottom=\skip60
+)
+(/usr/share/texlive/texmf-dist/tex/latex/import/import.sty
+Package: import 2009/03/23  v 5.1
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/transparent.sty
+Package: transparent 2007/01/08 v1.0 Transparency via pdfTeX's color stack (HO)
+
+)
+(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+LaTeX Info: Redefining \color on input line 702.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+\SVG@out@width=\skip61
+\SVG@out@height=\skip62
+\c@svgfigure=\count127
+)
 (/usr/share/texlive/texmf-dist/tex/latex/rotating/rotating.sty
 Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
-\c@r@tfl@t=\count118
-\rotFPtop=\skip56
-\rotFPbot=\skip57
+\c@r@tfl@t=\count128
+\rotFPtop=\skip63
+\rotFPbot=\skip64
 \rot@float@box=\box33
-\rot@mess@toks=\toks22
+\rot@mess@toks=\toks24
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-\fancy@headwidth=\skip58
-\f@ncyO@elh=\skip59
-\f@ncyO@erh=\skip60
-\f@ncyO@olh=\skip61
-\f@ncyO@orh=\skip62
-\f@ncyO@elf=\skip63
-\f@ncyO@erf=\skip64
-\f@ncyO@olf=\skip65
-\f@ncyO@orf=\skip66
-)
-(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
-Package: subfigure 2002/03/15 v2.1.5 subfigure package
-\subfigtopskip=\skip67
-\subfigcapskip=\skip68
-\subfigcaptopadj=\dimen125
-\subfigbottomskip=\skip69
-\subfigcapmargin=\dimen126
-\subfiglabelskip=\skip70
-\c@subfigure=\count119
-\c@lofdepth=\count120
-\c@subtable=\count121
-\c@lotdepth=\count122
-
-****************************************
-* Local config file subfigure.cfg used *
-****************************************
-(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
-\subfig@top=\skip71
-\subfig@bottom=\skip72
+\fancy@headwidth=\skip65
+\f@ncyO@elh=\skip66
+\f@ncyO@erh=\skip67
+\f@ncyO@olh=\skip68
+\f@ncyO@orh=\skip69
+\f@ncyO@elf=\skip70
+\f@ncyO@erf=\skip71
+\f@ncyO@olf=\skip72
+\f@ncyO@orf=\skip73
 )
 (./ADC_Noise_Shaping.aux)
 \openout1 = `ADC_Noise_Shaping.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count123
-\scratchdimen=\dimen127
+\scratchcounter=\count129
+\scratchdimen=\dimen133
 \scratchbox=\box34
-\nofMPsegments=\count124
-\nofMParguments=\count125
-\everyMPshowfont=\toks23
-\MPscratchCnt=\count126
-\MPscratchDim=\dimen128
-\MPnumerator=\count127
-\makeMPintoPDFobject=\count128
-\everyMPtoPDFconversion=\toks24
+\nofMPsegments=\count130
+\nofMParguments=\count131
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count132
+\MPscratchDim=\dimen134
+\MPnumerator=\count133
+\makeMPintoPDFobject=\count134
+\everyMPtoPDFconversion=\toks26
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -394,7 +453,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box35
-Package hyperref Info: Link coloring ON on input line 22.
+Package hyperref Info: Link coloring ON on input line 23.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -402,49 +461,46 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count129
+\c@section@level=\count135
 )
-LaTeX Info: Redefining \ref on input line 22.
-LaTeX Info: Redefining \pageref on input line 22.
-LaTeX Info: Redefining \nameref on input line 22.
+LaTeX Info: Redefining \ref on input line 23.
+LaTeX Info: Redefining \pageref on input line 23.
+LaTeX Info: Redefining \nameref on input line 23.
 
 (./ADC_Noise_Shaping.out) (./ADC_Noise_Shaping.out)
 \@outlinefile=\write3
 \openout3 = `ADC_Noise_Shaping.out'.
 
-LaTeX Font Info:    Try loading font information for U+lasy on input line 22.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 23.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 22.
+LaTeX Font Info:    Try loading font information for U+msa on input line 23.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 22.
+LaTeX Font Info:    Try loading font information for U+msb on input line 23.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <22> not available
-(Font)              size <20.74> substituted on input line 22.
+(Font)              size <20.74> substituted on input line 23.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <22> not available
-(Font)              size <20.74> substituted on input line 22.
+(Font)              size <20.74> substituted on input line 23.
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<images1/Delta_Sigma_ADC_Block1.jpg, id=26, 787.44188pt x 284.56313pt>
-File: images1/Delta_Sigma_ADC_Block1.jpg Graphic file (type jpg)
-
-<use images1/Delta_Sigma_ADC_Block1.jpg>
-Package pdftex.def Info: images1/Delta_Sigma_ADC_Block1.jpg used on input line 
-33.
-(pdftex.def)             Requested size: 393.71997pt x 142.2812pt.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: rotating package is loaded.
+Package caption Info: End \AtBeginDocument code.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -455,145 +511,370 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.37 
-      [1 <./images1/Delta_Sigma_ADC_Block1.jpg>]
-<images1/Delta_Sigma_ADC_Simplified_Block.jpg, id=33, 721.19438pt x 201.75375pt
+l.40 
+      [1] <./Mid_Tread_ADC.pdf, id=49, 286.74278pt x 214.25862pt>
+File: ./Mid_Tread_ADC.pdf Graphic file (type pdf)
+
+<use ./Mid_Tread_ADC.pdf>
+Package pdftex.def Info: ./Mid_Tread_ADC.pdf used on input line 55.
+(pdftex.def)             Requested size: 286.74208pt x 214.25809pt.
+File: ./Mid_Tread_ADC.pdf Graphic file (type pdf)
+ <use ./Mid_Tread_ADC.pdf>
+Package pdftex.def Info: ./Mid_Tread_ADC.pdf used on input line 55.
+(pdftex.def)             Requested size: 286.74208pt x 214.25809pt.
+ (./Mid_Tread_ADC.pdf_tex
+<Mid_Tread_ADC.pdf, id=50, 286.74278pt x 214.25862pt>
+File: Mid_Tread_ADC.pdf Graphic file (type pdf)
+ <use Mid_Tread_ADC.pdf>
+Package pdftex.def Info: Mid_Tread_ADC.pdf used on input line 52.
+(pdftex.def)             Requested size: 286.74208pt x 214.27443pt.
+)
+<./Mid_Riser_ADC.pdf, id=51, 289.399pt x 216.91486pt>
+File: ./Mid_Riser_ADC.pdf Graphic file (type pdf)
+
+<use ./Mid_Riser_ADC.pdf>
+Package pdftex.def Info: ./Mid_Riser_ADC.pdf used on input line 70.
+(pdftex.def)             Requested size: 289.39828pt x 216.9143pt.
+File: ./Mid_Riser_ADC.pdf Graphic file (type pdf)
+ <use ./Mid_Riser_ADC.pdf>
+Package pdftex.def Info: ./Mid_Riser_ADC.pdf used on input line 70.
+(pdftex.def)             Requested size: 289.39828pt x 216.9143pt.
+ (./Mid_Riser_ADC.pdf_tex
+<Mid_Riser_ADC.pdf, id=52, 289.399pt x 216.91486pt>
+File: Mid_Riser_ADC.pdf Graphic file (type pdf)
+ <use Mid_Riser_ADC.pdf>
+Package pdftex.def Info: Mid_Riser_ADC.pdf used on input line 52.
+(pdftex.def)             Requested size: 289.39828pt x 216.93085pt.
+)
+<./Quantization_Error_Wave.pdf, id=53, 269.104pt x 145.937pt>
+File: ./Quantization_Error_Wave.pdf Graphic file (type pdf)
+
+<use ./Quantization_Error_Wave.pdf>
+Package pdftex.def Info: ./Quantization_Error_Wave.pdf used on input line 80.
+(pdftex.def)             Requested size: 269.10333pt x 145.93663pt.
+File: ./Quantization_Error_Wave.pdf Graphic file (type pdf)
+ <use ./Quantization_Error_Wave.pdf>
+Package pdftex.def Info: ./Quantization_Error_Wave.pdf used on input line 80.
+(pdftex.def)             Requested size: 269.10333pt x 145.93663pt.
+
+(./Quantization_Error_Wave.pdf_tex
+<Quantization_Error_Wave.pdf, id=54, 269.104pt x 145.937pt>
+File: Quantization_Error_Wave.pdf Graphic file (type pdf)
+
+<use Quantization_Error_Wave.pdf>
+Package pdftex.def Info: Quantization_Error_Wave.pdf used on input line 52.
+(pdftex.def)             Requested size: 269.10333pt x 145.94107pt.
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[2 <./Mid_Tread_ADC.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[3 <./Mid_Riser_ADC.pdf> <./Quantization_Error_Wave.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Quantization_Error_Wave.pdf): PDF inc
+lusion: multiple pdfs with page group included in a single page
+>] <./Block_Diagram_ADC_With_Dither.pdf, id=86, 376.15497pt x 228.52748pt>
+File: ./Block_Diagram_ADC_With_Dither.pdf Graphic file (type pdf)
+
+<use ./Block_Diagram_ADC_With_Dither.pdf>
+Package pdftex.def Info: ./Block_Diagram_ADC_With_Dither.pdf used on input line
+ 139.
+(pdftex.def)             Requested size: 376.15405pt x 228.5269pt.
+File: ./Block_Diagram_ADC_With_Dither.pdf Graphic file (type pdf)
+
+<use ./Block_Diagram_ADC_With_Dither.pdf>
+Package pdftex.def Info: ./Block_Diagram_ADC_With_Dither.pdf used on input line
+ 139.
+(pdftex.def)             Requested size: 376.15405pt x 228.5269pt.
+
+(./Block_Diagram_ADC_With_Dither.pdf_tex
+<Block_Diagram_ADC_With_Dither.pdf, id=87, 376.15497pt x 228.52748pt>
+File: Block_Diagram_ADC_With_Dither.pdf Graphic file (type pdf)
+
+<use Block_Diagram_ADC_With_Dither.pdf>
+Package pdftex.def Info: Block_Diagram_ADC_With_Dither.pdf used on input line 5
+2.
+(pdftex.def)             Requested size: 376.15405pt x 228.54433pt.
+)
+<./Quant_Noise_PSD_Without_Dither.pdf, id=88, 404.712pt x 321.55199pt>
+File: ./Quant_Noise_PSD_Without_Dither.pdf Graphic file (type pdf)
+
+<use ./Quant_Noise_PSD_Without_Dither.pdf>
+Package pdftex.def Info: ./Quant_Noise_PSD_Without_Dither.pdf used on input lin
+e 148.
+(pdftex.def)             Requested size: 404.71101pt x 321.5512pt.
+File: ./Quant_Noise_PSD_Without_Dither.pdf Graphic file (type pdf)
+
+<use ./Quant_Noise_PSD_Without_Dither.pdf>
+Package pdftex.def Info: ./Quant_Noise_PSD_Without_Dither.pdf used on input lin
+e 148.
+(pdftex.def)             Requested size: 404.71101pt x 321.5512pt.
+
+(./Quant_Noise_PSD_Without_Dither.pdf_tex
+<Quant_Noise_PSD_Without_Dither.pdf, id=89, 404.712pt x 321.55199pt>
+File: Quant_Noise_PSD_Without_Dither.pdf Graphic file (type pdf)
+
+<use Quant_Noise_PSD_Without_Dither.pdf>
+Package pdftex.def Info: Quant_Noise_PSD_Without_Dither.pdf used on input line 
+52.
+(pdftex.def)             Requested size: 404.71101pt x 321.5659pt.
+)
+<./Quant_Noise_With_Dither.pdf, id=90, 481.31577pt x 357.25833pt>
+File: ./Quant_Noise_With_Dither.pdf Graphic file (type pdf)
+
+<use ./Quant_Noise_With_Dither.pdf>
+Package pdftex.def Info: ./Quant_Noise_With_Dither.pdf used on input line 156.
+(pdftex.def)             Requested size: 481.31458pt x 357.25745pt.
+File: ./Quant_Noise_With_Dither.pdf Graphic file (type pdf)
+ <use ./Quant_Noise_With_Dither.pdf>
+Package pdftex.def Info: ./Quant_Noise_With_Dither.pdf used on input line 156.
+(pdftex.def)             Requested size: 481.31458pt x 357.25745pt.
+
+(./Quant_Noise_With_Dither.pdf_tex
+<Quant_Noise_With_Dither.pdf, id=91, 481.31577pt x 357.25833pt>
+File: Quant_Noise_With_Dither.pdf Graphic file (type pdf)
+
+<use Quant_Noise_With_Dither.pdf>
+Package pdftex.def Info: Quant_Noise_With_Dither.pdf used on input line 52.
+(pdftex.def)             Requested size: 481.31458pt x 357.25745pt.
+)
+Overfull \hbox (11.55956pt too wide) in paragraph at lines 53--157
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[4]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[5 <./Block_Diagram_ADC_With_Dither.pdf> <./Quant_Noise_PSD_Without_Dither.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Quant_Noise_PSD_Without_Dither.pdf): 
+PDF inclusion: multiple pdfs with page group included in a single page
+>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[6 <./Quant_Noise_With_Dither.pdf>]
+<./Delta_Sigma_ADC_Block1.pdf, id=126, 444.75061pt x 188.83011pt>
+File: ./Delta_Sigma_ADC_Block1.pdf Graphic file (type pdf)
+
+<use ./Delta_Sigma_ADC_Block1.pdf>
+Package pdftex.def Info: ./Delta_Sigma_ADC_Block1.pdf used on input line 174.
+(pdftex.def)             Requested size: 444.74953pt x 188.82964pt.
+File: ./Delta_Sigma_ADC_Block1.pdf Graphic file (type pdf)
+ <use ./Delta_Sigma_ADC_Block1.pdf>
+Package pdftex.def Info: ./Delta_Sigma_ADC_Block1.pdf used on input line 174.
+(pdftex.def)             Requested size: 444.74953pt x 188.82964pt.
+
+(./Delta_Sigma_ADC_Block1.pdf_tex
+<Delta_Sigma_ADC_Block1.pdf, id=127, 444.75061pt x 188.83011pt>
+File: Delta_Sigma_ADC_Block1.pdf Graphic file (type pdf)
+
+<use Delta_Sigma_ADC_Block1.pdf>
+Package pdftex.def Info: Delta_Sigma_ADC_Block1.pdf used on input line 52.
+(pdftex.def)             Requested size: 444.74953pt x 188.84116pt.
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[7 <./Delta_Sigma_ADC_Block1.pdf>]
+<./Delta_Sigma_ADC_Simplified_Block.pdf, id=135, 373.34819pt x 132.72801pt>
+File: ./Delta_Sigma_ADC_Simplified_Block.pdf Graphic file (type pdf)
+
+<use ./Delta_Sigma_ADC_Simplified_Block.pdf>
+Package pdftex.def Info: ./Delta_Sigma_ADC_Simplified_Block.pdf used on input l
+ine 204.
+(pdftex.def)             Requested size: 373.34727pt x 132.72768pt.
+File: ./Delta_Sigma_ADC_Simplified_Block.pdf Graphic file (type pdf)
+
+<use ./Delta_Sigma_ADC_Simplified_Block.pdf>
+Package pdftex.def Info: ./Delta_Sigma_ADC_Simplified_Block.pdf used on input l
+ine 204.
+(pdftex.def)             Requested size: 373.34727pt x 132.72768pt.
+
+(./Delta_Sigma_ADC_Simplified_Block.pdf_tex
+<Delta_Sigma_ADC_Simplified_Block.pdf, id=136, 373.34819pt x 132.72801pt>
+File: Delta_Sigma_ADC_Simplified_Block.pdf Graphic file (type pdf)
+
+<use Delta_Sigma_ADC_Simplified_Block.pdf>
+Package pdftex.def Info: Delta_Sigma_ADC_Simplified_Block.pdf used on input lin
+e 52.
+(pdftex.def)             Requested size: 373.34727pt x 132.72768pt.
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[8 <./Delta_Sigma_ADC_Simplified_Block.pdf>]
+<./Sigma_Delta_ADC_Simulink_Implementation.pdf, id=151, 430.42195pt x 200.36597
+pt>
+File: ./Sigma_Delta_ADC_Simulink_Implementation.pdf Graphic file (type pdf)
+ <use ./Sigma_Delta_ADC_Simulink_Implementation.pdf>
+Package pdftex.def Info: ./Sigma_Delta_ADC_Simulink_Implementation.pdf used on 
+input line 226.
+(pdftex.def)             Requested size: 430.4209pt x 200.36546pt.
+File: ./Sigma_Delta_ADC_Simulink_Implementation.pdf Graphic file (type pdf)
+
+<use ./Sigma_Delta_ADC_Simulink_Implementation.pdf>
+Package pdftex.def Info: ./Sigma_Delta_ADC_Simulink_Implementation.pdf used on 
+input line 226.
+(pdftex.def)             Requested size: 430.4209pt x 200.36546pt.
+
+(./Sigma_Delta_ADC_Simulink_Implementation.pdf_tex
+<Sigma_Delta_ADC_Simulink_Implementation.pdf, id=152, 430.42195pt x 200.36597pt
 >
-File: images1/Delta_Sigma_ADC_Simplified_Block.jpg Graphic file (type jpg)
- <use images1/Delta_Sigma_ADC_Simplified_Block.jpg>
-Package pdftex.def Info: images1/Delta_Sigma_ADC_Simplified_Block.jpg used on i
-nput line 57.
-(pdftex.def)             Requested size: 360.59631pt x 100.87662pt.
-
-<images1/Sigma_Delta_ADC_Simulink_Implementation.JPG, id=34, 974.89218pt x 170.
-88844pt>
-File: images1/Sigma_Delta_ADC_Simulink_Implementation.JPG Graphic file (type jp
-g)
- <use images1/Sigma_Delta_ADC_Simulink_Implementation.JPG>
-Package pdftex.def Info: images1/Sigma_Delta_ADC_Simulink_Implementation.JPG us
-ed on input line 73.
-(pdftex.def)             Requested size: 487.4449pt x 85.444pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 71--75
+File: Sigma_Delta_ADC_Simulink_Implementation.pdf Graphic file (type pdf)
+ <use Sigma_Delta_ADC_Simulink_Implementation.pdf>
+Package pdftex.def Info: Sigma_Delta_ADC_Simulink_Implementation.pdf used on in
+put line 52.
+(pdftex.def)             Requested size: 430.4209pt x 200.37157pt.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 221--231
 
  []
 
 
-Overfull \hbox (17.68988pt too wide) in paragraph at lines 71--75
-[]
- []
+<./ADC_Conversion_Quant_Noise_In_Time_Domain.pdf, id=153, 230.57036pt x 193.494
+96pt>
+File: ./ADC_Conversion_Quant_Noise_In_Time_Domain.pdf Graphic file (type pdf)
+ <use ./ADC_Conversion_Quant_Noise_In_Time_Domain.pdf>
+Package pdftex.def Info: ./ADC_Conversion_Quant_Noise_In_Time_Domain.pdf used o
+n input line 236.
+(pdftex.def)             Requested size: 230.5698pt x 193.49448pt.
+File: ./ADC_Conversion_Quant_Noise_In_Time_Domain.pdf Graphic file (type pdf)
 
+<use ./ADC_Conversion_Quant_Noise_In_Time_Domain.pdf>
+Package pdftex.def Info: ./ADC_Conversion_Quant_Noise_In_Time_Domain.pdf used o
+n input line 236.
+(pdftex.def)             Requested size: 230.5698pt x 193.49448pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+(./ADC_Conversion_Quant_Noise_In_Time_Domain.pdf_tex
+<ADC_Conversion_Quant_Noise_In_Time_Domain.pdf, id=154, 230.57036pt x 193.49496
+pt>
+File: ADC_Conversion_Quant_Noise_In_Time_Domain.pdf Graphic file (type pdf)
+ <use ADC_Conversion_Quant_Noise_In_Time_Domain.pdf>
+Package pdftex.def Info: ADC_Conversion_Quant_Noise_In_Time_Domain.pdf used on 
+input line 52.
+(pdftex.def)             Requested size: 230.5698pt x 193.50037pt.
+)
+<./Output_Spectrum_Low_Range.pdf, id=155, 352.67921pt x 229.36649pt>
+File: ./Output_Spectrum_Low_Range.pdf Graphic file (type pdf)
 
+<use ./Output_Spectrum_Low_Range.pdf>
+Package pdftex.def Info: ./Output_Spectrum_Low_Range.pdf used on input line 244
+.
+(pdftex.def)             Requested size: 352.67834pt x 229.36592pt.
+File: ./Output_Spectrum_Low_Range.pdf Graphic file (type pdf)
+ <use ./Output_Spectrum_Low_Range.pdf>
+Package pdftex.def Info: ./Output_Spectrum_Low_Range.pdf used on input line 244
+.
+(pdftex.def)             Requested size: 352.67834pt x 229.36592pt.
 
-Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+(./Output_Spectrum_Low_Range.pdf_tex
+<Output_Spectrum_Low_Range.pdf, id=156, 352.67921pt x 229.36649pt>
+File: Output_Spectrum_Low_Range.pdf Graphic file (type pdf)
 
+<use Output_Spectrum_Low_Range.pdf>
+Package pdftex.def Info: Output_Spectrum_Low_Range.pdf used on input line 52.
+(pdftex.def)             Requested size: 352.67834pt x 229.37991pt.
+)
+<./Output_Spectrum_Full_Range.pdf, id=157, 374.89377pt x 204.23425pt>
+File: ./Output_Spectrum_Full_Range.pdf Graphic file (type pdf)
 
-[2 <./images1/Delta_Sigma_ADC_Simplified_Block.jpg>]
-<images1/ADC_Conversion_Quant_Noise_In_Time_Domain.JPG, id=49, 1440.88312pt x 7
-64.10469pt>
-File: images1/ADC_Conversion_Quant_Noise_In_Time_Domain.JPG Graphic file (type 
-jpg)
- <use images1/ADC_Conversion_Quant_Noise_In_Time_Domain.JPG>
-Package pdftex.def Info: images1/ADC_Conversion_Quant_Noise_In_Time_Domain.JPG 
-used on input line 76.
-(pdftex.def)             Requested size: 432.26826pt x 229.23317pt.
+<use ./Output_Spectrum_Full_Range.pdf>
+Package pdftex.def Info: ./Output_Spectrum_Full_Range.pdf used on input line 25
+2.
+(pdftex.def)             Requested size: 374.89285pt x 204.23373pt.
+File: ./Output_Spectrum_Full_Range.pdf Graphic file (type pdf)
+ <use ./Output_Spectrum_Full_Range.pdf>
+Package pdftex.def Info: ./Output_Spectrum_Full_Range.pdf used on input line 25
+2.
+(pdftex.def)             Requested size: 374.89285pt x 204.23373pt.
 
-<images1/Output_Spectrum_Low_Range.JPG, id=50, 1038.12843pt x 492.33937pt>
-File: images1/Output_Spectrum_Low_Range.JPG Graphic file (type jpg)
+(./Output_Spectrum_Full_Range.pdf_tex
+<Output_Spectrum_Full_Range.pdf, id=158, 374.89377pt x 204.23425pt>
+File: Output_Spectrum_Full_Range.pdf Graphic file (type pdf)
 
-<use images1/Output_Spectrum_Low_Range.JPG>
-Package pdftex.def Info: images1/Output_Spectrum_Low_Range.JPG used on input li
-ne 77.
-(pdftex.def)             Requested size: 519.06294pt x 246.16907pt.
+<use Output_Spectrum_Full_Range.pdf>
+Package pdftex.def Info: Output_Spectrum_Full_Range.pdf used on input line 52.
+(pdftex.def)             Requested size: 374.89285pt x 204.24307pt.
+)
+<./Error_Spectrum_Low_Range.pdf, id=159, 318.1221pt x 164.2924pt>
+File: ./Error_Spectrum_Low_Range.pdf Graphic file (type pdf)
 
-<images1/Output_Spectrum_Full_Range.JPG, id=51, 771.63281pt x 490.08093pt>
-File: images1/Output_Spectrum_Full_Range.JPG Graphic file (type jpg)
+<use ./Error_Spectrum_Low_Range.pdf>
+Package pdftex.def Info: ./Error_Spectrum_Low_Range.pdf used on input line 261.
 
-<use images1/Output_Spectrum_Full_Range.JPG>
-Package pdftex.def Info: images1/Output_Spectrum_Full_Range.JPG used on input l
-ine 78.
-(pdftex.def)             Requested size: 385.81546pt x 245.03987pt.
+(pdftex.def)             Requested size: 318.12132pt x 164.29199pt.
+File: ./Error_Spectrum_Low_Range.pdf Graphic file (type pdf)
+ <use ./Error_Spectrum_Low_Range.pdf>
+Package pdftex.def Info: ./Error_Spectrum_Low_Range.pdf used on input line 261.
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--79
+(pdftex.def)             Requested size: 318.12132pt x 164.29199pt.
 
- []
+(./Error_Spectrum_Low_Range.pdf_tex
+<Error_Spectrum_Low_Range.pdf, id=160, 318.1221pt x 164.2924pt>
+File: Error_Spectrum_Low_Range.pdf Graphic file (type pdf)
 
+<use Error_Spectrum_Low_Range.pdf>
+Package pdftex.def Info: Error_Spectrum_Low_Range.pdf used on input line 52.
+(pdftex.def)             Requested size: 318.12132pt x 164.30452pt.
+)
+<./Error_Frequency_Spectrum_Full_Range.pdf, id=161, 374.56647pt x 215.86674pt>
+File: ./Error_Frequency_Spectrum_Full_Range.pdf Graphic file (type pdf)
 
-Overfull \hbox (16.09279pt too wide) in paragraph at lines 76--79
-[] \OT1/cmr/m/n/12 Fig2. The
- []
+<use ./Error_Frequency_Spectrum_Full_Range.pdf>
+Package pdftex.def Info: ./Error_Frequency_Spectrum_Full_Range.pdf used on inpu
+t line 269.
+(pdftex.def)             Requested size: 374.56555pt x 215.86621pt.
+File: ./Error_Frequency_Spectrum_Full_Range.pdf Graphic file (type pdf)
 
+<use ./Error_Frequency_Spectrum_Full_Range.pdf>
+Package pdftex.def Info: ./Error_Frequency_Spectrum_Full_Range.pdf used on inpu
+t line 269.
+(pdftex.def)             Requested size: 374.56555pt x 215.86621pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--79
+(./Error_Frequency_Spectrum_Full_Range.pdf_tex
+<Error_Frequency_Spectrum_Full_Range.pdf, id=162, 374.56647pt x 215.86674pt>
+File: Error_Frequency_Spectrum_Full_Range.pdf Graphic file (type pdf)
 
- []
-
-
-Overfull \hbox (49.30792pt too wide) in paragraph at lines 76--79
-[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 76--79
-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (7.73332pt too high) has occurred while \output is active []
-
-
-[3 <./images1/Sigma_Delta_ADC_Simulink_Implementation.JPG> <./images1/ADC_Conve
-rsion_Quant_Noise_In_Time_Domain.JPG>]
-<images1/Error_Frequency_Spectrum_Low_Range.JPG, id=56, 1045.65656pt x 479.5415
-6pt>
-File: images1/Error_Frequency_Spectrum_Low_Range.JPG Graphic file (type jpg)
- <use images1/Error_Frequency_Spectrum_Low_Range.JPG>
-Package pdftex.def Info: images1/Error_Frequency_Spectrum_Low_Range.JPG used on
- input line 81.
-(pdftex.def)             Requested size: 522.827pt x 239.77019pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--82
-
- []
-
-
-Overfull \hbox (53.07198pt too wide) in paragraph at lines 80--82
-[] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (7.73332pt too high) has occurred while \output is active []
-
-
-[4 <./images1/Output_Spectrum_Low_Range.JPG> <./images1/Output_Spectrum_Full_Ra
-nge.JPG>]
-<images1/Error_Frequency_Spectrum_Full_Range.JPG, id=61, 1090.82532pt x 482.552
-81pt>
-File: images1/Error_Frequency_Spectrum_Full_Range.JPG Graphic file (type jpg)
- <use images1/Error_Frequency_Spectrum_Full_Range.JPG>
-Package pdftex.def Info: images1/Error_Frequency_Spectrum_Full_Range.JPG used o
-n input line 83.
-(pdftex.def)             Requested size: 545.41133pt x 241.2758pt.
-
-Overfull \hbox (75.65631pt too wide) in paragraph at lines 83--84
-[][] 
- []
-
-
-Overfull \hbox (71.54909pt too wide) in paragraph at lines 86--87
+<use Error_Frequency_Spectrum_Full_Range.pdf>
+Package pdftex.def Info: Error_Frequency_Spectrum_Full_Range.pdf used on input 
+line 52.
+(pdftex.def)             Requested size: 374.56555pt x 215.86621pt.
+)
+Overfull \hbox (71.54909pt too wide) in paragraph at lines 276--277
 \OT1/cmr/m/n/12 The code along with other sup-port-ing files is avail-able at h
 ttp://github.com/ayush9pandey/DACdenoising/ 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 92.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -601,42 +882,80 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[5 <./images1/Error_Frequency_Spectrum_Low_Range.JPG> <./images1/Error_Frequenc
-y_Spectrum_Full_Range.JPG>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 92.
+[9 <./Sigma_Delta_ADC_Simulink_Implementation.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[10 <./ADC_Conversion_Quant_Noise_In_Time_Domain.pdf> <./Output_Spectrum_Low_Ra
+nge.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Output_Spectrum_Low_Range.pdf): PDF i
+nclusion: multiple pdfs with page group included in a single page
+>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[11 <./Output_Spectrum_Full_Range.pdf> <./Error_Spectrum_Low_Range.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Error_Spectrum_Low_Range.pdf): PDF in
+clusion: multiple pdfs with page group included in a single page
+>]
+Underfull \hbox (badness 1406) in paragraph at lines 281--282
+[]\OT1/cmr/m/n/12 Quantization of Sig-nals, [][]$\OT1/cmtt/m/n/12 http : / / en
+ . wikipedia . org / wiki / Quantization _ (signal _
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 284.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[12 <./Error_Frequency_Spectrum_Full_Range.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 284.
  (./ADC_Noise_Shaping.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 92.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 92.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 284.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 284.
 Package rerunfilecheck Info: File `ADC_Noise_Shaping.out' has not changed.
-(rerunfilecheck)             Checksum: E3EF95A04AFAE57A8F0E77DC22E21C74;153.
+(rerunfilecheck)             Checksum: 0F1B1F9EF6975563A5306EE56D8CB9B1;346.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.26pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 92.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 284.
  ) 
 Here is how much of TeX's memory you used:
- 6984 strings out of 493304
- 100903 string characters out of 6139871
- 190251 words of memory out of 5000000
- 10307 multiletter control sequences out of 15000+600000
+ 8911 strings out of 493304
+ 134116 string characters out of 6139871
+ 232668 words of memory out of 5000000
+ 12138 multiletter control sequences out of 15000+600000
  11235 words of font info for 44 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 36i,11n,43p,724b,345s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,11n,98p,931b,437s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmtt12.pfb>
-Output written on ADC_Noise_Shaping.pdf (6 pages, 793348 bytes).
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+tt12.pfb>
+Output written on ADC_Noise_Shaping.pdf (13 pages, 1537359 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
- 77 compressed objects within 1 object stream
- 18 named destinations out of 1000 (max. 500000)
- 65 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 265 PDF objects out of 1000 (max. 8388607)
+ 198 compressed objects within 2 object streams
+ 56 named destinations out of 1000 (max. 500000)
+ 189 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,3 @@
-
 \documentclass[colorlinks=true,pdfstartview=FitV,linkcolor=blue,
             citecolor=red,urlcolor=magenta]{ligodoc}
 
@@ -6,31 +5,176 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{longtable}
+\usepackage{svg}
+\usepackage{calc}
 \usepackage{rotating}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{fancyhdr}
-\usepackage{subfigure}
+%\usepackage{subfigure}
 \usepackage{hyperref}
 \ligodccnumber{T}{11}{XXXXX}{}{vX}% \ligodistribution{AIC, ISC}
 
 \graphicspath{{images1/}}
+
 \title{Noise Shaping in ADCs to reduce Quantization Noise in Advanced LIGO Digital Control Systems}
 
 \author{Ayush Pandey}
 
-
 \begin{document}
 
-\section{Theory}
- The LIGO setup measures strain in the range $10^{-20}$ to $10^{-25}$ meaning that the frequency at which gravitation waves are detected in the setup currently in use is around 300 Hz. Realizing the fact that this is quite a low frequency and also since we are heaviliy concerned about any and all kinds of noises that exist in the control loop or elsewhere, Noise Shaping technique would be very useful in decreasing the noise power contributed to by the systematic noise called Quantization noise. Quantization Noise occurs both in DACs as well as ADCs and if noise shaping is implemented in both of the architectures the sensitivity of measuring the gravitational wave would be surely benefitted. 
- Noise shaping is, in essence, pushing the noise into a bandwidth which is undesired to us. As previously stated, the bandwidth of interest while detecting gravitational waves in the LIGO is in the lower ranges and the higher frequency band in undesirable. Hence, in noise shaping we push the noise spectrum to be more on the higher frequency band with respect to that in the low frequency band. This increases the SNR greatly in the desired band of frequencies. 
+\section{Basic Theory and Introduction}
+ The LIGO setup measures strain in the range $10^{-20}$ to $10^{-25}$ meaning that the frequency at which gravitation waves are detected in the setup currently in use is around 300 Hz. Realizing the fact that this is quite a low frequency and also since we are heaviliy concerned about any and all kinds of noises that exist in the control loop or elsewhere, Noise Shaping technique would be very useful in decreasing the noise power contributed to by the systematic noise called Quantization noise. Quantization Noise occurs both in DACs as well as ADCs and if noise shaping is implemented in both of the architectures the sensitivity of measuring the gravitational wave would be surely benefitted.
+ ADCs and DACs are present in a Digital Control System since the control loops are mixed signal setups where both analog and digital signal exist. Hence, the need to convert from one form to other arises quite frequently and that is where ADC and DAC are used. 
+\section{Sampling} A simple ADC takes in analog signals at a given frequency and samples it. Sampling is a technique of taking input values at discrete time intervals. It is a linear process and the most common form of achieving this is by using the Sample and Hold arrangement. \cite{Oppenheim}. The sampling frequency plays a very important role here because it is the sampling frequency which decides how precisely the signal is accepted to be converted into digital. For low frequencies, as one would expect the signal won't be represented accurately at the output of the sample and hold. The dilemma of choosing the correct frequency has been addressed in the famous "Shannon-Nyquist Sampling Theorem". It says that sampling should be done at-least at the double of the maximum frequency of the signal being sampled. Hence, various ADC architectures choose the sampling frequency 
+ \begin{equation}
+ f_{s}>2f_{max}
+ \end{equation}
+ where $f_{s}$ is the sampling frequency and $f_{max}$ is the maximum frequency coming in at the input. The $2f_{max}$ frequency is called the Nyquist Frequency. 
+ Undesirable effects such as aliasing might occur if the sampling frequency is in integere multiples of the signal frequency which is explained in detail in \cite{Oppenheim}. Anti-aliasing filters which are basically Low Pass filters have to be used to prevent it. 
+ In the delta-sigma ADCs, a major advantage is the fact that it uses the technique of ovesampling. In oversampling, the signal is sampled at much higher frequency rates, say upto 10 times the maximum signal frequency. Oversampling helps in reduction of Quantization noise in the desired band as well as it helps in making the aliasing effect negligible. Hence, delta-sigma ADCs do not require heavy focus being placed on the anti-aliasing filter, which further simplifies its design.
+ \section{Quantization Noise and its Spectrum}
+ After Sampling, the signal is discretized in its amplitude, which is called the Quantization of signal. It is here that the signal is actually converted into discrete values which is then called the converted digital form of the signal. 
+ With respect to quantization of signal, ADCs can be classified into two types, the mid-tread ADC and the mid-riser ADC.
+ For an example \cite{Wikipedia}, let us take a ramp input signal. A ramp is an input signal which is a straight line when drawn on a 2D plane, i.e., y=x. For this ramp input signal the quantization is achieved as shown in the equation and in the simulations for the same:
+ The input signal is a ramp input given which needs to be converted into digital domain.
+
+ The quantizer is given by:
+\begin{equation}
+Q(x)=k.q.sgn(x).\left\lfloor\left|\frac{x}{q}\right|+\frac{1}{2}\right\rfloor
+\end{equation}
+ where,\\ k is any arbitrary scaling factor\\
+ q is equal to 1 Least Significant Bit (LSB), shows the resolution of ADC
+ and, \\
+ x is the input to which Q(x) is the output.
  
- \section{Noise Shaping in ADCs}
- Regular ADCs such as the Successive Approximation Register (SAR) ADC or the Flash ADC face the problem of aliasing which is removed by pre-filtering through an anti-aliasing filter. Aliasing is replication of the signal being converted in higher frequency range. The details of why it occurs along with its mathematical proof and its solution (the anti-aliasing filter) is explained in \cite{Oppenheim}. 
+   
+The output is shown in the following figure: 
+\begin{figure}[htbp]
+ 
+  \centering
+  \includesvg{Mid_Tread_ADC}
+  \caption{The Output given by the Mid Tread Quantizer, the converted digital form}
+\end{figure}
+
+As is clear from the figure, the output looks like a staircase and around zero value the it is flat (representing a tread of stair) hence this type of quantization is called the mid-tread quantizer. 
+
+Another type of quantizer as mentioned earlier is the mid-riser quantizer which is given by:
+
+\begin{equation}
+Q(x)=k.sgn(x).q.\left(\left\lfloor\left|\frac{x}{q}\right|\right\rfloor + \frac{1}{2} \right)
+\end{equation}
+
+The output of this quantizer is shown in the following figure:
+\begin{figure}[htbp] 
+ \centering
+ \includesvg{Mid_Riser_ADC}
+ \caption{The Output given by the Mid Riser Quantizer, the converted digital form} 
+\end{figure}
+
+The quantization error that occurs in the above system is given by the difference between the input and the output. The Root Mean Square (RMS) level of quantization noise can be derived for easier reference later.
+The error between input and output can be approximated as (the difference between input and output)
+
+ \begin{figure}[htbp]
+ 
+  \centering
+  \includesvg{Quantization_Error_Wave}
+  \caption{The Approximated Wave Form for the Quantization Error taken from Analog.com}
+ 
+\end{figure}
+
+To calculate the RMS we take a time interval $T = t_{1}-t_{2}$ and write the equation of straight line in y=mx+c form as:
+
+\begin{equation}
+e(t)-\frac{q}{2}=\left(\frac{\frac{q}{2}-\frac{-q}{2}}{t_{2}-t_{1}}\right).(t-t_{2})
+\end{equation}
+On simplyifying, we get,
+\begin{equation}
+e(t)=\left(\frac{q}{T}\right).t + q .\left(\frac{1}{2}-\frac{t_{2}}{T}\right)
+\end{equation}
+
+For the quantization error its given by: 
+\begin{equation}
+e_{rms}^{2}=\left|\bar{e^{2}(t)}\right|=\frac{1}{T}.\int_{t1}^{t2} \left|e(t)\right|^{2} dt
+\end{equation}
+Simplifying,
+\begin{equation}
+e_{rms}^{2}=\frac{1}{T}.\int_{t1}^{t2} \left(\frac{q^{2}}{T^{2}}\right).t^{2} dt  -\frac{1}{T}.\int_{t1}^{t2} q^{2}.\left(\frac{(t_{1}+t_{2})^{2}}{4T^{2}}\right) dt
+\end{equation}
+
+On solving we get (Skipping the simple algebraic manipulations) that the RMS of the error is given by:
+\begin{equation}
+e_{rms}=\frac{q}{\sqrt{12}}
+\end{equation}
+where q is the LSB of the quantizer representing the resolution of the taken ADC.
+
+On simulation of the above in MATLAB and calculating the RMS, we observe that the RMS of the error is indeed equal to as given in equation (8). The script files for the same could be found on \cite{Git}.
+
+The signal to noise ratio taking quantization noise into account could be calculated as follows:
+Assuming the input to be sinusoidal, we have, 
+\begin{equation}
+V_{t} = \frac{q. 2^{N}}{2} . sin(2.\pi .ft)
+\end{equation}
+
+The RMS for sinusoidal signal is known to be equal to the signal divided by a $\sqrt{2}$. Hence, calculating the SNR in decibels using the above result for RMS of the error. We have,
+
+\begin{equation}
+SNR_{dB} = 20.log \left(\frac{RMS_{Input}}{RMS_{noise}}\right)
+\end{equation}
+which can be written as,
+\begin{equation}
+SNR_{dB} = 20 log \left( \frac{\frac{q.2^{N}}{2.\sqrt{2}}}{\frac{q}{2.\sqrt{3}}} \right)
+\end{equation}
+On simplification, we arrive at the following well known result, 
+\begin{equation}
+SNR = 6.02 N + 1.76 dB
+\end{equation}
+\section{Dithering}
+Throughout the above calculations, we have assumed that the quantization noise is independent of the input signal. This is a valid assumption as in practical systems, the use of a dithering additive signal makes it perfectly valid. 
+Dithering is basically a process of adding random noise to the input before feeding it into the Quantizer. Though it increases the noise power to a certain extent, but the advantage is that the quantization noise after adding a dither is very close to white noise (hence easy to model and analyze). 
+A half LSB broadband noise is mostly used as a dither signal for most purposes. 
+A block diagram representation of adding a dither signal is shown in the following figure:
+  \begin{figure}[htbp]
+ 
+  \centering
+  \includesvg{Block_Diagram_ADC_With_Dither}
+  \caption{The Block Diagram Representation of an ADC with Dither Added to Input}
+ 
+\end{figure}
+
+In the above figure, the Zero Order Hold block represents the ADC, rest of the blocks are self explainatory. We are observing the effects of dither and comparing it with the signal when no dither is being used. A MATLAB script was generated to simulate the same and the results are shown in the following plots:
+ 
+ \begin{figure}[htbp]
+  \centering
+  \includesvg{Quant_Noise_PSD_Without_Dither}
+  \caption{The Power Spectrum Density of the Quantization Noise when No Dither is added to the Input}
+ 
+\end{figure}
+
+ \begin{figure}[htbp]
+ 
+  \centering
+  \includesvg{Quant_Noise_With_Dither}
+  \caption{The Power Spectrum Density of the Quantization Error when Dither is added to the Input}
+ 	
+\end{figure}
+
+As we can see, the PSD of the error tends towards being 'white' more in the case when dither is added to the input signal. 
+Hence, low power dither is usually preferred while performing ADC. 
+Now, this shape of the noise (flat, white noise) can be shaped such that the desired frequency band has low power. This technique is called Noise Shaping. 
+ Noise shaping is, in essence, pushing the noise into a bandwidth which is undesired to us. As previously stated, the bandwidth of interest while detecting gravitational waves in the LIGO is in the lower ranges and the higher frequency band in undesirable. Hence, in noise shaping we push the noise spectrum to be more on the higher frequency band with respect to that in the low frequency band. This increases the SNR greatly in the desired band of frequencies.  Post Noise Shaping, a Low Pass filter could be used to cut out all the undesirable frequencies and hence removing the quantization noise.
+ 
+ \section{Quantization Noise Shaping in ADCs}
+ Regular ADCs such as the Successive Approximation Register (SAR) ADC or the Flash ADC face various problems with respect to their complexity and noise power spectrum. The details of these and other types of ADCs are explained in \cite{Oppenheim} 
  Delta-Sigma ADCs aim to solve this problem and along with it introduce noise shaping which leads to much more simple design and increased value of SNR in the desired frequency range. It basically consists of the following stages, Oversampling, Quantization using Density of Pulses called the Sigma-Delta Modulation and finally a Decimator which reduces the output rate to frequency which can be processed further. 
  Noise shaping is achieved in Delta-Sigma ADC using feedback of the ouptut via 1-bit DAC, which is basically a switch. This feedback brings about appropriate noise shaping in the signal which shall be explained using the following block diagram.
  
-\includegraphics[scale=0.5]{Delta_Sigma_ADC_Block1}
+ \begin{figure}[htbp]
+ 
+  \centering
+  \includesvg{Delta_Sigma_ADC_Block1}
+  \caption{The Block Diagram of a Delta-Sigma ADC}
+ 
+\end{figure}
 
 x(kT) is the input in analog which is to be converted into digital domain and y(kT) is the output. q(kT) is the feedback signal and u(kT) is the signal which is quantized and converted to digital using the 1-bit ADC shown.
 As is clear from the diagram itself that the ADC design architecture when implemented this way is very simple since it is using one bit ADC and DAC. The Delta-Sigma ADC basically trades off for much higer frequency rate over high resolution of a single converter. The 1 bit ADC may be implemented using a comparator and a 1 bit DAC is basically a switch which changes between +Vref and -Vref according to whether the output y(kT) is high or not. The reason why we have used such an architecture would be clear once we derive the effects on quantization noise it has.
@@ -54,7 +198,13 @@ Using (2) and (4) we have finally,
 y(kT)=x(kT-T)+Q_{e}(kT)-Q_{e}(KT-T)
 \end{equation}
 The output of the ADC is equal to the previous input added to the difference between previous and current quantization errors. Hence, the error cancels itself which leads to better signal to noise ratio in the desired frequency range, which shall be shown by using the following block diagram (another simplified version of the previous diagram, this time signals in voltages).
-\includegraphics[scale=0.5]{Delta_Sigma_ADC_Simplified_Block}
+\begin{figure}[htbp]
+ 
+  \centering
+  \includesvg{Delta_Sigma_ADC_Simplified_Block}
+  \caption{A simplified version of the Block Diagram of a Delta-Sigma ADC}
+ 
+\end{figure}
 From feedback control theory we have the following relation:
 \begin{equation}
 V_{out}(s)=Q_{e}(s)+\frac{V_{in}(s)-V_{out}(s)}{s}
@@ -70,23 +220,65 @@ The quantization noise is multiplied with a transfer function which represents t
 \section{Simulations in MATLAB}
 The delta-sigma ADC was simulated using the Simulink tool in MATLAB.
 Following is the detailed block diagram with all scopes and power spectrum measurement models shown as well: \\ \\
-\includegraphics[scale=0.5]{Sigma_Delta_ADC_Simulink_Implementation}
+\begin{figure}[htbp]
+ 
+  \centering
+  \includesvg{Sigma_Delta_ADC_Simulink_Implementation}
+  \caption{The Waveform of Input, Output and the Quantization Error}
+ 
+\end{figure}
 The results are as follows:
 
-Fig1. For given input, a square wave of 80Hz frequency, the following was the time domain output of the ADC. As we can see, in the last figure which represents the error, noise shaping is taking place as we described earlier mathematically. This would be further clearer from the frequency plots. \\ \\\includegraphics[scale=0.3]{ADC_Conversion_Quant_Noise_In_Time_Domain}
-Fig2. The frequency spectrum of the output is shown at low frequency range (i.e. the range where signal is most prominent) and it is clear from the plot that the signal exhibits maximum maginitude in this band and falls off steeply after that. \\ \\\includegraphics[scale=0.5]{Output_Spectrum_Low_Range}
-Fig3. shows the frequency spectrum of the output for a wider range of frequency which further acts as evidence for the fact that the power spectrum of the outout is maximum in the desired range only. \\ \\ \includegraphics[scale=0.5]{Output_Spectrum_Full_Range}
+Figure 10. For given input, a square wave of 80Hz frequency, the following was the time domain output of the ADC. As we can see, in the last figure which represents the error, noise shaping is taking place as we described earlier mathematically. This would be further clearer from the frequency plots. 
+\begin{figure}[htbp]
+ 
+  \centering
+  \includesvg{ADC_Conversion_Quant_Noise_In_Time_Domain}
+  \caption{The output waveforms of ADC Conversion along with Quantization Noise}
+ 
+\end{figure}
+Figure 11. The frequency spectrum of the output is shown at low frequency range (i.e. the range where signal is most prominent) and it is clear from the plot that the signal exhibits maximum maginitude in this band and falls off steeply after that. 
+\begin{figure}[htbp]
+ 
+  \centering
+  \includesvg{Output_Spectrum_Low_Range}
+  \caption{The output spectrum in the lower range of frequency}
+ 
+\end{figure}
+Figure 12. shows the frequency spectrum of the output for a wider range of frequency which further acts as evidence for the fact that the power spectrum of the outout is maximum in the desired range only. 
+\begin{figure}[htbp]
+ 
+  \centering
+  \includesvg{Output_Spectrum_Full_Range}
+  \caption{The output spectrum showing complete range of frequencies}
+ 
+\end{figure}
 
-Fig4. is the key figure as it shows how nicely the quantization noise is shaped, taking its lowest magnitude in the lower frequency band and rising after that and in Fig5. the full range of frequencies is showing how the quantization noise has the highest power spectrum in the undesirable (higher bandwidth) range. \\ \\ 
-\includegraphics[scale=0.5]{Error_Frequency_Spectrum_Low_Range}
+Figure 13. is the key figure as it shows how nicely the quantization noise is shaped, taking its lowest magnitude in the lower frequency band and rising after that and in Fig5. the full range of frequencies is showing how the quantization noise has the highest power spectrum in the undesirable (higher bandwidth) range. 
+\begin{figure}[htbp]
+ 
+  \centering
+  \includesvg{Error_Spectrum_Low_Range}
+  \caption{The Quantization Error spectrum showing only the lower range of frequency}
+ 
+\end{figure}
 
-\includegraphics[scale=0.5]{Error_Frequency_Spectrum_Full_Range}
+\begin{figure}[htbp]
+ 
+  \centering
+  \includesvg{Error_Frequency_Spectrum_Full_Range}
+  \caption{The Quantization Error spectrum showing complete range of frequency}
+ 
+\end{figure}
+
 
 
 The simulink block diagram was built and compiled to get the code to implement the same. The code along with other supporting files is available at http://github.com/ayush9pandey/DACdenoising/
 
 
-\begin{thebibliography}{1}  
+\begin{thebibliography}{5}  
 \bibitem{Oppenheim} Oppenheim and Schafer, \emph{Discrete-Time Signal Processing}
+\bibitem{Wikipedia} Quantization of Signals, \url{http://en.wikipedia.org/wiki/Quantization_(signal_processing)}
+\bibitem{Git} DAC Denoising \url{http://github.com/ayush9pandey/DACdenoising/}
 \end{thebibliography}        
 \end{document} % The document ends here
