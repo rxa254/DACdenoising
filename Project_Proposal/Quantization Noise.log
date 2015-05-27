@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.26)  22 MAY 2015 20:23
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.26)  26 MAY 2015 18:51
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -517,9 +517,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--43
 
  []
 
-runsystem(inkscape -z -C -f./Quantizer1.svg -A./Quantizer1.pdf --export-latex).
-..executed.
-
 <./Quantizer1.pdf, id=112, 214.62476pt x 190.14703pt>
 File: ./Quantizer1.pdf Graphic file (type pdf)
  <use ./Quantizer1.pdf>
@@ -659,7 +656,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 158.
 Here is how much of TeX's memory you used:
  8799 strings out of 493304
  129301 string characters out of 6139871
- 229921 words of memory out of 5000000
+ 229923 words of memory out of 5000000
  12066 multiletter control sequences out of 15000+600000
  11235 words of font info for 44 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -675,7 +672,7 @@ lic/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt
 12.pfb>
-Output written on "Quantization Noise.pdf" (9 pages, 163939 bytes).
+Output written on "Quantization Noise.pdf" (9 pages, 163271 bytes).
 PDF statistics:
  246 PDF objects out of 1000 (max. 8388607)
  217 compressed objects within 3 object streams
