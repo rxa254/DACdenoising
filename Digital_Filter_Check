@@ -1,0 +1,8 @@
+#Automatic Digital Filter Check for quantization noise using Den's Code to check Digital Filter Noise
+
+The automatic_digital_check script which can check all digital filters given the filter file name has been pushed to 
+
+[GitHub Repository for the above code] http://github.com/ayush9pandey/quantization/
+
+A new git repo has been used because I have forked it from Den's repo and have been working on controls@nodus, so couldn't push to the current repo. 
+
