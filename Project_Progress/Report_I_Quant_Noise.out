@@ -1,0 +1,10 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Software Tool to Measure Quantization Noise Level Automatically}{}% 2
+\BOOKMARK [1][-]{section.3}{Digital Filter: Structures and Noise Analysis}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Floating-Point Precision Noise analysis}{section.3}% 4
+\BOOKMARK [1][-]{section.4}{Noise Shaping, Dither, Noise Analysis and Simulations}{}% 5
+\BOOKMARK [2][-]{subsection.4.1}{Sampling}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.2}{Quantization Noise and its Spectrum}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.3}{Dithering}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.4}{Quantization Noise Shaping in ADCs}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.5}{Simulations in MATLAB}{section.4}% 10
