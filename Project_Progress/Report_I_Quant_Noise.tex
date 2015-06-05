@@ -28,13 +28,18 @@ The Project Proposal\cite{ProjectProposal} gave a brief outline about the timeli
 \begin{enumerate}
 \item Quantization Noise Measurement using a Software Tool, and enhancements of the same.
 \item Analysis of Filter Structures and developing ways to modify the structures (using techniques mentioned later) such that the quantization noise is minimized.
-\item Quantization Noise Analysis and Ways to reduce quantization noise in the desired frequency band (Noise Shaping) with respect to the noise in Analog to Digital Converters (ADCs) and Digital to Analog Converters that are present in the Digital Control loop.  
+\item Quantization Noise Analysis and Ways to reduce quantization noise in the desired frequency band (Noise Shaping) with respect to the noise in Analog to Digital Converters (ADCs) and Digital to Analog Converters (DACs) that are present in the Digital Control loop.  
 
 \end{enumerate}
 
 In this report, we look into each in detail. We also focus on the current progress and the progress expected in the coming months for each part of the project. Hence, this report presents the all the work that has been completed and also gives us an idea as to what kind of work we would be doing later.
 
-
+\section{Project Background}
+Among the many noise sources and types that we aim to look at in the LIGO setup is the Quantization noise. It occurs due to truncation and/or rounding off of numbers in the digital control loop at various places, described in detail in the project proposal \cite{ProjectProposal}. \\
+The quantization noise analysis in Advanced LIGO digital controllers is yet to be completed robustly and for all kinds of digital filters, ADCs and DACs. In this project we aim to do that by first measuring the quantization noise (with a better precision and robustness, than what is already in place), then thinking about whether or not it is an important noise  source. Simultaneously, a tool shall be developed which would check the noie level for all digital filters at one go. \\ 
+The problem of quantization noise is important to be solved because it may be possible that at some places in the digital controllers the noise level might be so high that the signal wouldn't be detected. It may be an occurence even now in the setup, which might be leading to some important signals going undetected. The current work that is being done in the Advanced LIGO to detect gravitational waves doesn't focus on the fact that at some places the quantization noise could be the driving factor and it could be suppressing some very important signals. Hence, this project aims to remove these clouds of doubts over whether the quantization noise is actually harming the gravitational wave detection significantly or not. Also, this project aims to reduce the quantization noise by using various well known digital signal processing techniques, which are not currently in use in the LIGO (For example: Noise shaping technique in ADCs and DACs, Filter Structure Optimizations etc.).   
+\\
+The current progress and expectations are explained in detail in the following sections.
 \section{Software Tool to Measure Quantization Noise Level Automatically}
 Software Tool to Automatically Check All Digital Filters for quantization noise in various filter structures in the Advanced LIGO Digital Controllers has been developed.\\
 The tool has been developed on MATLAB and is based on an existing code to check any particular digital filter. The existing code by Dennis as in \cite{Den} checks any digital filter, on providing the name of the filter, the channel and the filter bank name as arguments, for quantization noise in the Direct Form II and the "Biquad Form" as described in \cite{Matts}. The plot that results on running the above code shows the input signal, the output and the quantization noise level for both the filters. Hence, using this code, one could check for noise level in any filter and determine whether the noise is an important source or not and whether one needs to think about mitigating it or could do with it in its current level itself (if very low with respect to the input and output).
