@@ -1,13 +1,9 @@
-online_filters=
-
-number: 0
-order: 1
-g: 0.0051
-sos: 1.2 0.55 21.22 2.2
-
-online_filters=
-
-number: 0
-order: 1
-g: 0.0051
-sos: 1.2 0.55 21.22 2.2	
+online_filters= 
+number: 1
+order: 3
+g: 3.2200000000
+sos 3.0000000000
+sos 0.2200000000
+sos 9.0000000000
+sos 2.0000000000
+sos 212.0000000000
