@@ -5,7 +5,7 @@ function check_digital_system(name, channel, filter_bank)
     % Get site parameters: IFO, ifo, site, chans directory, 
     % uapps directory, host name
     params = config();
-    
+    mp.Digits=100;
     % Add Java classes for SWIG
     % nds2AddJava;
     
@@ -34,24 +34,22 @@ function check_digital_system(name, channel, filter_bank)
     % Download data from the channel
     clear data
     T = 32;
-    data = download_online_data({channel}, T, fs);
-    data(1:10)
+    data = download_online_data({channel}, mp(T), mp(fs));
+    mp(data(1:10))
 
     pause(2)
 
-    if length(data) == T*fs && ~isempty(online_filters) && data(end) ~= 0
+    if length(data) == T*fs && ~isempty(mp(online_filters)) && data(end) ~= 0
         disp('Got CHANNEL');
         
         % Subtract offset if it is ON
         if module_parameters.OFFSET_SW
             data = data - module_parameters.OFFSET;
         end
-	
-	[output_df2,output_bqf,noise_df2,noise_bqf]=estimate_noise_file(data',online_filters);
+
         % Calculate digital noise
-        %[output_df2, output_bqf, noise_df2, noise_bqf] = estimate_noise(data', online_filters);
-	%bypassing estimate noise, instead reading from a file and calling calculate noise
-	
+        [output_df2, output_bqf, noise_df2, noise_bqf] = estimate_noise(mp(data'), mp(online_filters));
+
         % Multiply filter output by module GAIN
         output_df2 = output_df2 * module_parameters.GAIN;
         output_bqf = output_bqf * module_parameters.GAIN;
@@ -59,11 +57,11 @@ function check_digital_system(name, channel, filter_bank)
         noise_bqf = noise_bqf * module_parameters.GAIN;
 
         % Check LIMIT value
-        if module_parameters.LIMIT_SW && max(abs(output_bqf)) > module_parameters.LIMIT
+        if module_parameters.LIMIT_SW && max(abs(mp(output_bqf))) > module_parameters.LIMIT
             disp('LIMIT is small!');
         end
 
         % Plot power spectrum density of the digital noise
-        plot_psd(data, output_df2, output_bqf, noise_df2, noise_bqf, channel, fs);
+        plot_psd(mp(data), mp(output_df2), mp(output_bqf), mp(noise_df2), mp(noise_bqf), channel, mp(fs));
     end
 end
