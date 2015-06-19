@@ -1,22 +1,26 @@
 function [output_df2, output_bqf, noise_df2, noise_bqf] = estimate_noise_file(signal, iir)
 
-	n_iir=length(iir);
-    output_df2=zeros(1,n_iir);
-    output_bqf=zeros(1,n_iir);
-    noise_df2=zeros(1,n_iir);
-    noise_bqf=zeros(1,n_iir);
+	n_iir=length(iir)
+	len=length(signal)
+    	output_df2=zeros(1,n_iir);
+	output_bqf=zeros(1,n_iir);
+    	noise_df2=zeros(1,n_iir);
+    	noise_bqf=zeros(1,n_iir);
 	fid=fopen('take_data.txt','w');
 	if fid == -1
 	     	disp(['Unable to open file take_data.txt']);
         	return
-	end
+    	end
+   
 	for i=1:n_iir
-	fprintf(fid,'online_filters= \n');
-	fprintf(fid,'number: %d\n',iir(i).number);
-	fprintf(fid,'order: %d\n',iir(i).order);
-	fprintf(fid,'g: %ld\n',iir(i).g);
-	fprintf(fid,'sos: %ld\n',iir(i).sos);
-	end
+        	fprintf(fid,'online_filters= \n');
+        	fprintf(fid,'number: %d\n',iir(i).number);
+        	fprintf(fid,'order: %d\n',iir(i).order);
+        	fprintf(fid,'g: %f\n',iir(i).g);
+        	fprintf(fid,'sos: %f %f %f %f\n',iir(i).sos(:,1),iir(i).sos(:,2),iir(i).sos(:,3),iir(i).sos(:,4));
+    	end
+        
+  
 	fclose(fid);
 
 	fid=fopen('take_data_signal.txt','w');
@@ -25,9 +29,9 @@ function [output_df2, output_bqf, noise_df2, noise_bqf] = estimate_noise_file(si
          return
 	end
 	
-	fprintf(fid,'%ld',signal);
+	fprintf(fid,'%ld\n',signal);
 	fclose(fid);
-	
+	!./est
 	pause(2);
     
     fid=fopen('give_data.txt','r');
@@ -35,18 +39,22 @@ function [output_df2, output_bqf, noise_df2, noise_bqf] = estimate_noise_file(si
         disp(['Error reading file']);
         return
     end
-  
     for i=1:n_iir
         
-        A=fscanf(fid,'%ld',[1,inf])'
-        output_df2(i)=A(1)
+        for j=1:len
+	        A=fscanf(fid,'%s',1);
+        	output_df2(j)=str2double(A);
         
-        output_bqf(i)=A(2)
+        	A=fscanf(fid,'%s',1);
+        	output_bqf(j)=str2double(A);
         
-        noise_df2(i)=A(3)
+        	A=fscanf(fid,'%s',1);
+        	noise_df2(j)=str2double(A);
         
-        noise_bqf(i)=A(4)
-        
+        	A=fscanf(fid,'%s',1);
+        	noise_bqf(j)=str2double(A);
+	end
+   
     end
     fclose(fid);
 end	

@@ -1,9 +1,6 @@
 online_filters= 
-number: 1
-order: 3
-g: 3.220000e+00
-sos: 3
-sos: 2.200000e-01
-sos: 9
-sos: 2
-sos: 212
+number: 5
+order: 2
+g: 2.300000
+sos: 1.123000 2.324000 3.534000 4.231000
+

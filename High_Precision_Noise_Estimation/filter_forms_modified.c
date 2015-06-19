@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-void iir_df2_double(double* input, long double* output, int s, double **sos, double g, int n)
+void iir_df2_double(double* input, double* output, int s, double **sos, double g, int n)
 {
     int i,j;
     double **w = malloc(n*sizeof(double*));
