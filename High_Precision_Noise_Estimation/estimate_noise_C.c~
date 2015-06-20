@@ -240,26 +240,11 @@ int main()
 	for(i=0;i<length;i++)
 	{
 		fprintf(fo,"%Lf\n",output_df2_longdouble[i]);
-	}
-
-	//printing output of bqf to the file
-
-	for(i=0;i<length;i++)
-	{
-		fprintf(fo,"%Lf\n",output_bqf_longdouble[i]);
-	}
-
-	//printing noise_df2 to the file
 	
-	for(i=0;i<length;i++)
-	{
+		fprintf(fo,"%Lf\n",output_bqf_longdouble[i]);
+	
 		fprintf(fo,"%Lf\n",noise_df2[i]);
-	}
 
-	//printing noise_bqf to the file
-
-	for(i=0;i<length;i++)
-	{
 		fprintf(fo,"%Lf\n",noise_bqf[i]);
 	}
 		

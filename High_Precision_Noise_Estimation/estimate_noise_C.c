@@ -5,7 +5,7 @@
 #include "filter_forms_modified.c"
 
 #define size 4 //hardcoding the size of sos array to 4. Any Problem?
-#define length 8
+#define length 524288
 #define times 1
 /*
 struct iir_filters
