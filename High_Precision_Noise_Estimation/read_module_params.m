@@ -8,6 +8,7 @@ function module_params = read_module_params(channel)
     [~, gain] = system(['ezcaread -n ' strrep(channel, '_IN1', '_GAIN')]);
     [~, limit] = system(['ezcaread -n ' strrep(channel, '_IN1', '_LIMIT')]);
 
+
     
    
         
