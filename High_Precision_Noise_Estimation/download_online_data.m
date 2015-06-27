@@ -1,5 +1,5 @@
 function signal = download_online_data(channel, T, fs)
-    conn = nds2.connection('nds.ligo-la.caltech.edu', 31200);
+    conn = nds2.connection('nds.ligo', 8088);
     conn.iterate(channel);
     
     for i = 1:T

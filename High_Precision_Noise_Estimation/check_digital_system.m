@@ -29,7 +29,7 @@ function check_digital_system(name, channel, filter_bank)
     module_parameters = read_module_params(channel);
 
     % Filters that are switched on
-    online_filters = find_online_filters(modules(filter_bank), module_parameters);
+    online_filters = find_online_filters(modules(filter_bank), module_parameters)
 
     % Download data from the channel
     clear data
@@ -48,6 +48,8 @@ function check_digital_system(name, channel, filter_bank)
         end
 
         % Calculate digital noise
+        length(double(data'))
+        
         [output_df2, output_bqf, noise_df2, noise_bqf] = estimate_noise(double(data'), online_filters);
 
         % Multiply filter output by module GAIN

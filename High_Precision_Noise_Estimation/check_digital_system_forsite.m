@@ -1,7 +1,7 @@
 function check_digital_system_forsite(name, channel, filter_bank)
     % Function checks noise of the digital filter modules
     % given the list of models
-
+    format longEng;
     % Get site parameters: IFO, ifo, site, chans directory, 
     % uapps directory, host name
     params = config_editedforsite();
@@ -27,20 +27,34 @@ function check_digital_system_forsite(name, channel, filter_bank)
 
     % Online parameters of the fitler module
     module_parameters = read_module_params_forsite(channel);
-
+    
+    
     % Filters that are switched on
     online_filters = find_online_filters(modules(filter_bank), module_parameters)
+    for i=1:length(online_filters)
+        online_filters(i)
+    end
+    
 
     % Download data from the channel
     clear data
-    T = 32;
-    data = download_online_data({channel}, T, fs);
+    T = 5;
+    
+    data = download_online_data_forsite({channel}, T, fs);
     data(1:10)
-
+  
     pause(2)
+    if length(data) == T*fs || isempty(online_filters) || data(end) == 0
+        disp('Fiter Module Switched Off');
+        
+    else if length(data) == T*fs && ~isempty(online_filters) && data(end) ~= 0
+    %if length(data) == T*fs && ~isempty(online_filters) ~= 0
+        disp('Downloading data');
+        clear data
+        T = 32;
 
-   % if length(data) == T*fs && ~isempty(online_filters) && data(end) ~= 0
-    if length(data) == T*fs && data(end) ~= 0
+        data = download_online_data_forsite({channel}, T, fs);
+        data(1:10)
         disp('Got CHANNEL');
         
         % Subtract offset if it is ON
@@ -49,7 +63,7 @@ function check_digital_system_forsite(name, channel, filter_bank)
         end
 
         % Calculate digital noise
-        [output_df2, output_bqf, noise_df2, noise_bqf] = estimate_noise(double(data'), online_filters);
+        [output_df2, output_bqf, noise_df2, noise_bqf] = estimate_noise_file(double(data'), online_filters);
 
         % Multiply filter output by module GAIN
         output_df2 = output_df2 * module_parameters.GAIN;

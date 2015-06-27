@@ -5,10 +5,8 @@ if fid == -1
      disp(['Model file C1LSC.txt not found. Change path to file']);
         return
 end
-
     
 [a,count]=fscanf(fid,'%s');
-fclose(fid);
 a_trun=a(66:1656) %66 is the start
 %start storing at underscore, until L or # occurs.
 len=length(a_trun)

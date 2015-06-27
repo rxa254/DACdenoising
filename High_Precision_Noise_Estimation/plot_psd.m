@@ -5,9 +5,9 @@ function plot_psd(signal, output_df2, output_bqf, noise_df2, noise_bqf, channel,
     output_bqf = detrend(output_bqf);
     noise_df2 = detrend(noise_df2);
     noise_bqf = detrend(noise_bqf);
-    
-    nfft = length(signal)/2;
-   
+    length(signal)
+    nfft = length(signal)/2
+    length(output_df2)
     % Calculate psd
     [psd_input,f] = pwelch(signal, hanning(nfft), 3*nfft/4, nfft, fs);
     [psd_output_df2,~] = pwelch(output_df2, hanning(nfft), 3*nfft/4, nfft, fs);

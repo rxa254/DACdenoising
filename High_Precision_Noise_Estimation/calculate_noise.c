@@ -17,8 +17,8 @@ void mexFunction(int nOutput, mxArray *output[], int nInput, const mxArray *inpu
 {
     int i, j;
    
-    int N = mxGetM(input[0]); //size of the signal is N going as argument s in the filter forms function
-    int mSos = mxGetM(input[1]); //msos is size of sos going as n in the filter forms function
+    int N = mxGetM(input[0]);
+    int mSos = mxGetM(input[1]);
     int nSos = mxGetN(input[1]);
     if(nSos != 4 || mSos < 1) mexErrMsgTxt("Wrong sos matrix!");
    
