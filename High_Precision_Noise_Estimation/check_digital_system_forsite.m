@@ -62,6 +62,8 @@ function check_digital_system_forsite(name, channel, filter_bank)
         data(1:10)
         disp('Got CHANNEL');
         
+        
+        
         % Subtract offset if it is ON
         if module_parameters.OFFSET_SW
             data = data - module_parameters.OFFSET;
