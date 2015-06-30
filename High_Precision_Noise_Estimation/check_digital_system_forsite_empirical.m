@@ -1,4 +1,4 @@
-function check_digital_system(name, channel, filter_bank)
+function check_digital_system_forsite_empirical(name, channel, filter_bank)
     % Function checks noise of the digital filter modules
     % given the list of models
 

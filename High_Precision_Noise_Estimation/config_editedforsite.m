@@ -11,7 +11,7 @@ function params = config_editedforsite()
     params.host = [base_host ':31200'];
     
     % Directory with Foton files
-    params.chans = ['/home/ayush/l1_filter_files/l1_archive/'];
+    params.chans = ['/home/ayush/h1_filter_files/h1_archive/'];
     
     % User apps directory
     params.uapps =  ['/opt/rtcds/' params.site '/' params.ifo '/userapps/release/'];

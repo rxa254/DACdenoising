@@ -47,7 +47,7 @@ void main()
     fread(len,sizeof(int),1,fs);
     fread(iir_len,sizeof(int),1,fs);
     fclose(fs);
-    printf("\n\n\n\n%d \t %d\n\n\n",length,iir_length);
+    //printf("\n\n\n\n%d \t %d\n\n\n",length,iir_length);
     //length=length+1;
 	//double **sos_bqf, **sos;
     //double sos[times][size],sos_bqf[times][size]; 
@@ -106,7 +106,7 @@ void main()
         fread(num,sizeof(int),1,fi);
         fread(ord,sizeof(int),1,fi);
         fread(gp,sizeof(double),1,fi);
-        printf("\nRead order gain and number Number: %d \t Order: %d \t Gain: %g\n",iir[i].number,iir[i].order,iir[i].g);
+        //printf("\nRead order gain and number Number: %d \t Order: %d \t Gain: %g\n",iir[i].number,iir[i].order,iir[i].g);
         
         
          //allocate table
@@ -128,12 +128,12 @@ void main()
             {
                 //printf("\n\n\n\n\nEntered Loop1\n\n\n");			
                 iir[i].sos[j][k] = 0;
-                printf("sos[%d][%d]: %g",j,k,iir[i].sos[j][k]);
+               // printf("sos[%d][%d]: %g",j,k,iir[i].sos[j][k]);
                 iir[i].sos_bqf[j][k] = 0;
-                printf("sos_bqf[%d][%d]: %g",j,k,iir[i].sos_bqf[j][k]);
+               // printf("sos_bqf[%d][%d]: %g",j,k,iir[i].sos_bqf[j][k]);
             }
         }
-        printf("\nInitialized and allocated memory for sos, now reading values\n");
+        //printf("\nInitialized and allocated memory for sos, now reading values\n");
         sp=&iir[i].sos[0][0];
         //fscanf(fi,"%s",dummy2);		
         //dummy3=fgetc(fi);
@@ -146,7 +146,7 @@ void main()
             {
                 //printf("\n\n\n\n\nEntered Loopz\n\n\n");
                 iir[i].sos[j][k]=sp[k];
-                printf("\tsos[%d][%d]=%lf \t",j,k,iir[i].sos[j][k]);
+                //printf("\tsos[%d][%d]=%lf \t",j,k,iir[i].sos[j][k]);
 
             }
             //printf("\n\n\n\n\nEntered Loop exit for\n\n\n");
@@ -159,9 +159,9 @@ void main()
         //printf("%c\n",dummy3);	
         //fscanf(fi,"%s",dummy2);
         //printf("\n%d\n%d\n%Lf\n",iir.number,iir.order,iir.g);
-        if(!feof(fi))
+        if(feof(fi))
         {   
-            printf("\nBreaking Loop\n");
+            //printf("\nBreaking Loop\n");
             break;
         }
         //printf("\n\n\n\n\nEntered Loop continue\n\n\n");
@@ -190,16 +190,16 @@ void main()
        
 	fclose(fs);
     
-    printf("\nPrinting Signal from 1 to 10\n");
+    /*printf("\nPrinting Signal from 1 to 10\n");
     for(i=0;i<10;i++)
 	{
 	
         printf("\t%g",signal_d[i]);
 			
-	}
+	}*/
 	
 	
-	printf("\nsig = %d\n",length);
+	//printf("\nsig = %d\n",length);
 	
 	
 	//Initialize and allocate memory to Biquad filter coefficients
@@ -263,6 +263,7 @@ void main()
         }
         //printf("\n\n\n\n\nEntered Loop6\n\n\n");
 	}
+    /*
     for(i=0;i<iir_length;i++)
     {
         for(k=0; k<iir[i].order; k++) 
@@ -279,7 +280,7 @@ void main()
         }
         printf("\nNext\n");
     }
- 	
+ 	*/
 	
 
     //Calculate output from the filter bank using df2 and bqf
@@ -317,7 +318,15 @@ void main()
         //iir_bqf_single(signal_d,output_bqf_single,length,sos,   g,times);
         //printf("\n\n\n\n\nEntered Loop calling funcnow13\n\n\n");
 	}
-    
+    /*
+    printf("\nPrinting output from 1 to 10\n");
+    for(i=0;i<10;i++)
+	{
+	
+        printf("\t%g",output_df2[i]);
+        printf("\t%g",output_bqf[i]);
+			
+	}*/
     //Calculate filter noise
 	for(i=0;i<length;i++)
     {
@@ -353,7 +362,7 @@ void main()
 	
 		
 	fclose(fo);
-    printf("Writing Back to file\n");
+    printf("Noise Calculation Completed with High Precision\n");
 	
 /*The plan is to get long double output from the filter_modified.c file. Then calculate noise using the double and the long double output in this code, 
  * finally printing out double output (or long double) and noise to a file which then matlab will read. When to call which function? You have to call 

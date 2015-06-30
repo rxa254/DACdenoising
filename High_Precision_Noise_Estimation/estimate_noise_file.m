@@ -2,8 +2,8 @@ function [output_df2, output_bqf, noise_df2, noise_bqf] = estimate_noise_file(si
     
 	n_iir=length(iir);
 	len=length(signal);
-    len
-    n_iir
+%     len
+%     n_iir
     output_df2=zeros(1,len);
 	output_bqf=zeros(1,len);
     noise_df2=zeros(1,len);
@@ -52,16 +52,16 @@ function [output_df2, output_bqf, noise_df2, noise_bqf] = estimate_noise_file(si
        
 	        
         output_df2=fread(fid,len,'real*8');
+       
 
 
         output_bqf=fread(fid,len,'real*8');
-
+       
 
         noise_df2=fread(fid,len,'real*8');
-
-
+       
         noise_bqf=fread(fid,len,'real*8');
-            
+       
 %             
 %         	A=fscanf(fid,'%s',1);
 %         	noise_df2_single(j)=str2double(A);
