@@ -1,5 +1,8 @@
 function plot_psd(signal, output_df2, output_bqf, noise_df2, noise_bqf, channel, fs)
     % Remove mean
+    name='a';
+    name=name+1000*rand;
+    name=char(name);
     signal = detrend(signal);
     output_df2 = detrend(output_df2);
     output_bqf = detrend(output_bqf);
@@ -39,7 +42,8 @@ function plot_psd(signal, output_df2, output_bqf, noise_df2, noise_bqf, channel,
     set(hLegend,'FontSize', 14, 'Location', 'SouthWest');
     set(gca, 'FontSize', 16);
     axis tight;
-    saveas(gcf,'PSD_Plot','jpg');
+    saveas(gcf,name,'svg');
+    
 %     orient portrait
 %     set(gcf,'Position', [1 1  1500  1200]);
 %     print(gcf, '-dpng',  [channel '.png']);

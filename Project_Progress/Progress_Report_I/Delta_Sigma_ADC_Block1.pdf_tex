@@ -1,0 +1,70 @@
+%% Creator: Inkscape inkscape 0.48.4, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'Delta_Sigma_ADC_Block1.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{443.08901367bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.42457526)%
+    \put(0,0){\includegraphics[width=\unitlength]{Delta_Sigma_ADC_Block1.pdf}}%
+    \put(0.00304359,0.37678312){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Input}}}%
+    \put(0.14719762,0.36826823){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{+}}}%
+    \put(0.16135562,0.35549594){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{-}}}%
+    \put(0.28620329,0.37039695){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{+}}}%
+    \put(0.29778711,0.35336722){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{-}}}%
+    \put(0.95806397,0.35549594){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Scope}}}%
+    \put(0.426496,0.06173285){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1-bit
+}}}%
+    \put(0.426496,0.38316928){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Delay}}}%
+    \put(0.6581721,0.385298){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1-bit }}}%
+    \put(0.07383352,0.39381285){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{x(kT)}}}%
+    \put(0.17293941,0.23628775){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{q(kT)}}}%
+    \put(0.56421464,0.39807029){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{u(kT)}}}%
+    \put(0.85380988,0.38955545){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{y(kT)}}}%
+    \put(0.42241968,0.03233836){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{DAC}}}%
+    \put(0.65889387,0.3496584){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{ADC}}}%
+  \end{picture}%
+\endgroup%

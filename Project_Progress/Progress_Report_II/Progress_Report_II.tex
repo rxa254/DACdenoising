@@ -1,0 +1,66 @@
+\documentclass[colorlinks=true,pdfstartview=FitV,linkcolor=blue,
+            citecolor=red,urlcolor=magenta]{ligodoc}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{longtable}
+\usepackage{svg}
+\usepackage{calc}
+\usepackage{rotating}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{fancyhdr}
+%\usepackage{subfigure}
+\usepackage{hyperref}
+\ligodccnumber{T}{11}{XXXXX}{}{vX}% \ligodistribution{AIC, ISC}
+\bibliographystyle{unsrt}
+\graphicspath{{images1/}}
+
+\title{Report I | LIGO | SURF | 2015 : Quantization Noise in Digital Control Systems}
+
+\author{Ayush Pandey}
+
+\begin{document}
+
+\section{Quantization Noise Analysis in Digital Filters: Introduction and Background}
+	\subsection{Quantization Noise Measurement}
+	\subsection{Signal to Noise Ratio Dependence on Digital Filter Structure}
+	\subsection{Frequency Domain analysis of Quantization Noise}
+\section{Quantization Noise Measurement: Implementation on 40m prototype Interferometer}
+	\subsection{Foton Software}
+	
+	\subsection{Previous Implementation in MATLAB}
+	The existing tool based on MATLAB was developed by Denis as a part of his PhD dissertation, \cite{Den_Thesis}. The noise estimation algorithm works as described in the qunatization noise measurement section above. For a given input, filter output is calculated by using two different mantissa size and hence getting two different outputs for the same input varying in the precision level. In this implementation, the two different precisions used were single precision (float in MATLAB) and double precision. The quantization noise would be obtained on subtracting the two outputs. This quantization noise would be the noise that would occur if all the filters in the digital control system were realized using single precision. Since, all digital control systems are implemented in double precision in the LIGO setup, single precision noise is of no use. To obtain double precision noise, in this code, an extrapolation is done to estimate the approximate quantization noise occuring in digital filters implemented in double precision. The approximation method has been described by Denis in \cite{Den_approx}. An empirically obtained factor equal to $10^{-7}$ is multiplied to the quantization noise values obtained for single precision. 
+		\subsubsection{Data Acquisition} To acquire input signal data for the filters the code downloads data from the 40m servers for 32 seconds and moves on towards noise estimation after some checks which determine whether the data downloaded is correct or not. The IIR filter second order sections (sos) is obtained from the foton filter file for the asked filter bank. The foton file contains the information about the coefficients of the filter and also the sampling frequency. Along with some other required parameters describing the gain, the offset and the saturation limit, the code then calculates the output and hence the noise using the algorithm described above.
+	\subsection{Limitations of the Implementation}
+	Here is a list of limitations of the noise estimation code as given in \cite{Den_code} and described in \cite{Den_thesis}:
+		\begin{enumerate}
+			\list The double precision noise is not actually calculated, but only approximated empirically: \\
+				\begin{paragraph}This is the major limitation of the code given by Denis, though the empriical approximation is intuitive but the noise analysis cannot be called cent percent accurate. To obtain noise in double precision, ideally, as described previously, one has to calculate the output in a precision which is better than double precision and then subtract the two outputs. This implementation doesn't do that, due to limitations of the MATLAB platform.
+				\end{paragraph}
+			\list Signal To Noise Ratio: The code \cite{Den_code} doesn't facilitate SNR calculation for the noise estimated. 
+			\list Tedious job if one wants to check many filters: Since, the channel names are complex and there are thousands of digital filters in the control system, it is a very tedious job to manually keep calling this function to check a digital filter with all its parameters. 
+			\list Not all channels are turned on at all times and hence may return all zeros when requested for data. This implementation downloads the data for 32 seconds for every channel which is a long time and even so when the data being returned is of no use. 
+	
+		\end{enumerate}
+		
+	
+	\subsection{Ways to improve the measurement accuracy}
+		\begin{enumerate}
+			\list Writing the complete code in Python or C  : \\ Though it seems like a good option since C or python would provide for long double precision \cite{long_double} and hence the noise can be calculated with accuracy for double precision implementation of digital filters. But it is not a feasible option to go forward with because of two main reasons:
+				\begin{enumerate}
+					\list MATLAB's interface providing easy handling of matrices, arrays and plotting power spectrum densities among various other advantages that come with MATLAB.
+					\list The existing background code for various things such as foton file parsing etc. (in MATLAB) could be used 'as-is' and hence would be a great time saver. 
+				\end{enumerate}
+			\list Using MATLAB's multiple precision toolbox : \\ A new toolbox was released for versions later than MATLAB 7 called the multiple precision toolbox \cite{MP}. This toolbox defines a multiple precision (mp) class under which objects with arbitrary precision could be defined. The MP toolbox also provides support for a host of MATLAB's functions so that all kinds of calculations could be carried out on MP objects just the way it is done for normal variables (float, double etc.)
+		\end{enumerate}
+	\subsection{Improvements completed in the new implementation}
+\section{Software Tool}
+	\subsection{Automatic Quantization Noise Analyzer Tool}
+\section{Moving Towards Advanced LIGO}
+	\subsection{The Advanced LIGO Digital Control System: an Upgrade}
+	\subsection{Software Tool for Remote Analysis of Digital Filters at the Advanced LIGO sites}
+	
+\section{Results and Conclusion}
+\section{Challenges Faced}
+\section{Goals for the coming weeks}
