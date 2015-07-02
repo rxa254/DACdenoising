@@ -26,13 +26,13 @@ function check_digital_system_forsite(name, channel, filter_bank)
 
     % Read filter modules and sampling frequency from Foton file
     [modules, fs] = read_model_foton_file(foton_file);
-
+    
     % Online parameters of the fitler module
     module_parameters = read_module_params_forsite(channel); %change when change the time and also for site
     
     %modules(filter_bank);
     % Filters that are switched on
-    online_filters = find_online_filters(modules(filter_bank), module_parameters);
+    online_filters = find_online_filters(modules(filter_bank), module_parameters)
 %     for i=1:length(online_filters)
 %         online_filters(i)
 %     end
@@ -41,10 +41,10 @@ function check_digital_system_forsite(name, channel, filter_bank)
     % Download data from the channel
     clear data
     T = 1;
-    
-    data = download_online_data_forsite({channel}, T, fs); %change when change the time and for site
+    %freq=fs
+    [data,fs] = download_online_data_forsite({channel}, T, fs); %change when change the time and for site
 %     data(1:10)
-  
+    %fs
     pause(2)
 %     T*fs
 %     length(data)
@@ -58,7 +58,7 @@ function check_digital_system_forsite(name, channel, filter_bank)
         clear data
         T = 32;
 
-        data = download_online_data_forsite({channel}, T, fs);
+        [data,fs] = download_online_data_forsite({channel}, T, fs);
         data(1:10)
         disp('Got CHANNEL');
         
@@ -68,11 +68,11 @@ function check_digital_system_forsite(name, channel, filter_bank)
         if module_parameters.OFFSET_SW
             data = data - module_parameters.OFFSET;
         end
-
+    
         % Calculate digital noise
         [output_df2, output_bqf, noise_df2, noise_bqf] = estimate_noise_file(double(data'), online_filters);
         
-%         gain=module_parameters.GAIN
+        %gain=module_parameters.GAIN
         % Multiply filter output by module GAIN
         output_df2 = output_df2 * module_parameters.GAIN;
         output_bqf = output_bqf * module_parameters.GAIN;
@@ -83,10 +83,10 @@ function check_digital_system_forsite(name, channel, filter_bank)
         if module_parameters.LIMIT_SW && max(abs(output_bqf)) > module_parameters.LIMIT
             disp('LIMIT is small!');
         end
-%         output_df2(1:10)
-%         output_bqf(1:10)
-%         noise_df2(1:10)
-%         noise_bqf(1:10)
+        output_df2(1:10)
+        output_bqf(1:10)
+        noise_df2(1:10)
+        noise_bqf(1:10)
         % Plot power spectrum density of the digital noise
         plot_psd(data, output_df2, output_bqf, noise_df2, noise_bqf, channel, fs);
     end

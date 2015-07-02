@@ -6,7 +6,7 @@ function online_filters = find_online_filters(iirs, params)
       
     % Check that filter is switched on
     for i=1:length(iirs)
-        filters_sw = params.FILTERS_SW;
+        filters_sw = params.FILTERS_SW
         if filters_sw(iirs(i).number+1) == 1
             online_filters = [online_filters iirs(i)];
         end

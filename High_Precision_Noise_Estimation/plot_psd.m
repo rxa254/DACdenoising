@@ -24,12 +24,15 @@ function plot_psd(signal, output_df2, output_bqf, noise_df2, noise_bqf, channel,
     for i=1:length(psd_input)
         SNR(i)= psd_output_bqf(i)/psd_noise_bqf(i);
         if SNR(i) < 100.00
-           count=1;
+           count=count+1;
         end
     end
-    if count ==1, display('SNR too low!');
-    else display('The filter is good!');
+    if count >= 100, display('SNR too low!');
+    elseif count >=50 && count<100 display('Warning SNR');
+    else display('The filter is alright');
     end
+   
+
        
     disp('Plot the result...');
     figure('Position', [1 1 1200 800],'Visible','on');

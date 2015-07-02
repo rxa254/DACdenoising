@@ -1,5 +1,26 @@
 fnames=dir('/home/ayush/h1_filter_files/h1_archive/*.txt');
+conn=nds2.connection('nds.ligo-wa.caltech.edu',31200);
+list_h1_in=conn.findChannels('*_IN1_DQ');
+list_h1_out=conn.findChannels('*_OUT_DQ');
+length(list_h1_out)
+for i=1:length(list_h1_in)
+    var=char(list_h1_in(i));
+    words=regexp(var,' ','split');
+    var=char(words(1));
+    var=var(2:end);
+    
+    list_in(i)=cellstr(var);
+end
 
+for i=1:length(list_h1_out)
+    var=char(list_h1_out(i));
+    words=regexp(var,' ','split');
+    var=char(words(1));
+    var=var(2:end);
+    
+    list_out(i)=cellstr(var);
+end
+    
 for i=1:length(fnames)
     count_try=0;
     k=1;
@@ -31,29 +52,49 @@ for i=1:length(fnames)
                 first_phrase=regexp(result_string,'_','split');
                 first_phrase=first_phrase(1);
                 first_phrase=char(first_phrase);
-                common_string_channel1= strcat('H1:',first_phrase,'-'); %change when changing site
+                common_string_channel_1= strcat('H1:',first_phrase,'-'); %change when changing site
+                common_string_channel_2= strcat('H2:',first_phrase,'-');
+                common_string_channel_3= strcat('L1:',first_phrase,'-');
                 append=length(first_phrase)+2;
-                common_string_channel2='_IN1_DQ';
-                channel_string=strcat(common_string_channel1,result_string(append:end),common_string_channel2);
-                channel_string1=char(channel_string);
+                suffix_string='_IN1_DQ';
+                channel_string1=strcat(common_string_channel_1,result_string(append:end),suffix_string);
+                channel_string1=char(channel_string1);
+                channel_string2=strcat(common_string_channel_2,result_string(append:end),suffix_string);
+                channel_string2=char(channel_string2);
+                channel_string3=strcat(common_string_channel_3,result_string(append:end),suffix_string);
+                channel_string3=char(channel_string3);
                 filter_bank_string1=char(words(j));
-                channel_list_file(i,k)=cellstr(channel_string1);
-                try
-                    display('calling function with following parameters');
-                    disp(strcat('check_digital_system_forsite( ',common1,',', channel_string1,' ,', filter_bank_string1,',)'));
-                    count_try=count_try+1;
-                    check_digital_system_forsite(common1,channel_string1,filter_bank_string1);
-                    
-                catch ME
-                    log_filter(i,k)=cellstr(filter_bank_string1);
-                    
-                    k=k+1;
-%                     display('checking other possibility');
-                    count_catch=count_catch+1;
-                    display(char(10));
-                    display('The execution will continue for other filters');
-                    display(char(10));
-%                     
+                %channel_list_file(i,k)=cellstr(channel_string1);
+                if isChannel(channel_string1,list_in) || isChannel(channel_string2,list_in) || isChannel(channel_string3,list_in)
+                    display('channel is present');
+                    try
+                        display('calling function with following parameters');
+                        disp(strcat('check_digital_system_forsite( ',common1,',', channel_string1,' ,', filter_bank_string1,')'));
+                        count_try=count_try+1;
+                        check_digital_system_forsite(common1,channel_string1,filter_bank_string1);
+
+                    catch
+                        try
+                            check_digital_system_forsite(common1,channel_string2,filter_bank_string1);
+                            disp(strcat('check_digital_system_forsite( ',common1,',', channel_string2,' ,', filter_bank_string1,')'));
+                        catch
+                            try
+                                check_digital_system(common1,channel_string3,filter_bank_string1);
+                                disp(strcat('check_digital_system_forsite( ',common1,',', channel_string2,' ,', filter_bank_string1,')'));
+                            catch 
+                                log_filter(i,k)=cellstr(filter_bank_string1);
+
+                                k=k+1;
+                                %display('checking other possibility');
+                                count_catch=count_catch+1;
+                                display(char(10));
+                                display('The execution will continue for other filters');
+                                display(char(10));
+    %                   
+                            end
+                        end
+                         
+                    end
                 end
                 j=j+1;
             end
