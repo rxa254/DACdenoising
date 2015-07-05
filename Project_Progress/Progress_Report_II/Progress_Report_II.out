@@ -1,0 +1,22 @@
+\BOOKMARK [1][-]{section.1}{Quantization Noise Analysis in Digital Filters: Introduction and Background}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Quantization Noise Measurement}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Signal to Noise Ratio \(SNR\) Dependence on Digital Filter Structure}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Foton Software}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.4}{Frequency Domain analysis of Quantization Noise}{section.1}% 5
+\BOOKMARK [1][-]{section.2}{Quantization Noise Measurement: Implementation on 40m prototype Interferometer}{}% 6
+\BOOKMARK [2][-]{subsection.2.1}{Previous Implementation in MATLAB}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.2}{Data Acquisition}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.3}{Limitations of the Implementation}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.4}{Ways to improve the measurement accuracy}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.5}{Improvements completed in the new implementation}{section.2}% 11
+\BOOKMARK [1][-]{section.3}{Software Tool}{}% 12
+\BOOKMARK [2][-]{subsection.3.1}{Automatic Quantization Noise Analyzer Tool}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.2}{Testing at the 40m Interferometer Prototype}{section.3}% 14
+\BOOKMARK [1][-]{section.4}{Moving Towards Advanced LIGO}{}% 15
+\BOOKMARK [2][-]{subsection.4.1}{The Advanced LIGO Digital Control System: an Upgrade}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.2}{Software Tool for Remote Analysis of Digital Filters at the Advanced LIGO sites}{section.4}% 17
+\BOOKMARK [1][-]{section.5}{Results and Conclusion}{}% 18
+\BOOKMARK [2][-]{subsection.5.1}{Conclusion}{section.5}% 19
+\BOOKMARK [1][-]{section.6}{Challenges Faced}{}% 20
+\BOOKMARK [1][-]{section.7}{Limitations}{}% 21
+\BOOKMARK [1][-]{section.8}{Goals for the coming weeks}{}% 22

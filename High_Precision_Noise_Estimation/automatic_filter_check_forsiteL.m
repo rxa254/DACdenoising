@@ -66,8 +66,8 @@ for i=1:length(fnames)
                 %channel_string2=char(channel_string2);
                 if length(first_phrase) ~= 3
                     first_phrase=char(common1(3:5));
-                    common_string_channel_1= strcat('H1:',first_phrase,'-'); %change when changing site
-                    common_string_channel_2=strcat('H2:',first_phrase,'-');
+                    common_string_channel_1= strcat('L1:',first_phrase,'-'); %change when changing site
+                    %common_string_channel_2=strcat('L2:',first_phrase,'-');
                     channel_string1=strcat(common_string_channel_1,result_string,suffix_string);
                     channel_string1=char(channel_string1);
                     %channel_string2=strcat(common_string_channel_2,result_string,suffix_string);
@@ -80,10 +80,14 @@ for i=1:length(fnames)
                         display('calling function with following parameters');
                         disp(strcat('check_digital_system_forsite( ',common1,',', channel_string1,' ,', result_string,')'));
                         count_try=count_try+1;
-                        check_digital_system_forsite(common1,channel_string1,result_string);
+                        check_digital_system_forsiteL(common1,channel_string1,result_string);
 
                     catch
-                        %
+%                         try
+%                             disp(strcat('check_digital_system_forsite( ',common1,',', channel_string2,' ,', result_string,')'));
+%                             check_digital_system_forsite(common1,channel_string2,result_string);
+%                             
+%                         catch
 
                             log_filter(i,k)=cellstr(result_string);
 
@@ -95,7 +99,7 @@ for i=1:length(fnames)
                             display(char(10));
 %                   
                             
-                        end
+%                         end
                          
                     end
                 end

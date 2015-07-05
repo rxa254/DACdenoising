@@ -1,11 +1,11 @@
-function check_digital_system_forsite(name, channel, filter_bank)
+function check_digital_system_forsiteL(name, channel, filter_bank)
     % Function checks noise of the digital filter modules
     % given the list of models
     format longEng;
     
     % Get site parameters: IFO, ifo, site, chans directory, 
     % uapps directory, host name
-    params = config_editedforsite(); %change when change the site
+    params = config_editedforsiteL(); %change when change the site
     
     % Add Java classes for SWIG
     % nds2AddJava;
@@ -28,7 +28,7 @@ function check_digital_system_forsite(name, channel, filter_bank)
     [modules, fs] = read_model_foton_file(foton_file);
     
     % Online parameters of the fitler module
-    module_parameters = read_module_params_forsite(channel); %change when change the time and also for site
+    module_parameters = read_module_params_forsiteL(channel); %change when change the time and also for site
     
     %modules(filter_bank);
     % Filters that are switched on
@@ -42,7 +42,7 @@ function check_digital_system_forsite(name, channel, filter_bank)
     clear data
     T = 1;
     %freq=fs
-    [data,fs] = download_online_data_forsite({channel}, T, fs); %change when change the time and for site
+    [data,fs] = download_online_data_forsiteL({channel}, T, fs); %change when change the time and for site
 %     data(1:10)
     %fs
     pause(2)
@@ -58,7 +58,7 @@ function check_digital_system_forsite(name, channel, filter_bank)
         clear data
         T = 32;
 
-        [data,fs] = download_online_data_forsite({channel}, T, fs);
+        [data,fs] = download_online_data_forsiteL({channel}, T, fs);%change when change the time and for site
         data(1:10)
         disp('Got CHANNEL');
         

@@ -1,8 +1,6 @@
 function plot_psd(signal, output_df2, output_bqf, noise_df2, noise_bqf, channel, fs)
     % Remove mean
-    name='a';
-    name=name+1000*rand;
-    name=char(name);
+    
     signal = detrend(signal);
     output_df2 = detrend(output_df2);
     output_bqf = detrend(output_bqf);
@@ -32,20 +30,23 @@ function plot_psd(signal, output_df2, output_bqf, noise_df2, noise_bqf, channel,
     else display('The filter is alright');
     end
    
-
+%check_digital_system_forsite(H1HPIHAM3,H1:HPI-HAM3_BLND_L4C_RY_IN1_DQ ,HAM3_BLND_L4C_RY)
+%check_digital_system_forsite(H1HPIHAM6,H1:HPI-HAM6_STSINF_B_Z_IN1_DQ ,HAM6_STSINF_B_Z)
        
     disp('Plot the result...');
-    figure('Position', [1 1 1200 800],'Visible','on');
+    scrsz = get(groot,'ScreenSize');
+    figure('Position',[1 1 scrsz(3) scrsz(4)],'Visible','on','PaperPosition',[1 1 scrsz(3) scrsz(4)],'PaperPositionMode','manual');
     loglog(f, sqrt(psd_input), 'c', f, sqrt(psd_output_df2), 'b--', f, sqrt(psd_output_bqf), 'g--', ...
-        f, sqrt(psd_noise_df2), 'r-.', f, sqrt(psd_noise_bqf), 'm-.', 'LineWidth', 3);
+        f, sqrt(psd_noise_df2),'r-.', f, sqrt(psd_noise_bqf),'m-.', 'LineWidth', 3);
     grid on;
     xlabel('frequency, Hz', 'FontSize', 16);
     ylabel('amplitude arb/sqrt(Hz)', 'FontSize', 16);
     hLegend=legend(strrep(channel, '_', '-'), 'output df2', 'output bqf', 'noise df2', 'noise bqf');
-    set(hLegend,'FontSize', 14, 'Location', 'SouthWest');
-    set(gca, 'FontSize', 16);
+    set(hLegend,'FontSize', 12, 'Location', 'SouthOutside');
+    set(gca, 'FontSize', 14);
     axis tight;
-    saveas(gcf,name,'svg');
+  
+    saveas(gcf,channel,'svg');
     
 %     orient portrait
 %     set(gcf,'Position', [1 1  1500  1200]);
