@@ -33,6 +33,7 @@ function check_digital_system_forsite(name, channel, filter_bank)
     %modules(filter_bank);
     % Filters that are switched on
     online_filters = find_online_filters(modules(filter_bank), module_parameters);
+
 %     for i=1:length(online_filters)
 %         online_filters(i)
 %     end
@@ -71,7 +72,10 @@ function check_digital_system_forsite(name, channel, filter_bank)
     
         % Calculate digital noise
         [output_df2, output_bqf, noise_df2, noise_bqf] = estimate_noise_file(double(data'), online_filters);
-        
+        if noise_bqf==0, display('noise is zero')
+        end
+        if data'==output_bqf, display('input is equal to output')
+        end
         %gain=module_parameters.GAIN
         % Multiply filter output by module GAIN
         output_df2 = output_df2 * module_parameters.GAIN;
@@ -87,7 +91,8 @@ function check_digital_system_forsite(name, channel, filter_bank)
 %         output_bqf(1:10)
 %         noise_df2(1:10)
 %         noise_bqf(1:10)
-        % Plot power spectrum density of the digital noise
+
+% Plot power spectrum density of the digital noise
         plot_psd(data, output_df2, output_bqf, noise_df2, noise_bqf, channel, fs);
     end
 end

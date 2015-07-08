@@ -1,6 +1,6 @@
 function plot_psd(signal, output_df2, output_bqf, noise_df2, noise_bqf, channel, fs)
     % Remove mean
-    
+    LIMIT_SNR=100;
     signal = detrend(signal);
     output_df2 = detrend(output_df2);
     output_bqf = detrend(output_bqf);
@@ -20,16 +20,28 @@ function plot_psd(signal, output_df2, output_bqf, noise_df2, noise_bqf, channel,
     [psd_noise_bqf,~] = pwelch(noise_bqf, hanning(nfft), 3*nfft/4, nfft, fs);
     
     for i=1:length(psd_input)
-        SNR(i)= psd_output_bqf(i)/psd_noise_bqf(i);
-        if SNR(i) < 100.00
-           count=count+1;
+        SNR(i)=psd_output_bqf(i)/psd_noise_bqf(i);
+        limit_snr(i)=LIMIT_SNR;
+        if SNR(i)<limit_snr(i)
+            count=1;
+        end
+        if count>=1 && SNR(i)>limit_snr(i)
+            count=count+1;
+            
         end
     end
-    if count >= 100, display('SNR too low!');
-    elseif count >=50 && count<100 display('Warning SNR');
-    else display('The filter is alright');
+    if count==1, display('The SNR is below the limit atleast once');
+    end
+    if count==0, display('The filter is alright')
+    end
+    if count>1, display('Warning! SNR too low');
     end
    
+%     length(SNR)
+%     length(f)
+%     R=snr(SNR,f,'psd')
+    
+%     length(SNR)
 %check_digital_system_forsite(H1HPIHAM3,H1:HPI-HAM3_BLND_L4C_RY_IN1_DQ ,HAM3_BLND_L4C_RY)
 %check_digital_system_forsite(H1HPIHAM6,H1:HPI-HAM6_STSINF_B_Z_IN1_DQ ,HAM6_STSINF_B_Z)
        
@@ -47,7 +59,9 @@ function plot_psd(signal, output_df2, output_bqf, noise_df2, noise_bqf, channel,
     axis tight;
   
     saveas(gcf,channel,'svg');
+    display('Now plotting SNR');
     
+    plot_snr(SNR,channel,f,limit_snr);
 %     orient portrait
 %     set(gcf,'Position', [1 1  1500  1200]);
 %     print(gcf, '-dpng',  [channel '.png']);

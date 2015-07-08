@@ -77,7 +77,7 @@ void main()
     output_bqf_longdouble=(long double *)calloc(length,sizeof(long double));
     noise_df2=(long double *)calloc(length,sizeof(long double));
     noise_bqf=(long double *)calloc(length,sizeof(long double));
-    signal_d=(double *)calloc(length,sizeof(double));
+    //signal_d=(double *)calloc(length,sizeof(double));
     output_df2=(double *)calloc(length,sizeof(double));
     output_bqf=(double *)calloc(length,sizeof(double));
     

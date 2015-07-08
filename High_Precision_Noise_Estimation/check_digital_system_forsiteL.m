@@ -72,6 +72,8 @@ function check_digital_system_forsiteL(name, channel, filter_bank)
         % Calculate digital noise
         [output_df2, output_bqf, noise_df2, noise_bqf] = estimate_noise_file(double(data'), online_filters);
         
+        if noise_bqf==0, display('noise is zero')
+        end
         %gain=module_parameters.GAIN
         % Multiply filter output by module GAIN
         output_df2 = output_df2 * module_parameters.GAIN;

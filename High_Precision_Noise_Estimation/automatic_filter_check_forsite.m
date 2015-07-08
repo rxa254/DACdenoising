@@ -1,7 +1,7 @@
 %The function automatically checks for quantization noise in all the
 %digital filters in the digital controller of the advanced ligo
-fnames=dir('/home/ayush/l1_filter_files/l1_archive/*.txt');
-conn=nds2.connection('nds.ligo-la.caltech.edu',31200);
+fnames=dir('/home/ayush/h1_filter_files/h1_archive/*.txt');
+conn=nds2.connection('nds.ligo-wa.caltech.edu',31200);
 list_h1_in=conn.findChannels('*_IN1_DQ');
 list_h1_out=conn.findChannels('*_OUT_DQ');
 num=zeros(length(fnames));
@@ -28,7 +28,7 @@ for i=1:length(fnames)
     count_try=0;
     k=1;
     count_catch=0;
-    file_name=strcat('/home/ayush/l1_filter_files/l1_archive/',fnames(i).name)
+    file_name=strcat('/home/ayush/h1_filter_files/h1_archive/',fnames(i).name)
     fid=fopen(file_name,'r');
     
     if fid == -1
@@ -56,10 +56,10 @@ for i=1:length(fnames)
                 first_phrase=first_phrase(1);
                 first_phrase=char(first_phrase);
                 
-                common_string_channel_1= strcat('L1:',first_phrase,'-'); %change when changing site
+                common_string_channel_1= strcat('H1:',first_phrase,'-'); %change when changing site
                 %common_string_channel_2=strcat('L2:',first_phrase,'-');
                 append=length(first_phrase)+2;
-                suffix_string='_IN1_DQ';
+                suffix_string='_OUT_DQ'; %change when changing from input to output
                 channel_string1=strcat(common_string_channel_1,result_string(append:end),suffix_string);
                 channel_string1=char(channel_string1);
                 %channel_string2=strcat(common_string_channel_2,result_string(append:end),suffix_string);
@@ -67,20 +67,20 @@ for i=1:length(fnames)
                 if length(first_phrase) ~= 3
                     first_phrase=char(common1(3:5));
                     common_string_channel_1= strcat('H1:',first_phrase,'-'); %change when changing site
-                    common_string_channel_2=strcat('H2:',first_phrase,'-');
+                    %common_string_channel_2=strcat('H2:',first_phrase,'-');
                     channel_string1=strcat(common_string_channel_1,result_string,suffix_string);
                     channel_string1=char(channel_string1);
                     %channel_string2=strcat(common_string_channel_2,result_string,suffix_string);
                     %channel_string2=char(channel_string2);
                 end
                 %channel_list_file(i,k)=cellstr(channel_string1);
-                if isChannel(channel_string1,list_in)
+                if isChannel(channel_string1,list_out) %Change when changing from input to output
                     display('channel is present');
                     try
                         display('calling function with following parameters');
                         disp(strcat('check_digital_system_forsite( ',common1,',', channel_string1,' ,', result_string,')'));
                         count_try=count_try+1;
-                        check_digital_system_forsite(common1,channel_string1,result_string);
+                        check_inverted_digital_system_forsite(common1,channel_string1,result_string);
 
                     catch
                         %
@@ -95,12 +95,13 @@ for i=1:length(fnames)
                             display(char(10));
 %                   
                             
-                        end
-                         
                     end
+                         
                 end
-                j=j+1;
+                 j=j+1;
             end
+               
+       
         
         else break;
         end
