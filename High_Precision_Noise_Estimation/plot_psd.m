@@ -36,7 +36,7 @@ function plot_psd(signal, output_df2, output_bqf, noise_df2, noise_bqf, channel,
     end
     if count>1, display('Warning! SNR too low');
     end
-   
+  
 %     length(SNR)
 %     length(f)
 %     R=snr(SNR,f,'psd')
@@ -48,7 +48,7 @@ function plot_psd(signal, output_df2, output_bqf, noise_df2, noise_bqf, channel,
     disp('Plot the result...');
     scrsz = get(groot,'ScreenSize');
     figure('Position',[1 1 scrsz(3) scrsz(4)],'Visible','on','PaperPosition',[1 1 scrsz(3) scrsz(4)],'PaperPositionMode','manual');
-    loglog(f, sqrt(psd_input), 'c', f, sqrt(psd_output_df2), 'b--', f, sqrt(psd_output_bqf), 'g--', ...
+    loglog(f, sqrt(psd_input), 'c',f, sqrt(psd_output_df2), 'b--',f, sqrt(psd_output_bqf), 'g--',  ...
         f, sqrt(psd_noise_df2),'r-.', f, sqrt(psd_noise_bqf),'m-.', 'LineWidth', 3);
     grid on;
     xlabel('frequency, Hz', 'FontSize', 16);

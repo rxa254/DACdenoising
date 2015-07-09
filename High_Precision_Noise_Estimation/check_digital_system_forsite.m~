@@ -60,18 +60,23 @@ function check_digital_system_forsite(name, channel, filter_bank)
         T = 32;
 
         [data,fs] = download_online_data_forsite({channel}, T, fs);
-        data(1:10)
+        %data(1:10)
         disp('Got CHANNEL');
-        
-        
-        
-        % Subtract offset if it is ON
+           % Subtract offset if it is ON
+           
         if module_parameters.OFFSET_SW
             data = data - module_parameters.OFFSET;
+            offset=module_parameters.OFFSET
         end
     
+        
+        
+     
         % Calculate digital noise
         [output_df2, output_bqf, noise_df2, noise_bqf] = estimate_noise_file(double(data'), online_filters);
+         
+       
+%         output_df2(1:10)
         if noise_bqf==0, display('noise is zero')
         end
         if data'==output_bqf, display('input is equal to output')
@@ -82,7 +87,8 @@ function check_digital_system_forsite(name, channel, filter_bank)
         output_bqf = output_bqf * module_parameters.GAIN;
         noise_df2 = noise_df2 * module_parameters.GAIN;
         noise_bqf = noise_bqf * module_parameters.GAIN;
-
+        out=output_bqf(100)
+        no=psd_noise_bqf(100)
         % Check LIMIT value
         if module_parameters.LIMIT_SW && max(abs(output_bqf)) > module_parameters.LIMIT
             disp('LIMIT is small!');
@@ -91,8 +97,8 @@ function check_digital_system_forsite(name, channel, filter_bank)
 %         output_bqf(1:10)
 %         noise_df2(1:10)
 %         noise_bqf(1:10)
-
+    
 % Plot power spectrum density of the digital noise
-        plot_psd(data, output_df2, output_bqf, noise_df2, noise_bqf, channel, fs);
+        plot_psd(data, output_df2, output_bqf,noise_df2, noise_bqf, channel, fs);
     end
 end

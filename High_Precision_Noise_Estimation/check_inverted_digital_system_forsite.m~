@@ -1,4 +1,4 @@
-function check_digital_system_forsite(name, channel, filter_bank)
+function check_inverted_digital_system_forsite(name, channel, filter_bank)
     % Function checks noise of the digital filter modules
     % given the list of models
     format longEng;
@@ -49,7 +49,7 @@ function check_digital_system_forsite(name, channel, filter_bank)
     pause(2)
 %     T*fs
 %     length(data)
-    data(end)
+   % data(end)
     if length(data) ~= T*fs || isempty(online_filters) || data(end) == 0
         disp('Fiter Module Switched Off');
         
@@ -60,23 +60,35 @@ function check_digital_system_forsite(name, channel, filter_bank)
         T = 32;
 
         [data,fs] = download_online_data_forsite({channel}, T, fs);
-        data(1:10)
+       % data(1:10)
         disp('Got CHANNEL');
           % Subtract offset if it is ON
-        if module_parameters.OFFSET_SW
-            data = data - module_parameters.OFFSET;
-        end
-    
         
+        offset=module_parameters.OFFSET
+        data=data/module_parameters.GAIN;
         input=invert_data(double(data'),online_filters);
-      
-       
-        % Calculate digital noise
+        %adding offset gives us IN1 value
+        if module_parameters.OFFSET_SW
+            input = input + module_parameters.OFFSET;
+            
+        end
+        %subtracting the offset to calculate the filter output and also to
+        %account for quantization noise due to offset operation
+        if module_parameters.OFFSET_SW
+            input= input - module_parameters.OFFSET;
+            
+        end
+       % input(1:10)
+        % Calculate output
+        
         output_bqf = estimate_noise_inverted(double(input), online_filters);
         output_bqf = output_bqf * module_parameters.GAIN;
-        noise_bqf=output_bqf-data';
-        input(1:10)
-        %gain=module_parameters.GAIN
+        data=data*module_parameters.GAIN;
+        out=output_bqf(100)
+        da=data
+        noise_bqf=abs(data')-abs(output_bqf);
+        
+        gain=module_parameters.GAIN
         % Multiply filter output by module GAIN
         %output_df2 = output_df2 * module_parameters.GAIN;
        
@@ -96,6 +108,6 @@ function check_digital_system_forsite(name, channel, filter_bank)
         end
        
 % Plot power spectrum density of the digital noise
-        plot_psd_output(input,data',noise_bqf, channel, fs);
+        plot_psd_output(input,data,output_bqf,noise_bqf,channel, fs);
     end
 end

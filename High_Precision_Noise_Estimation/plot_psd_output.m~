@@ -20,7 +20,8 @@ function plot_psd_output(signal,output_bqf,out_calc,noise_bqf, channel, fs)
     [psd_out_calc,~] = pwelch(out_calc, hanning(nfft), 3*nfft/4, nfft, fs);
    % [psd_noise_df2,~] = pwelch(noise_df2, hanning(nfft), 3*nfft/4, nfft, fs);
     [psd_noise_bqf,~] = pwelch(noise_bqf, hanning(nfft), 3*nfft/4, nfft, fs);
-    
+     out=psd_output_bqf(100)
+    no=psd_noise_bqf(100)
     for i=1:length(psd_input)
         SNR(i)=psd_output_bqf(i)/psd_noise_bqf(i);
         limit_snr(i)=LIMIT_SNR;

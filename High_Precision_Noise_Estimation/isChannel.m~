@@ -1,0 +1,10 @@
+function [flag_in,flag_out] = isChannel(channel_string, list_out,list_in)
+    
+    tf_in=strcmp(channel_string,list_out);
+    tf_out=st
+    k=find(tf);
+    if k ~= 0 
+        flag_in=1;
+    else flag_in=0;
+    end
+end

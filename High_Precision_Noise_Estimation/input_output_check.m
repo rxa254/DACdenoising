@@ -1,11 +1,20 @@
 count=0;
 count_out=0;
+list_out=conn.findChannels('*_OUT_DQ');
+list_in=conn.findChannels('*_IN1_DQ');
+
 for i=1:length(list_out)
-    var=char(list_out(i));
+    words=regexp(char(list_out(i)),' ','split');
+    var=char(words(1));
+    list_out_modified(i)=cellstr(var(2:end));
+    var=char(list_out_modified(i));
     list_out_modified(i)=cellstr(var(1:end-7));
 end
 for i=1:length(list_in)
-    var=char(list_in(i));
+    words=regexp(char(list_in(i)),' ','split');
+    var=char(words(1));
+    list_in_modified(i)=cellstr(var(2:end));
+    var=char(list_in_modified(i));
     list_in_modified(i)=cellstr(var(1:end-7));
 end
 
