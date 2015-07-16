@@ -25,14 +25,14 @@ function check_digital_system_forsite(name, channel, filter_bank)
     foton_file = [params.chans params.IFO upper(name) '.txt'];
 
     % Read filter modules and sampling frequency from Foton file
-    [modules, fs] = read_model_foton_file(foton_file);
+    [modules, fs] = read_model_foton_file(foton_file)
     
     % Online parameters of the fitler module
     module_parameters = read_module_params_forsite(channel); %change when change the time and also for site
     
-    %modules(filter_bank);
+    modules(filter_bank)
     % Filters that are switched on
-    online_filters = find_online_filters(modules(filter_bank), module_parameters);
+    online_filters = find_online_filters(modules(filter_bank), module_parameters)
 
 %     for i=1:length(online_filters)
 %         online_filters(i)
@@ -102,5 +102,7 @@ function check_digital_system_forsite(name, channel, filter_bank)
         plot_psd(data, output_df2, output_bqf,noise_df2, noise_bqf, channel, fs);
     end
     pause(2)
-    close all
+%     close all
+%     save_out=output_bqf;
 end
+

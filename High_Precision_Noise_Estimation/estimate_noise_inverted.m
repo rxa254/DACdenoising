@@ -1,4 +1,4 @@
-function output_bqf= estimate_noise_inverted(signal, iir)
+function [output_bqf,noise_bqf]= estimate_noise_inverted(signal, iir)
     
 	n_iir=length(iir);
 	len=length(signal);
@@ -7,7 +7,7 @@ function output_bqf= estimate_noise_inverted(signal, iir)
     %output_df2=zeros(1,len);
 	output_bqf=zeros(1,len);
    % noise_df2=zeros(1,len);
-    %noise_bqf=zeros(1,len);
+    noise_bqf=zeros(1,len);
 %     noise_df2_single=zeros(1,len);
 %     noise_bqf_single=zeros(1,len);
 	fid=fopen('take_data.bin','wb');
@@ -40,7 +40,7 @@ function output_bqf= estimate_noise_inverted(signal, iir)
 	fclose(fid);
 	!./est_inv
 
-    pause(2);
+%     pause(2);
     
     fid=fopen('give_data.bin','rb');
     if fid == -1
@@ -58,9 +58,9 @@ function output_bqf= estimate_noise_inverted(signal, iir)
         output_bqf=fread(fid,len,'real*8');
        
 
-        %noise_df2=fread(fid,len,'real*8');
+%         noise_df2=fread(fid,len,'real*8');
        
-        %noise_bqf=fread(fid,len,'real*8');
+        noise_bqf=fread(fid,len,'real*8');
        
 %             
 %         	A=fscanf(fid,'%s',1);

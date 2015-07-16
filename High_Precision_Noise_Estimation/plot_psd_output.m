@@ -1,10 +1,10 @@
-function plot_psd_output(signal,output_bqf,out_calc,noise_bqf, channel, fs)
+function plot_psd_output(signal,output_bqf,noise_bqf, channel, fs)
     % Remove mean
     LIMIT_SNR=100;
     signal = detrend(signal);
     %output_df2 = detrend(output_df2);
     output_bqf = detrend(output_bqf);
-    out_calc=detrend(out_calc);
+%     out_calc=detrend(out_calc);
     %noise_df2 = detrend(noise_df2);
     noise_bqf = detrend(noise_bqf);
 %     length(signal)
@@ -17,7 +17,7 @@ function plot_psd_output(signal,output_bqf,out_calc,noise_bqf, channel, fs)
     [psd_input,f] = pwelch(signal, hanning(nfft), 3*nfft/4, nfft, fs);
     %[psd_output_df2,~] = pwelch(output_df2, hanning(nfft), 3*nfft/4, nfft, fs);
     [psd_output_bqf,~] = pwelch(output_bqf, hanning(nfft), 3*nfft/4, nfft, fs);
-    [psd_out_calc,~] = pwelch(out_calc, hanning(nfft), 3*nfft/4, nfft, fs);
+%     [psd_out_calc,~] = pwelch(out_calc, hanning(nfft), 3*nfft/4, nfft, fs);
    % [psd_noise_df2,~] = pwelch(noise_df2, hanning(nfft), 3*nfft/4, nfft, fs);
     [psd_noise_bqf,~] = pwelch(noise_bqf, hanning(nfft), 3*nfft/4, nfft, fs);
     
@@ -50,12 +50,12 @@ function plot_psd_output(signal,output_bqf,out_calc,noise_bqf, channel, fs)
     disp('Plot the result...');
     scrsz = get(groot,'ScreenSize');
     figure('Position',[1 1 scrsz(3) scrsz(4)],'Visible','on','PaperPosition',[1 1 scrsz(3) scrsz(4)],'PaperPositionMode','manual');
-    loglog(f, sqrt(psd_input), 'c',f,sqrt(psd_out_calc),'y--', f, sqrt(psd_output_bqf), 'g--', ...
+    loglog(f, sqrt(psd_input), 'c',f, sqrt(psd_output_bqf), 'g--', ...
          f, sqrt(psd_noise_bqf),'m-.', 'LineWidth', 3);
     grid on;
     xlabel('frequency, Hz', 'FontSize', 16);
     ylabel('amplitude arb/sqrt(Hz)', 'FontSize', 16);
-    hLegend=legend(strrep(channel, '_', '-'),'out calc','output downl', 'noise bqf');
+    hLegend=legend(strrep(channel, '_', '-'),'output data', 'noise bqf');
     set(hLegend,'FontSize', 12, 'Location', 'SouthOutside');
     set(gca, 'FontSize', 14);
     axis tight;

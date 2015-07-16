@@ -1,0 +1,26 @@
+1. The filters giving output having a high phase lag (the output magnitude decreases steeply with frequency)
+
+--The quantization noise level remains the same (showing white noise characteristics, to an approximation) and hence the SNR falls down as the output falls down. This is a very common observation and has been observed for hundreds of filters. This suggests that if the output falls too steeply (having a very high slope), then it will catch the noise. This could happen for the range of frequencies which concern us. Hence, the filter design shouldn't have many poles together at DC, as having many poles at DC causes the filter to behave in the way described above. Also, other than this the filter design process should take in consideration the quantization noise level (which is in the range of 10^(-8) to 10^(-15)) while designing filters for which output falls continuously.   
+
+2. When the Low Noise form performs the same as the Direct Form II
+
+--
+3. When the Low Noise form performs worse than Direct Form II
+
+4. When SNR is not "as" high as for "most" of the filters for the Low Noise Form
+
+5. Filters for which the Direct Form II quantization noise power spectrum density is above the output for a range of frequencies
+
+6. For some filters, the high frequency roll-off is sudden and steep. This causes it to catch the noise level, especially for the DF2 case. But this occurs at nyquist frequency and hence is not as alarming.
+
+7. The order by which the LNF performs better than DF2 is in the range of 10^-2 to 10^-4 for more than 80% of the filters.
+
+8. Some filters have a high Q notch at some frequencies. But, this hardly had any effect on the quantization noise level as it maintained it's constant (approximately constant) nature. Maybe this fact along with others show that the quantization noise is independent of the input signal. The independence is further strengthened by the fact that even for changes in input of the order of 10^10 the noise maintained it's level. 
+
+9. The above fact can be easily contradicted by citing examples of many filters which show variations in the noise level with variation in input. Hence, the only conclusion is that the quantization noise level is independent of the input signal to a certain extent and to a certain approximation. There is a slight nature of dependence present as well. 
+
+10. For some filters, the DF2 noise was 10^7 times above the LNF noise, which is not a common case. One such filter design is: ISI_GND_BRS_ETMX_RY. 
+
+11. When input signal is a very low order signal (around 10^-7 or more), the SNR is worse than for most of the filters. A combined effect is shown by the filters which behave as described in (1) and which have low input values. These filters have considerably lower SNR than others. 
+
+

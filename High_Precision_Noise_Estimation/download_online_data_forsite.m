@@ -1,9 +1,9 @@
 function [signal,fs] = download_online_data_forsite(channel, T, fs)
     time=1117896120;
-    
     conn = nds2.connection('nds.ligo-wa.caltech.edu', 31200);
     bufs=conn.fetch(time,time+T,channel);
     bufs=bufs(1).getData();
+%     length(bufs)
     fs=length(bufs)/T;
     for i = 1:T
         

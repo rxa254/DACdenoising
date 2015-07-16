@@ -56,14 +56,14 @@ void main()
 	double *gp,*sp;
 	int *num,*ord,j,i,sig,k;
     //printf("\n\n\n\n\nEntered Loop1\n\n\n");
-	//long double *signal, *output_bqf_longdouble;
+	long double *signal, *input_bqf_longdouble,*noise_bqf;
     
     //printf("\n\n\n\n\nEntered Loop1\n\n\n");
-	double *input_bqf;
+	double *input_bqf,*signal_d;//*noise_bqf_d;
     
     //printf("\n\n\n\n\nEntered Loop1\n\n\n");
 	
-	double *signal_d;//, output_df2_d[length],output_bqf_d[length];
+	//double output_df2_d[length],output_bqf_d[length];
   
     
     //printf("\n\n\n\n\nEntered Loop1\n\n\n")
@@ -71,13 +71,12 @@ void main()
     //allocating memory dynamically to hold data of more than 7 MB, cannot be done on the stack.
     
     
-    //signal=(long double *)calloc(length, sizeof(long double));
+    signal=(long double *)calloc(length, sizeof(long double));
     signal_d=(double *)calloc(length, sizeof(double));
-    //output_df2_longdouble=(long double *)calloc(length,sizeof(long double));
-    //output_bqf_longdouble=(long double *)calloc(length,sizeof(long double));
+//     input_df2_longdouble=(long double *)calloc(length,sizeof(long double));
+    input_bqf_longdouble=(long double *)calloc(length,sizeof(long double));
     //noise_df2=(long double *)calloc(length,sizeof(long double));
-    //noise_bqf=(long double *)calloc(length,sizeof(long double));
-    //signal_d=(double *)calloc(length,sizeof(double));
+//     noise_bqf=(long double *)calloc(length,sizeof(long double));
     //output_df2=(double *)calloc(length,sizeof(double));
     input_bqf=(double *)calloc(length,sizeof(double));
     
@@ -88,7 +87,7 @@ void main()
 	//noise_bqf_single=(double *)calloc(length,sizeof(double));
     
     //noise_df2_d=(double *)calloc(length,sizeof(double));
-	//noise_bqf_d=(double *)calloc(length,sizeof(double));
+// 	noise_bqf_d=(double *)calloc(length,sizeof(double));
     
     fi=fopen("take_data_invert.bin","rb");
         if(fi==NULL)
@@ -298,11 +297,11 @@ void main()
 	for(i=0;i<length;i++)
 	{
        
-		//signal[i]=signal_d[i];
+		signal[i]=signal_d[i];
         //output_df2_longdouble[i]=signal[i];
-        //input_bqf_longdouble[i]=signal[i];
+        input_bqf_longdouble[i]=signal[i];
         //output_df2[i]=signal_d[i];
-        input_bqf[i]=signal_d[i];
+//         input_bqf[i]=signal_d[i];
         
 		//output_df2_d[i]=(double)output_df2[i];
 		//output_bqf_d[i]=(double)output_bqf[i];
@@ -314,8 +313,8 @@ void main()
         //iir_df2_longdouble(output_df2_longdouble, output_df2_longdouble, length, iir[i].sos, iir[i].g, iir[i].order);
         //printf("\n\n\n\n\nEntered Loop calling funcnow12\n\n\n");
         //iir_df2_double(output_df2, output_df2, length,iir[i].sos, iir[i].g, iir[i].order);
-        //iir_bqf_longdouble(input_bqf_longdouble, input_bqf_longdouble, length, iir[i].sos_bqf, iir[i].g, iir[i].order);
-        invert_bqf_double(input_bqf, input_bqf, length, iir[i].sos_bqf, iir[i].g, iir[i].order);
+        invert_bqf_longdouble(input_bqf_longdouble, input_bqf_longdouble, length, iir[i].sos_bqf, iir[i].g, iir[i].order);
+//         invert_bqf_double(input_bqf, input_bqf, length, iir[i].sos_bqf, iir[i].g, iir[i].order);
         //iir_df2_single(signal_d,output_df2_single,length,sos,g,times);
         //iir_bqf_single(signal_d,output_bqf_single,length,sos,   g,times);
         //printf("\n\n\n\n\nEntered Loop calling funcnow13\n\n\n");
@@ -331,16 +330,17 @@ void main()
 			
 	}*/
     //Calculate filter noise
-	/*for(i=0;i<length;i++)
+	for(i=0;i<length;i++)
     {
         	//printf("\n\n\n\n\nEntered Loop assigning noise now5\n\n\n");
-        	noise_df2[i] = output_df2_longdouble[i] - output_df2[i];
-        	noise_bqf[i] = output_bqf_longdouble[i] - output_bqf[i];
+        	//noise_df2[i] = output_df2_longdouble[i] - output_df2[i];
+//         	noise_bqf[i] = input_bqf_longdouble[i] - input_bqf[i];
         	//noise_df2_single[i]=float_double*(output_df2_single[i]-output_df2[i]);
         	//noise_bqf_single[i]=float_double*(output_bqf_single[i]-output_bqf[i]);
-            noise_df2_d[i]=(double)noise_df2[i];
-            noise_bqf_d[i]=(double)noise_bqf[i];
-	}*/
+            //noise_df2_d[i]=(double)noise_df2[i];
+//             noise_bqf_d[i]=(double)noise_bqf[i];
+            input_bqf[i]=(double)input_bqf_longdouble[i];
+	}
 	/*Write outputs to file, viz. the outputs and the noises. This file give_data.txt will be read by matlab. 
      Hence, file names have been used with reference to C code and not matlab */
 	//printf("\nin:%g\t gain: %g order:%d number:%d\t \n",input_bqf[1],iir[0].g,iir[0].order,iir[0].number);
@@ -357,9 +357,7 @@ void main()
 
     //fwrite(noise_df2_d,sizeof(double),length,fo);
 
-    //fwrite(noise_bqf_d,sizeof(double),length,fo);
-
-    //fprintf(fo,"%lf\n",float_double);
+//     fwrite(noise_bqf_d,sizeof(double),length,fo);
 
     //fprintf(fo,"%lf\n",noise_bqf_single[i]);
 	

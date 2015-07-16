@@ -68,6 +68,7 @@ void iir_bqf_double(double* input, double* output, int s, double **sos, double g
             out += sos[i][2]*w[i][1] + sos[i][3]*u[i][1];
         }
         output[j] = out;
+        
     }
 }
 

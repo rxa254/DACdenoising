@@ -7,9 +7,9 @@ function plot_snr(snr,channel,f,limit_snr)
     
     loglog(f,snr,'b',f,limit_snr,'r')
     grid on;
-    xlabel('index', 'FontSize', 16);
+    xlabel('frequency Hz', 'FontSize', 16);
     ylabel('SNR', 'FontSize', 16);
-    hLegend=legend('snr');
+    hLegend=legend(strcat('SNR:',strrep(channel, '_', '-')));
     set(hLegend,'FontSize', 12, 'Location', 'SouthOutside');
     set(gca, 'FontSize', 14);
     axis tight;
