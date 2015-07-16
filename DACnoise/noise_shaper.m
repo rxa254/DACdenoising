@@ -63,11 +63,17 @@ function noise_shaper()
     % bandstop filter. Removes quantization noise from a bandwidth of
     % rate/4 to rate/3.
     %Order =3 ; 3dB ripple in passband
-    band_stop=(rate_Hz/4);
-    band_pass=(rate_Hz/3);
-    [b, a] = cheby1(3, 3, [band_stop/(rate_Hz/2), band_pass/(rate_Hz/2)], 'stop');
+%     band_stop=(rate_Hz/120);
+%     band_pass=(rate_Hz/100);
+%     [b, a] = cheby1(3, 3, [band_stop/(rate_Hz/10), band_pass/(rate_Hz/10)], 'stop');
+%     display(strcat('stop band is between ',num2str(band_stop/rate_Hz),' Hz and ',num2str(band_pass/rate_Hz),' Hz'));
 %     b=1;
 %     a=1;
+    %high pass filter
+    pass_freq=5000;
+    [b, a] = cheby1(3, 3, pass_freq/(rate_Hz/2), 'high');
+    display(strcat('Cutoff frequency is ',num2str(pass_freq),' Hz'));
+    
 
 
     % *********************************************
@@ -84,14 +90,14 @@ function noise_shaper()
     % *********************************************
     % plot the filter response
     % *********************************************    
-    fNorm_Hz = linspace(-0.5, 0.5, 10000);
-    fPlot_Hz = rate_Hz * fNorm_Hz;
-    zInv = exp(-2i * pi * fNorm_Hz); 
-    H = polyval(b, zInv) ./ polyval(a, zInv);
+%     fNorm_Hz = linspace(0, 1, 10000);
+%     fPlot_Hz = rate_Hz * fNorm_Hz;
+%     zInv = exp(-2i * pi * fNorm_Hz); 
+%     H = polyval(b, zInv) ./ polyval(a, zInv);
     
     figure(2);
-    plot(fPlot_Hz / 1e6, 20*log10(abs(H) + eps));
-    xlabel('f / MHz');
+    freqz(b,a);
+    xlabel('f / Hz (Norm)');
     ylabel('dB');
     grid on;
     title('desired noise shaper frequency response H_{Target}');
@@ -155,7 +161,7 @@ function noise_shaper()
     td_spectrAnalyzer('signal', dowindow(tdOut2 - td), 'gcl_s', gcl_s, SAparams, 'fig', 1, 'plotStyle', 'm');
     legFig1{end+1} = 'quantizer output error (noise shaping)';
 
-    xlabel('f / MHz');
+    xlabel('f / Hz');
     ylabel('dB');
     title('noise shaping');    
     grid on;
@@ -171,8 +177,7 @@ end
 % infinite stairstep, no clipping
 % *********************************************
 function sOut = quant(s)
-    qf = 10;
-    sOut = 1/qf * floor(qf * s + 0.5);
+    sOut = roundfloat(s,18);
 end
 
 %function sOut = quant(s)
