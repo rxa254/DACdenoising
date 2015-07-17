@@ -71,10 +71,15 @@ function noise_shaper()
 %     a=1;
     %high pass filter
     pass_freq=5000;
-    [b, a] = cheby1(3, 3, pass_freq/(rate_Hz/2), 'high');
+%     Hd = designfilt('highpassiir', 'FilterOrder', 4, ...
+%              'PassbandFrequency', 5e3, 'PassbandRipple', 3,...
+%              'SampleRate', rate_Hz);
+%     [b,a]=tf(Hd);
+    [b, a] = cheby1(4, 3, pass_freq/(rate_Hz/2), 'high');
     display(strcat('Cutoff frequency is ',num2str(pass_freq),' Hz'));
     
-
+   
+    
 
     % *********************************************
     % plot the above filter response (impulse response
@@ -130,8 +135,10 @@ function noise_shaper()
     % quantErr is the quantization error of the -previous- sample
     % (because a unit delay was removed from the filter)
     quantErr = 0;
-%     n=numel(td)
-%     l=length(td)
+%     n=numel(bb)
+%     l=length(a)
+%     SOS=tf2sos(bb,a);
+
     for ix = 1 : numel(td);
         s = td(ix);
         
@@ -139,13 +146,19 @@ function noise_shaper()
         tdOut1(ix) = quant(s);
 
         % variant 2: quantization with noise shaping
+%         if(filterState ~= 0), f_in=filterState
+%         end
+        
         [filterOut, filterState] = filter(bb, a, quantErr, filterState);
+%             filterOut=sosfilt(SOS,quantErr);
+%         if(filterState ~=0), f=filterState
+%         end
         quantIn = s + filterOut;
         quantOut = quant(quantIn);
         quantErr = quantOut - quantIn;
         tdOut2(ix) = quantOut;
     end
-    
+%     length(filterState)
     % remove signal padding
     td = td(nPad+1:end);
     tdOut1 = tdOut1(nPad+1:end);
