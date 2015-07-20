@@ -30,8 +30,8 @@ function check_digital_system_forsite(name, channel, filter_bank)
     % Online parameters of the fitler module
     module_parameters = read_module_params_forsite(channel); %change when change the time and also for site
     
-   modules(filter_bank).sos
-   modules(filter_bank).order
+%    modules(filter_bank).sos
+%    modules(filter_bank).order
     % Filters that are switched on
     online_filters = find_online_filters(modules(filter_bank), module_parameters);
 
@@ -70,7 +70,7 @@ function check_digital_system_forsite(name, channel, filter_bank)
 %             offset=module_parameters.OFFSET;
         end
     
-        
+        f=fs
         
      
         % Calculate digital noise
@@ -104,6 +104,14 @@ function check_digital_system_forsite(name, channel, filter_bank)
     end
     pause(2)
 %     close all
-%     save_out=output_bqf;
+    fo=fopen('take_signal_shape.bin','wb');
+    if fo == -1
+        display('Error reading file');
+        return;
+    end
+    count=fwrite(fo,output_df2,'real*8')
+	fclose(fo);
+
+	
 end
 

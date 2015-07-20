@@ -10,10 +10,10 @@ double quant(double in)
 {
     //clipping quantizer model for 18bit conversion from double to drive the DAC
     int out;
-    if(in>=2e17-1)
-        out=(int)(2e17-1);
-    else if (in<=-2e17)
-        out=(int)-2e17;
+    if(in>=pow(2,17)-1)
+        out=(int)(pow(2,17)-1);
+    else if (in<=-pow(2,17))
+        out=(int)-pow(2,17);
     else
         out=(int)in;
     
@@ -23,8 +23,8 @@ double quant(double in)
 int noise_shaper(double sample, int num,double* history,double *quantErr,double *sos_shaper)
 {
  
-    double td,quantIn,filterOut,quantOut;
-    int tdOut1,tdOut2;
+    double td,quantIn,filterOut;
+    int tdOut1,tdOut2,quantOut;
     int i,j,k;
    
 //define input sample
@@ -51,14 +51,14 @@ int noise_shaper(double sample, int num,double* history,double *quantErr,double 
 //initialize history in the main function and also quantErr
 
 //         % variant 1: ordinary quantization
-    tdOut1 = quant(td);
+    tdOut1 = quanwt(td);
 
 //         % variant 2: quantization with noise shaping
 //         [filterOut, filterState] = filter(bb, a, quantErr, filterState);
         // Call iir_df2_double over here to filter the quantErr value. Change it so that it returns filterOut and filterState values, filter 
         //array has two elements one, filterOut and other is filterState
         
-    filterOut=iir_filter(quantErr[num-1],sos_shaper,2,history);
+    filterOut=iir_filter_biquad(quantErr[num-1],sos_shaper,order,history);
         
     quantIn = td + filterOut;
     quantOut = quant(quantIn);
@@ -66,24 +66,43 @@ int noise_shaper(double sample, int num,double* history,double *quantErr,double 
     tdOut2 = quantOut;
 //     end
 
-    return tdOut2;
+    return tdOut1;
 }
 
 void main()
 {
-    double *sos_shaper,in,*history,*quantErr;
+    double *sos_shaper,*history,*quantErr,*sos_bqf;
     int cutoff,i,j,k,rate_Hz,time,len;
-    rate_Hz=16384;
-    time=5;
+    rate_Hz=256;
+    time=32;
     len=rate_Hz*time;
-    double signal[len],output[len];
+    double *signal;
+    int output[len];
+    
+    signal = (double*) calloc(len,sizeof(double));
+//     output = (int*) calloc(len,sizeof(double));
+    
     for(i=0;i<len;i++)
     {
         signal[i]=0;
         output[i]=0;
     }
+    FILE *fp,*fo;
+    fp=fopen("take_signal_shape.bin","rb");
+    if(fp==NULL)
+	{
+		printf("\nError Reading File Signal \n");
+	}
+    
+    fread(signal,sizeof(double),len,fp);
+    fclose(fp);
+//     for(i=0;i<10;i++)
+//     {
+//        printf("%e\t",signal[i]);
+// //         output[i]=0;
+//     }
     //     % *********************************************
-//     % Design a filter that reflects the shape of the desired 
+//     % Design a filter that reflects the shape of the desired
 //     % noise spectrum
 //     % *********************************************    
 
@@ -113,21 +132,48 @@ void main()
 //     bb = b / b(1);
 //     bb = bb(2:end) - a(2:end);
   
-    
-    
-    sos_shaper = (double*) calloc(4*2+1,sizeof(double));
-   
-    sos_shaper[0]=-1.21288029783148e+000;    
-    sos_shaper[1]=-1.00983263655467e+000;
-    sos_shaper[2]=490.690130890380e-003;
-    sos_shaper[3]=-479.960130094104e-003;
+
+    sos_shaper = (double*) calloc(4*order+1,sizeof(double));
+    sos_bqf = (double*) calloc(4*order+1,sizeof(double));
+    for(i=0;i<4*order+1;i++)
+    {
+        sos_bqf[i]=0;
+    }
+       
+    sos_shaper[0]= -7.16666369345789e+000;    
+    sos_shaper[1]=1.66333626313567e+000;
+    sos_shaper[2]=748.951681198949e-003;
+    sos_shaper[3]=-50.2369075537173e-003;
     sos_shaper[4]=0.00000000000000e+000;
-    
-    sos_shaper[5]=-1.77728706561385e+000;
-    sos_shaper[6]=932.086144148644e-003;
-    sos_shaper[7]=-1.81413372776837e+000;
-    sos_shaper[8]=932.146816677966e-003;
-    
+    sos_shaper[5]=1.50332743032223e+000;
+    sos_shaper[6]=896.395299613632e-003;
+    sos_shaper[7]=-208.476779633591e-003;
+    sos_shaper[8]= 912.819212144482e-003;
+
+//     sos_shaper[0]=-1.21288029783148e+000;    
+//     sos_shaper[1]=-1.00983263655467e+000;
+//     sos_shaper[2]=490.690130890380e-003;
+//     sos_shaper[3]=-479.960130094104e-003;
+//     sos_shaper[4]=0.00000000000000e+000;
+//     
+//     sos_shaper[5]=-1.77728706561385e+000;
+//     sos_shaper[6]=932.086144148644e-003;
+//     sos_shaper[7]=-1.81413372776837e+000;
+//     sos_shaper[8]=932.146816677966e-003;
+//     
+    sos_bqf[0]=sos_shaper[0];
+    sos_bqf[1] = sos_shaper[1] - 1; //start filling in values of sos_bqf
+    //printf("\n\n\n\n\nEntered Loop4\n\n\n");
+    sos_bqf[2] =sos_shaper[1] - sos_shaper[2] - 1;
+    sos_bqf[3] = sos_shaper[3] - sos_shaper[1];
+    sos_bqf[4] =sos_shaper[4] - sos_shaper[2] + sos_shaper[3] -sos_shaper[1];
+    //printf("\n\n\n\n\nEntered Loop5\n\n\n");
+    sos_bqf[5] = sos_shaper[5] - 1; //start filling in values of sos_bqf
+    //printf("\n\n\n\n\nEntered Loop4\n\n\n");
+    sos_bqf[6] =sos_shaper[5] - sos_shaper[6] - 1;
+    sos_bqf[7] = sos_shaper[7] - sos_shaper[5];
+    sos_bqf[8] =sos_shaper[8] - sos_shaper[6] + sos_shaper[7] -sos_shaper[5];
+
     history= (double*) calloc(2*order,sizeof(double));
  	quantErr=(double*) calloc(len,sizeof(double));
     //initialize to zero
@@ -136,14 +182,41 @@ void main()
     {
 
         history[k] = 0;
-        quantErr[k]=0;
+      
 
     }
-    cutoff=1000;
+    for(k=0; k<len; k++) 
+    {
+
+       quantErr[k] = 0;
+      
+
+    }
+    cutoff=100;
     printf("The cut off frequency for the high pass noise shaping filter is %d Hz\n",cutoff);
 
     for(i=0;i<len;i++)
     {
-        output[i]=noise_shaper(in,i+1,history,quantErr,sos_shaper);
+        output[i]=noise_shaper(signal[i],i,history,quantErr,sos_shaper);
     }
+    for(i=0;i<10;i++)
+    {
+       printf("%e\t",signal[i]);
+       printf("%d\t",output[i]);
+//         output[i]=0;
+    }
+    fo=fopen("shaped_out.txt","w");
+	//printing output of df2 to the file
+    if(fo==NULL)
+	{
+		printf("\nError Reading File Signal \n");
+	}
+    printf("\n\nWriting Back to file\n");
+    for(i=0;i<len;i++)
+    {
+        fprintf(fo,"%d\n",output[i]);
+    }
+	fclose(fo);
+    printf("Noise shaping completed and output written to file\n");
+	
 }

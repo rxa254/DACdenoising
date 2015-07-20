@@ -61,3 +61,42 @@ inline double iir_filter(double input,double *coef,int n,double *history)
   
   return(output);
 }
+
+inline double iir_filter_biquad(double input,double *coef,int n,double *history){
+
+  int i;
+  double *coef_ptr;
+  double *hist1_ptr,*hist2_ptr;
+  double output,new_w, new_u, w, u, a11, a12, c1, c2;
+
+  coef_ptr = coef;                /* coefficient pointer */
+  
+  hist1_ptr = history;            /* first history */
+  hist2_ptr = hist1_ptr + 1;      /* next history */
+  
+  output = input * (*coef_ptr++); /* overall input scale factor */
+  
+  for(i = 0 ; i < n ; i++) {
+    
+    w = *hist1_ptr; 
+    u = *hist2_ptr;
+    
+    a11 = *coef_ptr++;
+    a12 = *coef_ptr++;
+    c1  = *coef_ptr++;
+    c2  = *coef_ptr++;
+    
+    new_w = output + a11 * w + a12 * u;
+    output = output + w * c1 + u * c2;
+    new_u = w + u;   
+
+    *hist1_ptr++ = new_w;
+    *hist2_ptr++ = new_u;
+    hist1_ptr++;
+    hist2_ptr++;
+    
+  }
+  
+  //if((output < 1e-28) && (output > -1e-28)) output = 0.0;
+  return(output);
+}

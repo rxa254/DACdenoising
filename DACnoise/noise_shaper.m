@@ -1,15 +1,26 @@
 function noise_shaper()
     close all;
-    load('saved_out_DARM.mat');
+%     load('saved_out_DARM.mat');
+    
     % sampling rate
 %     rate_Hz = 524.288e3; 
 %     rate_Hz = 16.384e3;
-    rate_Hz=length(save_out)/32;
+%     rate_Hz=length(save_out)/32;
+    rate_Hz=256;
     
     exponent=(numel(num2str(rate_Hz))-5);
     const=10^-exponent;
     % signal duration in seconds
     gcl_s = 32;
+    len=gcl_s*rate_Hz;
+    fi=fopen('take_signal_shape.bin','rb');
+    if fi==-1
+        display('error reading file');
+        return
+    end
+    [save_out,~]=fread(fi,len,'real*8');
+    fclose(fi);
+  
     RBW_window=rate_Hz/2.5e3;
     RBW_power=rate_Hz/2e1;
     pRef_W=const*rate_Hz/4e6;
@@ -23,6 +34,8 @@ function noise_shaper()
                       'filter', 'brickwall', ...
                       'noisefloor_dB', -150);    
     td=save_out';
+%     td(1:10)
+%     length(td)
 %     td(rate_Hz-1)=0;
 %     td(rate_Hz)=0;
     % *********************************************
@@ -70,7 +83,7 @@ function noise_shaper()
 %     b=1;
 %     a=1;
     %high pass filter
-    pass_freq=5000;
+    pass_freq=100;
 %     Hd = designfilt('highpassiir', 'FilterOrder', 4, ...
 %              'PassbandFrequency', 5e3, 'PassbandRipple', 3,...
 %              'SampleRate', rate_Hz);
@@ -114,7 +127,8 @@ function noise_shaper()
     % *********************************************    
     bb = b / b(1);
     bb = bb(2:end) - a(2:end);
-        
+%     Hd = dfilt.df2t(bb,a);
+%     sos2=tf2sos(bb,a);
     % *********************************************
     % Simulate
     % *********************************************    
@@ -149,7 +163,7 @@ function noise_shaper()
 %         if(filterState ~= 0), f_in=filterState
 %         end
         
-        [filterOut, filterState] = filter(bb, a, quantErr, filterState);
+        [filterOut, filterState] = filter(bb,a, quantErr, filterState);
 %             filterOut=sosfilt(SOS,quantErr);
 %         if(filterState ~=0), f=filterState
 %         end
@@ -158,12 +172,19 @@ function noise_shaper()
         quantErr = quantOut - quantIn;
         tdOut2(ix) = quantOut;
     end
+    
 %     length(filterState)
     % remove signal padding
     td = td(nPad+1:end);
     tdOut1 = tdOut1(nPad+1:end);
     tdOut2 = tdOut2(nPad+1:end);
-
+    fid=fopen('shaped_out.txt','r');
+    if fid==-1
+        display('error opening file')
+    end
+    tdOut2=fscanf(fid,'%d',len);
+    tdOut2=tdOut2';
+    
     % *********************************************
     % Plot quantization noise ("-td" subtracts the ideal
     % output and leaves only the error)
@@ -183,6 +204,10 @@ function noise_shaper()
     figure(); hold on;
     plot(real(td), 'k');
     plot(real(tdOut2), 'b');
+    
+    fi=fopen('match_data.txt','w');
+    fprintf(fi,'%d\n',tdOut1);
+    fclose(fi);
 end
 
 % *********************************************
@@ -190,7 +215,14 @@ end
 % infinite stairstep, no clipping
 % *********************************************
 function sOut = quant(s)
-    sOut = roundfloat(s,18);
+   
+    if s>=2^(17)-1
+        sOut=round(2^(17)-1);
+    elseif s<=-2^(17)
+        sOut=round(-2^(17));
+    else
+        sOut=round(s);
+    end
 end
 
 %function sOut = quant(s)
