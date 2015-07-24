@@ -1,6 +1,6 @@
 function noise_shaper()
     close all;
-    load('saved_out_DARM.mat');
+%     load('saved_out_DARM.mat');
     
     % sampling rate
 %     rate_Hz = 524.288e3; 
@@ -45,7 +45,7 @@ function noise_shaper()
 %     td = randn(1, floor(gcl_s * rate_Hz + 0.5));
          %+ 1i * randn(1, floor(gcl_s * rate_Hz + 0.5));
 %     length(td)
-    a=td;
+
 %     if true
 %         % filter to turn it into an oversampled narrow-band signal
 %         fd = fft(td);
@@ -53,9 +53,7 @@ function noise_shaper()
 %         fd(abs(fb) > 2*10^(3+exponent)) = 0;
 %         td = ifft(fd);
 %     end
-    if(td ~= a)
-        display('Gotcha!');
-    end
+
 %     length(td)
 %     if false
 %         % use real-valued signal
@@ -196,13 +194,13 @@ function noise_shaper()
     fprintf(fi,'%d\n',tdOut2);
     fclose(fi);
 
-%%%% PLOT C code output %%%
+%%%% PLOT C code output , should be commented when MATLAB code is being tested%%%
     fid=fopen('shaped_out.txt','r');
     if fid==-1
         display('error opening file')
     end
-    tdOut2=fscanf(fid,'%d',len);
-    tdOut2=tdOut2';
+    err=fscanf(fid,'%g',len);
+    err=err';
     fclose(fid);
 
 %     tdOut2(1:10)
@@ -213,7 +211,7 @@ function noise_shaper()
     td_spectrAnalyzer('signal', dowindow(tdOut1 - td), 'gcl_s', gcl_s, SAparams, 'fig', 1, 'plotStyle', 'r');
     legFig1{end+1} = 'quantizer output error (no noise shaping)';
 
-    td_spectrAnalyzer('signal', dowindow(tdOut2 - td), 'gcl_s', gcl_s, SAparams, 'fig', 1, 'plotStyle', 'm');
+    td_spectrAnalyzer('signal', dowindow(err), 'gcl_s', gcl_s, SAparams, 'fig', 1, 'plotStyle', 'm');
     legFig1{end+1} = 'quantizer output error (noise shaping)';
 
     xlabel('f / Hz');

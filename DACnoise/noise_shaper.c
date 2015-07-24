@@ -82,7 +82,7 @@ void main()
     rate_Hz=256;
     time=32;
     len=rate_Hz*time;
-    double *signal;
+    double *signal,err[len];
     int output[len];
     
     signal = (double*) calloc(len,sizeof(double));
@@ -211,6 +211,10 @@ void main()
        printf("%d\t",output[i]);
 //         output[i]=0;
     }
+    for(i=0;i<len;i++)
+    {
+        err[i]=output[i]-signal[i];
+    }
     fo=fopen("shaped_out.txt","w");
 	//printing output of df2 to the file
     if(fo==NULL)
@@ -220,7 +224,7 @@ void main()
     printf("\n\nWriting Back to file\n");
     for(i=0;i<len;i++)
     {
-        fprintf(fo,"%d\n",output[i]);
+        fprintf(fo,"%g\n",err[i]);
     }
 	fclose(fo);
     printf("Noise shaping completed and output written to file\n");
