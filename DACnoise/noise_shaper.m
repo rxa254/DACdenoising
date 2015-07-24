@@ -1,6 +1,6 @@
 function noise_shaper()
     close all;
-%     load('saved_out_DARM.mat');
+    load('saved_out_DARM.mat');
     
     % sampling rate
 %     rate_Hz = 524.288e3; 
@@ -45,22 +45,26 @@ function noise_shaper()
 %     td = randn(1, floor(gcl_s * rate_Hz + 0.5));
          %+ 1i * randn(1, floor(gcl_s * rate_Hz + 0.5));
 %     length(td)
-    if true
-        % filter to turn it into an oversampled narrow-band signal
-        fd = fft(td);
-        fb = freqbase(numel(fd)) * rate_Hz;
-        fd(abs(fb) > 2*10^(3+exponent)) = 0;
-        td = ifft(fd);
+    a=td;
+%     if true
+%         % filter to turn it into an oversampled narrow-band signal
+%         fd = fft(td);
+%         fb = freqbase(numel(fd)) * rate_Hz;
+%         fd(abs(fb) > 2*10^(3+exponent)) = 0;
+%         td = ifft(fd);
+%     end
+    if(td ~= a)
+        display('Gotcha!');
     end
 %     length(td)
-    if false
-        % use real-valued signal
-        td = real(td);
-    else
-        % keep complex-valued but scale
-        td = sqrt(1/2) * td;
-    end
-        
+%     if false
+%         % use real-valued signal
+%         td = real(td);
+%     else
+%         % keep complex-valued but scale
+%         td = sqrt(1/2) * td;
+%     end
+%         
     % *********************************************
     % plot input signal spectrum
     % *********************************************
@@ -83,15 +87,22 @@ function noise_shaper()
 %     b=1;
 %     a=1;
     %high pass filter
-    pass_freq=100;
+    factor=0.8;
+    pass_freq=factor*(rate_Hz/2);
 %     Hd = designfilt('highpassiir', 'FilterOrder', 4, ...
 %              'PassbandFrequency', 5e3, 'PassbandRipple', 3,...
 %              'SampleRate', rate_Hz);
 %     [b,a]=tf(Hd);
-    [b, a] = cheby1(4, 3, pass_freq/(rate_Hz/2), 'high');
+%     [b, a] = cheby1(4, 3, factor, 'high');
     display(strcat('Cutoff frequency is ',num2str(pass_freq),' Hz'));
     
-   
+    hpFilt = designfilt('highpassiir', 'FilterOrder', 4, ...
+             'PassbandFrequency', pass_freq, 'PassbandRipple', 3,...
+             'SampleRate', rate_Hz);
+    sos=hpFilt.Coefficients;
+    
+    [b,a]=sos2tf(sos);
+    
     
 
     % *********************************************
@@ -127,6 +138,8 @@ function noise_shaper()
     % *********************************************    
     bb = b / b(1);
     bb = bb(2:end) - a(2:end);
+    sos_s=tf2sos(bb,a);
+    [gain,sos_shape]=sos_shuffle(sos_s);
 %     Hd = dfilt.df2t(bb,a);
 %     sos2=tf2sos(bb,a);
     % *********************************************
@@ -135,9 +148,9 @@ function noise_shaper()
     % Signal padding: 
     % replicate the end of the (cyclic!) signal to give the filter
     % time to settle. This part of the result will be discarded.
-    nPad=10^((numel(num2str(length(td)))-2));
-%     nPad=1000;
-    td = [td(end-nPad+1:end) td];
+%     nPad=10^((numel(num2str(length(td)))-2));
+% %     nPad=1000;
+%     td = [td(end-nPad+1:end) td];
 
     tdOut1 = zeros(size(td));
     tdOut2 = zeros(size(td));
@@ -175,16 +188,24 @@ function noise_shaper()
     
 %     length(filterState)
     % remove signal padding
-    td = td(nPad+1:end);
-    tdOut1 = tdOut1(nPad+1:end);
-    tdOut2 = tdOut2(nPad+1:end);
+%     td = td(nPad+1:end);
+%     tdOut1 = tdOut1(nPad+1:end);
+%     tdOut2 = tdOut2(nPad+1:end);
+    %write the output to file to match with C code%%
+    fi=fopen('match_data.txt','w');
+    fprintf(fi,'%d\n',tdOut2);
+    fclose(fi);
+
+%%%% PLOT C code output %%%
     fid=fopen('shaped_out.txt','r');
     if fid==-1
         display('error opening file')
     end
     tdOut2=fscanf(fid,'%d',len);
     tdOut2=tdOut2';
-    
+    fclose(fid);
+
+%     tdOut2(1:10)
     % *********************************************
     % Plot quantization noise ("-td" subtracts the ideal
     % output and leaves only the error)
@@ -205,21 +226,21 @@ function noise_shaper()
     plot(real(td), 'k');
     plot(real(tdOut2), 'b');
     
-    fi=fopen('match_data.txt','w');
-    fprintf(fi,'%d\n',tdOut1);
-    fclose(fi);
+    
 end
 
 % *********************************************
 % quantizer model: 
-% infinite stairstep, no clipping
+% 18 bit integer round off with clipping
 % *********************************************
 function sOut = quant(s)
-   
+%     sOut=roundfloat(s,18);
     if s>=2^(17)-1
+        display('clipping1');
         sOut=round(2^(17)-1);
     elseif s<=-2^(17)
         sOut=round(-2^(17));
+        display('clipping');
     else
         sOut=round(s);
     end

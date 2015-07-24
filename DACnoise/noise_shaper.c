@@ -11,9 +11,15 @@ double quant(double in)
     //clipping quantizer model for 18bit conversion from double to drive the DAC
     int out;
     if(in>=pow(2,17)-1)
+    {
         out=(int)(pow(2,17)-1);
+        printf("Clipping11\n");
+    }
     else if (in<=-pow(2,17))
+    {
         out=(int)-pow(2,17);
+        printf("Clipping\n");
+    }
     else
         out=(int)in;
     
@@ -51,14 +57,14 @@ int noise_shaper(double sample, int num,double* history,double *quantErr,double 
 //initialize history in the main function and also quantErr
 
 //         % variant 1: ordinary quantization
-    tdOut1 = quanwt(td);
-
+    tdOut1 = quant(td);
+    
 //         % variant 2: quantization with noise shaping
 //         [filterOut, filterState] = filter(bb, a, quantErr, filterState);
         // Call iir_df2_double over here to filter the quantErr value. Change it so that it returns filterOut and filterState values, filter 
         //array has two elements one, filterOut and other is filterState
         
-    filterOut=iir_filter_biquad(quantErr[num-1],sos_shaper,order,history);
+    filterOut=iir_filter(quantErr[num-1],sos_shaper,order,history);
         
     quantIn = td + filterOut;
     quantOut = quant(quantIn);
@@ -66,7 +72,7 @@ int noise_shaper(double sample, int num,double* history,double *quantErr,double 
     tdOut2 = quantOut;
 //     end
 
-    return tdOut1;
+    return tdOut2;
 }
 
 void main()
@@ -140,15 +146,15 @@ void main()
         sos_bqf[i]=0;
     }
        
-    sos_shaper[0]= -7.16666369345789e+000;    
-    sos_shaper[1]=1.66333626313567e+000;
-    sos_shaper[2]=748.951681198949e-003;
-    sos_shaper[3]=-50.2369075537173e-003;
+    sos_shaper[0]= -7.26916646278976e+000;    
+    sos_shaper[1]=1.69678853197248e+000;
+    sos_shaper[2]=768.485604426078e-003;
+    sos_shaper[3]=-45.7163559823221e-003;
     sos_shaper[4]=0.00000000000000e+000;
-    sos_shaper[5]=1.50332743032223e+000;
-    sos_shaper[6]=896.395299613632e-003;
-    sos_shaper[7]=-208.476779633591e-003;
-    sos_shaper[8]= 912.819212144482e-003;
+    sos_shaper[5]=1.57237793081728e+000;
+    sos_shaper[6]=903.801801036295e-003;
+    sos_shaper[7]=-182.606899798957e-003;
+    sos_shaper[8]=919.118647398404e-003;
 
 //     sos_shaper[0]=-1.21288029783148e+000;    
 //     sos_shaper[1]=-1.00983263655467e+000;
@@ -192,8 +198,8 @@ void main()
       
 
     }
-    cutoff=100;
-    printf("The cut off frequency for the high pass noise shaping filter is %d Hz\n",cutoff);
+//     cutoff=100;
+//     printf("The cut off frequency for the high pass noise shaping filter is %d Hz\n",cutoff);
 
     for(i=0;i<len;i++)
     {
