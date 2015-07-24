@@ -18,7 +18,7 @@ double iir_df2_double(double input, double **sos, double g, int n)
             w[i][1] = w[i][0];
             w[i][0] = out - sos[i][0]*w[i][1] - sos[i][1]*w[i][2];
             out = w[i][0] + sos[i][2]*w[i][1] + sos[i][3]*w[i][2];
-            printf("\t%g",out);
+//             printf("\t%g",out);
         }
 //         output[j] = out;
 //     }

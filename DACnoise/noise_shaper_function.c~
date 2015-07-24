@@ -1,0 +1,50 @@
+
+//The call should look like: noise_shaper(input,history,&quantErr,sos_shaper)
+
+#include<math.h>
+#include<stdio.h>
+#include "noise_shaping_filter.c"
+
+#define order 2
+
+int noise_shaper(double sample,double *history,double *quantErr, double *sos_shaper)
+{
+//sos_shaper is the coefficients array having 4*order + 1 elements (gain) ,
+//Gain is the first element, and the coefficients need to be defined in the main function before calling this shaper function
+//initialize and allocate memory for history in the main function and also quantErr
+    
+    double td,quantIn,filterOut;
+    int tdOut1,tdOut2,quantOut;
+    int i,j,k;
+
+//define input sample
+    td=sample;
+//Initialize output sample to zero
+    tdOut2=0;
+
+
+
+//filtering noise (previous sample of the noise needs to be filtered
+    filterOut=iir_filter(*quantErr,sos_shaper,order,history);
+    printf("%f\n",*quantErr);
+    quantIn = td + filterOut;
+    quantOut = quant(quantIn);
+    *quantErr= quantOut - quantIn;
+    printf("%f\n",*quantErr);
+    tdOut2 = quantOut;
+//     end by returning the shaped output sample.
+
+    return tdOut2;
+}
+
+
+//The quant function can be replaced by another quantizer model 
+double quant(double in)
+{
+
+    int out;
+
+    out=(int)in;
+    
+    return out;
+}
