@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.26)  10 AUG 2015 14:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.26)  10 AUG 2015 17:16
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
-**Progress_Report_II.tex
-(./Progress_Report_II.tex
+**final_report.tex
+(./final_report.tex
 LaTeX2e <2011/06/27>
 Babel <3.9h> and hyphenation patterns for 78 languages loaded.
 (./ligodoc.cls
@@ -414,36 +414,253 @@ Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
 \f@ncyO@olf=\skip72
 \f@ncyO@orf=\skip73
 )
-(./Progress_Report_II.aux)
-\openout1 = `Progress_Report_II.aux'.
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty
+Package: biblatex 2013/11/25 v2.8a programmable bibliographies (PK/JW/AB)
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
+
+Package biblatex Warning: No "backend" specified, using Biber backend.
+(biblatex)                To use BibTeX, load biblatex with 
+(biblatex)                the "backend=bibtex" option.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex2.sty
+Package: biblatex2 2013/11/25 v2.8a programmable bibliographies (biber) (PK/JW/
+AB)
+
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/etex-pkg/etex.sty
+Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
+\et@xins=\count130
+)
+\etb@tempcnta=\count131
+)
+(/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count132
+
+(/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+))
+\c@tabx@nest=\count133
+\c@listtotal=\count134
+\c@listcount=\count135
+\c@liststart=\count136
+\c@liststop=\count137
+\c@citecount=\count138
+\c@citetotal=\count139
+\c@multicitecount=\count140
+\c@multicitetotal=\count141
+\c@instcount=\count142
+\c@maxnames=\count143
+\c@minnames=\count144
+\c@maxitems=\count145
+\c@minitems=\count146
+\c@citecounter=\count147
+\c@savedcitecounter=\count148
+\c@uniquelist=\count149
+\c@uniquename=\count150
+\c@refsection=\count151
+\c@refsegment=\count152
+\c@maxextratitle=\count153
+\c@maxextratitleyear=\count154
+\c@maxextrayear=\count155
+\c@maxextraalpha=\count156
+\c@abbrvpenalty=\count157
+\c@highnamepenalty=\count158
+\c@lownamepenalty=\count159
+\c@maxparens=\count160
+\c@parenlevel=\count161
+\blx@tempcnta=\count162
+\blx@tempcntb=\count163
+\blx@tempcntc=\count164
+\blx@maxsection=\count165
+\blx@maxsegment@0=\count166
+\blx@notetype=\count167
+\blx@parenlevel@text=\count168
+\blx@parenlevel@foot=\count169
+\blx@sectionciteorder@0=\count170
+\labelnumberwidth=\skip74
+\labelalphawidth=\skip75
+\shorthandwidth=\skip76
+\biblabelsep=\skip77
+\bibitemsep=\skip78
+\bibnamesep=\skip79
+\bibinitsep=\skip80
+\bibparsep=\skip81
+\bibhang=\skip82
+\blx@bcfin=\read1
+\blx@bcfout=\write3
+\c@mincomprange=\count171
+\c@maxcomprange=\count172
+\c@mincompwidth=\count173
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-dm.def)
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count174
+\c@savedafterword=\count175
+\c@annotator=\count176
+\c@savedannotator=\count177
+\c@author=\count178
+\c@savedauthor=\count179
+\c@bookauthor=\count180
+\c@savedbookauthor=\count181
+\c@commentator=\count182
+\c@savedcommentator=\count183
+\c@editor=\count184
+\c@savededitor=\count185
+\c@editora=\count186
+\c@savededitora=\count187
+\c@editorb=\count188
+\c@savededitorb=\count189
+\c@editorc=\count190
+\c@savededitorc=\count191
+\c@foreword=\count192
+\c@savedforeword=\count193
+\c@holder=\count194
+\c@savedholder=\count195
+\c@introduction=\count196
+\c@savedintroduction=\count197
+\c@namea=\count198
+\c@savednamea=\count199
+\c@nameb=\count200
+\c@savednameb=\count201
+\c@namec=\count202
+\c@savednamec=\count203
+\c@shortauthor=\count204
+\c@savedshortauthor=\count205
+\c@shorteditor=\count206
+\c@savedshorteditor=\count207
+\c@translator=\count208
+\c@savedtranslator=\count209
+\c@labelname=\count210
+\c@savedlabelname=\count211
+\c@institution=\count212
+\c@savedinstitution=\count213
+\c@lista=\count214
+\c@savedlista=\count215
+\c@listb=\count216
+\c@savedlistb=\count217
+\c@listc=\count218
+\c@savedlistc=\count219
+\c@listd=\count220
+\c@savedlistd=\count221
+\c@liste=\count222
+\c@savedliste=\count223
+\c@listf=\count224
+\c@savedlistf=\count225
+\c@location=\count226
+\c@savedlocation=\count227
+\c@organization=\count228
+\c@savedorganization=\count229
+\c@origlocation=\count230
+\c@savedoriglocation=\count231
+\c@origpublisher=\count232
+\c@savedorigpublisher=\count233
+Normal \count register pool exhausted, switching to extended pool.
+\c@publisher=\count277
+\c@savedpublisher=\count278
+\c@language=\count279
+\c@savedlanguage=\count280
+\c@pageref=\count281
+\c@savedpageref=\count282
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2013/11/25 v2.8a biblatex compatibility (PK/JW/AB)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
+File: biblatex.def 
+\c@textcitecount=\count283
+\c@textcitetotal=\count284
+\c@textcitemaxnames=\count285
+\c@biburlnumpenalty=\count286
+\c@biburlucpenalty=\count287
+\c@biburllcpenalty=\count288
+\c@smartand=\count289
+)
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
+File: numeric.bbx 2013/11/25 v2.8a biblatex bibliography style (PK/JW/AB)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+File: standard.bbx 2013/11/25 v2.8a biblatex bibliography style (PK/JW/AB)
+\c@bbx:relatedcount=\count290
+\c@bbx:relatedtotal=\count291
+))
+Package biblatex Info: Trying to load citation style 'numeric'...
+Package biblatex Info: ... file 'numeric.cbx' found.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
+File: numeric.cbx 2013/11/25 v2.8a biblatex citation style (PK/JW/AB)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.cfg
+File: biblatex.cfg 
+)))
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2013/11/25 v2.8a biblatex localization (PK/JW/AB)
+)
+\@quotelevel=\count292
+\@quotereset=\count293
+
+(./final_report.aux)
+\openout1 = `final_report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count130
+\scratchcounter=\count294
 \scratchdimen=\dimen133
 \scratchbox=\box36
-\nofMPsegments=\count131
-\nofMParguments=\count132
+\nofMPsegments=\count295
+\nofMParguments=\count296
 \everyMPshowfont=\toks27
-\MPscratchCnt=\count133
+\MPscratchCnt=\count297
 \MPscratchDim=\dimen134
-\MPnumerator=\count134
-\makeMPintoPDFobject=\count135
+\MPnumerator=\count298
+\makeMPintoPDFobject=\count299
 \everyMPtoPDFconversion=\toks28
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -461,7 +678,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box37
-Package hyperref Info: Link coloring ON on input line 24.
+Package hyperref Info: Link coloring ON on input line 29.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -469,38 +686,38 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count136
+\c@section@level=\count300
 )
-LaTeX Info: Redefining \ref on input line 24.
-LaTeX Info: Redefining \pageref on input line 24.
-LaTeX Info: Redefining \nameref on input line 24.
+LaTeX Info: Redefining \ref on input line 29.
+LaTeX Info: Redefining \pageref on input line 29.
+LaTeX Info: Redefining \nameref on input line 29.
 
-(./Progress_Report_II.out) (./Progress_Report_II.out)
-\@outlinefile=\write3
-\openout3 = `Progress_Report_II.out'.
+(./final_report.out) (./final_report.out)
+\@outlinefile=\write4
+\openout4 = `final_report.out'.
 
-LaTeX Font Info:    Try loading font information for U+lasy on input line 24.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 29.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 24.
+LaTeX Font Info:    Try loading font information for U+msa on input line 29.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 24.
+LaTeX Font Info:    Try loading font information for U+msb on input line 29.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <22> not available
-(Font)              size <20.74> substituted on input line 24.
+(Font)              size <20.74> substituted on input line 29.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <22> not available
-(Font)              size <20.74> substituted on input line 24.
+(Font)              size <20.74> substituted on input line 29.
 
 [1
 
@@ -510,6 +727,30 @@ Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: float package is loaded.
 Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
+Package biblatex Info: No input encoding detected.
+(biblatex)             Assuming 'ascii'.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'ascii'.
+\openout3 = `final_report.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'final_report.bbl' found.
+ (./final_report.bbl)
+Package biblatex Info: Reference section=0 on input line 29.
+Package biblatex Info: Reference segment=0 on input line 29.
+
+
+LaTeX Warning: Citation 'Cosman' on page 1 undefined on input line 34.
+
+
+LaTeX Warning: Citation 'Examples' on page 1 undefined on input line 45.
+
+
+Overfull \hbox (3.18094pt too wide) in paragraph at lines 44--46
+\OT1/cmr/m/n/12 Some other ex-am-ples with re-spect to quan-ti-za-tion in im-ag
+e pro-cess-ing are given in [[]
+ []
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -520,9 +761,22 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.32 	\subsection
-                 {Signal to Noise Ratio (SNR) Dependence on Digital Filter S...
+l.50 \subsection{Quantizing Theorem I and II}
+                                              Widrow and Koll\'ar in \cite{K...
 [1]
+
+LaTeX Warning: Citation 'Kollar' on page 2 undefined on input line 50.
+
+
+LaTeX Warning: Citation 'Kollar' on page 2 undefined on input line 50.
+
+
+LaTeX Warning: Citation 'Kollar' on page 2 undefined on input line 57.
+
+
+LaTeX Warning: Citation 'Kollar' on page 2 undefined on input line 59.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -530,6 +784,26 @@ Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
 [2]
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--71
+
+ []
+
+
+LaTeX Warning: Citation 'Quantization' on page 3 undefined on input line 72.
+
+(./Quantization_Error_Wave.pdf_tex
+<Quantization_Error_Wave.pdf, id=173, 269.104pt x 145.937pt>
+File: Quantization_Error_Wave.pdf Graphic file (type pdf)
+
+<use Quantization_Error_Wave.pdf>
+Package pdftex.def Info: Quantization_Error_Wave.pdf used on input line 52.
+(pdftex.def)             Requested size: 269.10399pt x 145.94107pt.
+)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -537,16 +811,45 @@ Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
 [3]
+
+LaTeX Warning: Citation 'Git' on page 4 undefined on input line 129.
+
+
+LaTeX Warning: Citation 'Pandey' on page 4 undefined on input line 131.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 69--71
+[4 <./Quantization_Error_Wave.pdf>]
+
+LaTeX Warning: Citation 'Z transform' on page 5 undefined on input line 134.
+
+
+LaTeX Warning: Citation 'Oppenheim' on page 5 undefined on input line 135.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--138
 
  []
+
+
+LaTeX Warning: Citation 'Oppenheim' on page 5 undefined on input line 139.
+
+
+LaTeX Warning: Citation 'Rahmanian' on page 5 undefined on input line 139.
+
+
+LaTeX Warning: Citation 'Oppenheim' on page 5 undefined on input line 140.
+
+
+LaTeX Warning: Citation 'Rahmanian' on page 5 undefined on input line 140.
+
+
+LaTeX Warning: Citation 'T L Chang' on page 5 undefined on input line 141.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -556,6 +859,16 @@ Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
 [5]
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
+
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -563,26 +876,188 @@ Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
 [6]
+
+LaTeX Warning: Citation 'Kaiser' on page 7 undefined on input line 172.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 172--174
+
+ []
+
+
+LaTeX Warning: Citation 'Oppenheim' on page 7 undefined on input line 175.
+
+
+LaTeX Warning: Citation 'Oppenheim' on page 7 undefined on input line 175.
+
+
+LaTeX Warning: Citation 'Kollar' on page 7 undefined on input line 178.
+
+
+LaTeX Warning: Citation 'Matts' on page 7 undefined on input line 178.
+
+
+LaTeX Warning: Citation 'Matts' on page 7 undefined on input line 178.
+
+
+LaTeX Warning: Citation 'Matts' on page 7 undefined on input line 178.
+
+
+LaTeX Warning: Citation 'Zeng' on page 7 undefined on input line 179.
+
+
+LaTeX Warning: Citation 'Chang' on page 7 undefined on input line 180.
+
+
+LaTeX Warning: Citation 'Chang' on page 7 undefined on input line 180.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[7] (./H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf_tex
-<H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf, id=194, 1096.095pt x 616.70403pt>
+[7]
+
+LaTeX Warning: Citation 'Chang' on page 8 undefined on input line 191.
+
+
+LaTeX Warning: Citation 'Mullis' on page 8 undefined on input line 191.
+
+
+LaTeX Warning: Citation 'Bomar' on page 8 undefined on input line 192.
+
+
+LaTeX Warning: Citation 'Dehner' on page 8 undefined on input line 192.
+
+
+LaTeX Warning: Citation 'Dehner' on page 8 undefined on input line 192.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--194
+
+ []
+
+
+LaTeX Warning: Citation 'Oppenheim' on page 8 undefined on input line 195.
+
+
+LaTeX Warning: Citation 'Cerna' on page 8 undefined on input line 195.
+
+
+LaTeX Warning: Citation 'Kanner' on page 8 undefined on input line 195.
+
+
+LaTeX Warning: Citation 'Welch' on page 8 undefined on input line 195.
+
+
+LaTeX Warning: Citation 'LIGO' on page 8 undefined on input line 198.
+
+
+LaTeX Warning: Citation 'GWD' on page 8 undefined on input line 198.
+
+
+LaTeX Warning: Citation 'Interferometer' on page 8 undefined on input line 198.
+
+
+
+LaTeX Warning: Citation 'Interferometer' on page 8 undefined on input line 198.
+
+
+
+LaTeX Warning: Citation 'Carbone' on page 8 undefined on input line 198.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 198--201
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[8]
+
+LaTeX Warning: Citation 'LIGO' on page 9 undefined on input line 203.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 206--208
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[9]
+
+LaTeX Warning: Citation 'Matts' on page 10 undefined on input line 211.
+
+
+LaTeX Warning: Citation 'Matts' on page 10 undefined on input line 211.
+
+
+LaTeX Warning: Citation 'Matts' on page 10 undefined on input line 211.
+
+
+LaTeX Warning: Citation 'Matts' on page 10 undefined on input line 219.
+
+
+LaTeX Warning: Citation 'Martynov' on page 10 undefined on input line 220.
+
+
+LaTeX Warning: Citation 'Martynov2' on page 10 undefined on input line 220.
+
+
+LaTeX Warning: Citation 'longdouble' on page 10 undefined on input line 221.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[10]
+
+LaTeX Warning: Citation 'Martynov' on page 11 undefined on input line 224.
+
+
+LaTeX Warning: Citation 'Collection' on page 11 undefined on input line 232.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 231--233
+
+ []
+
+(./H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf_tex
+<H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf, id=243, 1096.095pt x 616.70403pt>
 File: H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf Graphic file (type pdf)
 
 <use H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf>
 Package pdftex.def Info: H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf used on input line 52.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 )
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 78--102
+Overfull \hbox (78.29247pt too wide) in paragraph at lines 78--249
  [][] 
  []
 
-(./H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf_tex
-<H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf, id=195, 1096.095pt x 616.70403pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[11] (./H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf_tex
+<H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf, id=252, 1096.095pt x 616.70403pt>
 File: H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf Graphic file (type pdf)
 
 <use H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf>
@@ -590,19 +1065,12 @@ Package pdftex.def Info: H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf used on input line 52
 .
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 )
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 74--112
+Overfull \hbox (78.29247pt too wide) in paragraph at lines 74--259
  [][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (7.73332pt too high) has occurred while \output is active []
-
-
-[8] (./L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf_tex
-<L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf, id=205, 1096.095pt x 616.70403pt>
+(./L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf_tex
+<L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf, id=253, 1096.095pt x 616.70403pt>
 File: L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf Graphic file (type pdf)
 
 <use L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf>
@@ -610,7 +1078,7 @@ Package pdftex.def Info: L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf used on input line 5
 2.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 )
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 78--122
+Overfull \hbox (78.29247pt too wide) in paragraph at lines 78--269
  [][] 
  []
 
@@ -621,8 +1089,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[9 <./H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf>] (./L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf_tex
-<L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf, id=216, 1096.095pt x 616.70403pt>
+[12 <./H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf>]
+(./L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf_tex
+<L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf, id=268, 1096.095pt x 616.70403pt>
 File: L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf Graphic file (type pdf)
 
 <use L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf>
@@ -630,7 +1099,7 @@ Package pdftex.def Info: L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf used on input line 5
 2.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 )
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 76--132
+Overfull \hbox (78.29247pt too wide) in paragraph at lines 76--279
  [][] 
  []
 
@@ -641,9 +1110,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[10 <./H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf>]
+[13 <./H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf>]
 (./H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf_tex
-<H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, id=227, page=1, 1096.095pt x 616.70403pt
+<H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, id=279, page=1, 1096.095pt x 616.70403pt
 >
 File: H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf Graphic file (type pdf)
  <use H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, page 1>
@@ -651,7 +1120,7 @@ Package pdftex.def Info: H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, page1 used on in
 put line 52.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 
-<H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, id=228, page=2, 1096.095pt x 616.70403pt
+<H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, id=280, page=2, 1096.095pt x 616.70403pt
 >
 File: H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf Graphic file (type pdf)
  <use H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, page 2>
@@ -659,7 +1128,7 @@ Package pdftex.def Info: H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, page2 used on in
 put line 54.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 
-<H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, id=229, page=3, 1096.095pt x 616.70403pt
+<H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, id=281, page=3, 1096.095pt x 616.70403pt
 >
 File: H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf Graphic file (type pdf)
  <use H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, page 3>
@@ -667,7 +1136,7 @@ Package pdftex.def Info: H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, page3 used on in
 put line 66.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 
-<H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, id=230, page=4, 1096.095pt x 616.70403pt
+<H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, id=282, page=4, 1096.095pt x 616.70403pt
 >
 File: H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf Graphic file (type pdf)
  <use H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, page 4>
@@ -675,7 +1144,7 @@ Package pdftex.def Info: H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, page4 used on in
 put line 79.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 
-<H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, id=231, page=5, 1096.095pt x 616.70403pt
+<H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, id=283, page=5, 1096.095pt x 616.70403pt
 >
 File: H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf Graphic file (type pdf)
  <use H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, page 5>
@@ -683,7 +1152,7 @@ Package pdftex.def Info: H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, page5 used on in
 put line 81.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 )
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 82--142
+Overfull \hbox (78.29247pt too wide) in paragraph at lines 82--289
  [][] 
  []
 
@@ -694,27 +1163,31 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[11 <./L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf>]
+[14 <./L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[12 <./L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf>] (./H1:LSC-DARM_IN1_DQ.pdf_tex
-<H1:LSC-DARM_IN1_DQ.pdf, id=255, 1096.095pt x 616.70403pt>
+[15 <./L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf>]
+
+LaTeX Warning: Citation 'Matts' on page 16 undefined on input line 293.
+
+(./H1:LSC-DARM_IN1_DQ.pdf_tex
+<H1:LSC-DARM_IN1_DQ.pdf, id=306, 1096.095pt x 616.70403pt>
 File: H1:LSC-DARM_IN1_DQ.pdf Graphic file (type pdf)
 
 <use H1:LSC-DARM_IN1_DQ.pdf>
 Package pdftex.def Info: H1:LSC-DARM_IN1_DQ.pdf used on input line 52.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 )
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 80--153
+Overfull \hbox (78.29247pt too wide) in paragraph at lines 80--301
  [][] 
  []
 
 (./L1:ISI-ETMY_ST1_BLND_RZ_L4C_CUR_IN1_DQ.pdf_tex
-<L1:ISI-ETMY_ST1_BLND_RZ_L4C_CUR_IN1_DQ.pdf, id=256, 1096.095pt x 616.70403pt>
+<L1:ISI-ETMY_ST1_BLND_RZ_L4C_CUR_IN1_DQ.pdf, id=307, 1096.095pt x 616.70403pt>
 File: L1:ISI-ETMY_ST1_BLND_RZ_L4C_CUR_IN1_DQ.pdf Graphic file (type pdf)
 
 <use L1:ISI-ETMY_ST1_BLND_RZ_L4C_CUR_IN1_DQ.pdf>
@@ -722,7 +1195,7 @@ Package pdftex.def Info: L1:ISI-ETMY_ST1_BLND_RZ_L4C_CUR_IN1_DQ.pdf used on inp
 ut line 52.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 )
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 78--163
+Overfull \hbox (78.29247pt too wide) in paragraph at lines 78--311
  [][] 
  []
 
@@ -733,7 +1206,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[13 <./H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf> <./H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SN
+[16 <./H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf> <./H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SN
 R.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf)
@@ -757,8 +1230,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[14 <./H1:LSC-DARM_IN1_DQ.pdf>] (./H1:SUS-ETMX_M0_LOCK_P_IN1_DQ.pdf_tex
-<H1:SUS-ETMX_M0_LOCK_P_IN1_DQ.pdf, id=278, 1096.095pt x 616.70403pt>
+[17 <./H1:LSC-DARM_IN1_DQ.pdf>] (./H1:SUS-ETMX_M0_LOCK_P_IN1_DQ.pdf_tex
+<H1:SUS-ETMX_M0_LOCK_P_IN1_DQ.pdf, id=329, 1096.095pt x 616.70403pt>
 File: H1:SUS-ETMX_M0_LOCK_P_IN1_DQ.pdf Graphic file (type pdf)
 
 <use H1:SUS-ETMX_M0_LOCK_P_IN1_DQ.pdf>
@@ -766,12 +1239,12 @@ Package pdftex.def Info: H1:SUS-ETMX_M0_LOCK_P_IN1_DQ.pdf used on input line 52
 .
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 )
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 78--175
+Overfull \hbox (78.29247pt too wide) in paragraph at lines 78--323
  [][] 
  []
 
 (./L1:ISI-ETMX_ST1_T240INF_Z3_IN1_DQ.pdf_tex
-<L1:ISI-ETMX_ST1_T240INF_Z3_IN1_DQ.pdf, id=279, 1096.095pt x 616.70403pt>
+<L1:ISI-ETMX_ST1_T240INF_Z3_IN1_DQ.pdf, id=330, 1096.095pt x 616.70403pt>
 File: L1:ISI-ETMX_ST1_T240INF_Z3_IN1_DQ.pdf Graphic file (type pdf)
 
 <use L1:ISI-ETMX_ST1_T240INF_Z3_IN1_DQ.pdf>
@@ -779,7 +1252,7 @@ Package pdftex.def Info: L1:ISI-ETMX_ST1_T240INF_Z3_IN1_DQ.pdf used on input li
 ne 52.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 )
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 76--185
+Overfull \hbox (78.29247pt too wide) in paragraph at lines 76--333
  [][] 
  []
 
@@ -790,238 +1263,197 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[15 <./L1:ISI-ETMY_ST1_BLND_RZ_L4C_CUR_IN1_DQ.pdf>]
+[18 <./L1:ISI-ETMY_ST1_BLND_RZ_L4C_CUR_IN1_DQ.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[16 <./H1:SUS-ETMX_M0_LOCK_P_IN1_DQ.pdf>]
-(./H1:HPI-HAM4_BLND_L4C_RX_IN1_DQ.pdf_tex
-<H1:HPI-HAM4_BLND_L4C_RX_IN1_DQ.pdf, id=305, 1096.095pt x 616.70403pt>
-File: H1:HPI-HAM4_BLND_L4C_RX_IN1_DQ.pdf Graphic file (type pdf)
+[19 <./H1:SUS-ETMX_M0_LOCK_P_IN1_DQ.pdf>] (./nshp_mea.pdf_tex
+<nshp_mea.pdf, id=354, page=1, 968.61874pt x 387.4475pt>
+File: nshp_mea.pdf Graphic file (type pdf)
 
-<use H1:HPI-HAM4_BLND_L4C_RX_IN1_DQ.pdf>
-Package pdftex.def Info: H1:HPI-HAM4_BLND_L4C_RX_IN1_DQ.pdf used on input line 
-52.
-(pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
+<use nshp_mea.pdf, page 1>
+Package pdftex.def Info: nshp_mea.pdf, page1 used on input line 52.
+(pdftex.def)             Requested size: 484.30937pt x 193.72327pt.
 )
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 76--196
+Overfull \hbox (14.55435pt too wide) in paragraph at lines 53--355
  [][] 
  []
 
-(./L1:HPI-BS_BLND_L4C_HP_IN1_DQ.pdf_tex
-<L1:HPI-BS_BLND_L4C_HP_IN1_DQ.pdf, id=306, 1096.095pt x 616.70403pt>
-File: L1:HPI-BS_BLND_L4C_HP_IN1_DQ.pdf Graphic file (type pdf)
 
-<use L1:HPI-BS_BLND_L4C_HP_IN1_DQ.pdf>
-Package pdftex.def Info: L1:HPI-BS_BLND_L4C_HP_IN1_DQ.pdf used on input line 52
-.
-(pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[20 <./L1:ISI-ETMX_ST1_T240INF_Z3_IN1_DQ.pdf>]
+
+LaTeX Warning: Citation 'Git' on page 21 undefined on input line 359.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[21 <./nshp_mea.pdf>] <./NoiseShaping1.pdf, id=382, 435.79555pt x 178.0239pt>
+File: ./NoiseShaping1.pdf Graphic file (type pdf)
+
+<use ./NoiseShaping1.pdf>
+Package pdftex.def Info: ./NoiseShaping1.pdf used on input line 378.
+(pdftex.def)             Requested size: 435.79448pt x 178.02345pt.
+File: ./NoiseShaping1.pdf Graphic file (type pdf)
+ <use ./NoiseShaping1.pdf>
+Package pdftex.def Info: ./NoiseShaping1.pdf used on input line 378.
+(pdftex.def)             Requested size: 435.79448pt x 178.02345pt.
+ (./NoiseShaping1.pdf_tex
+<NoiseShaping1.pdf, id=383, 435.79555pt x 178.0239pt>
+File: NoiseShaping1.pdf Graphic file (type pdf)
+ <use NoiseShaping1.pdf>
+Package pdftex.def Info: NoiseShaping1.pdf used on input line 52.
+(pdftex.def)             Requested size: 435.79448pt x 178.02617pt.
 )
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 76--206
- [][] 
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[17 <./L1:ISI-ETMX_ST1_T240INF_Z3_IN1_DQ.pdf>]
-(./H1:SUS-ETMX_L3_LOCK_L_IN1_DQ.pdf_tex
-<H1:SUS-ETMX_L3_LOCK_L_IN1_DQ.pdf, id=319, 1096.095pt x 616.70403pt>
-File: H1:SUS-ETMX_L3_LOCK_L_IN1_DQ.pdf Graphic file (type pdf)
+[22 <./NoiseShaping1.pdf>]
 
-<use H1:SUS-ETMX_L3_LOCK_L_IN1_DQ.pdf>
-Package pdftex.def Info: H1:SUS-ETMX_L3_LOCK_L_IN1_DQ.pdf used on input line 52
-.
-(pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
+LaTeX Warning: Citation 'Nentwig' on page 23 undefined on input line 408.
+
+(./shaper.pdf_tex <shaper.pdf, id=400, page=1, 966.61125pt x 400.49625pt>
+File: shaper.pdf Graphic file (type pdf)
+
+<use shaper.pdf, page 1>
+Package pdftex.def Info: shaper.pdf, page1 used on input line 52.
+(pdftex.def)             Requested size: 483.30562pt x 200.24763pt.
 )
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 80--216
+Overfull \hbox (13.5506pt too wide) in paragraph at lines 53--417
  [][] 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 420--421
 
-
-Overfull \vbox (7.73332pt too high) has occurred while \output is active []
-
-
-[18 <./H1:HPI-HAM4_BLND_L4C_RX_IN1_DQ.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (7.73332pt too high) has occurred while \output is active []
-
-
-[19 <./L1:HPI-BS_BLND_L4C_HP_IN1_DQ.pdf>]
-(./H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf_tex
-<H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, id=341, page=1, 1096.095pt x 616.70403pt>
-File: H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf Graphic file (type pdf)
-
-<use H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, page 1>
-Package pdftex.def Info: H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, page1 used on input
- line 52.
-(pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
-
-<H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, id=342, page=2, 1096.095pt x 616.70403pt>
-File: H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf Graphic file (type pdf)
-
-<use H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, page 2>
-Package pdftex.def Info: H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, page2 used on input
- line 54.
-(pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
-
-<H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, id=343, page=3, 1096.095pt x 616.70403pt>
-File: H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf Graphic file (type pdf)
-
-<use H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, page 3>
-Package pdftex.def Info: H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, page3 used on input
- line 63.
-(pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
-
-<H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, id=344, page=4, 1096.095pt x 616.70403pt>
-File: H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf Graphic file (type pdf)
-
-<use H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, page 4>
-Package pdftex.def Info: H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, page4 used on input
- line 65.
-(pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
-
-<H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, id=345, page=5, 1096.095pt x 616.70403pt>
-File: H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf Graphic file (type pdf)
-
-<use H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, page 5>
-Package pdftex.def Info: H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, page5 used on input
- line 74.
-(pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
-
-<H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, id=346, page=6, 1096.095pt x 616.70403pt>
-File: H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf Graphic file (type pdf)
-
-<use H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, page 6>
-Package pdftex.def Info: H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, page6 used on input
- line 76.
-(pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
-
-<H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, id=347, page=7, 1096.095pt x 616.70403pt>
-File: H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf Graphic file (type pdf)
-
-<use H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, page 7>
-Package pdftex.def Info: H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, page7 used on input
- line 78.
-(pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
-
-<H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, id=348, page=8, 1096.095pt x 616.70403pt>
-File: H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf Graphic file (type pdf)
-
-<use H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, page 8>
-Package pdftex.def Info: H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, page8 used on input
- line 80.
-(pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
-
-<H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, id=349, page=9, 1096.095pt x 616.70403pt>
-File: H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf Graphic file (type pdf)
-
-<use H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, page 9>
-Package pdftex.def Info: H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, page9 used on input
- line 82.
-(pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
-
-<H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, id=350, page=10, 1096.095pt x 616.70403pt>
-File: H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf Graphic file (type pdf)
-
-<use H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, page 10>
-Package pdftex.def Info: H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf, page10 used on inpu
-t line 84.
-(pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
-)
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 85--229
- [][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (7.73332pt too high) has occurred while \output is active []
-
-
-[20 <./H1:SUS-ETMX_L3_LOCK_L_IN1_DQ.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (7.73332pt too high) has occurred while \output is active []
-
-
-[21 <./H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf> <./H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf): P
-DF inclusion: multiple pdfs with page group included in a single page
-> <./H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf): P
-DF inclusion: multiple pdfs with page group included in a single page
-> <./H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf): P
-DF inclusion: multiple pdfs with page group included in a single page
-> <./H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf): P
-DF inclusion: multiple pdfs with page group included in a single page
-> <./H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf): P
-DF inclusion: multiple pdfs with page group included in a single page
-> <./H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf): P
-DF inclusion: multiple pdfs with page group included in a single page
-> <./H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf): P
-DF inclusion: multiple pdfs with page group included in a single page
-> <./H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf): P
-DF inclusion: multiple pdfs with page group included in a single page
-> <./H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./H1:HPI-HAM2_BLND_IPS_X_IN1_DQ.pdf): P
-DF inclusion: multiple pdfs with page group included in a single page
->]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (7.73332pt too high) has occurred while \output is active []
-
-
-[22]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
-Missing character: There is no “ in font cmr12!
+Missing character: There is no ™ in font cmr12!
 
-Underfull \hbox (badness 2503) in paragraph at lines 267--268
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[23 <./shaper.pdf>]
+
+LaTeX Warning: Citation 'Christou' on page 24 undefined on input line 427.
+
+<./shape_notch_mod.pdf, id=412, 457.549pt x 230.26913pt>
+File: ./shape_notch_mod.pdf Graphic file (type pdf)
+
+<use ./shape_notch_mod.pdf>
+Package pdftex.def Info: ./shape_notch_mod.pdf used on input line 433.
+(pdftex.def)             Requested size: 457.54787pt x 230.26857pt.
+File: ./shape_notch_mod.pdf Graphic file (type pdf)
+ <use ./shape_notch_mod.pdf>
+Package pdftex.def Info: ./shape_notch_mod.pdf used on input line 433.
+(pdftex.def)             Requested size: 457.54787pt x 230.26857pt.
+
+(./shape_notch_mod.pdf_tex
+<shape_notch_mod.pdf, id=413, page=1, 457.549pt x 230.26913pt>
+File: shape_notch_mod.pdf Graphic file (type pdf)
+
+<use shape_notch_mod.pdf, page 1>
+Package pdftex.def Info: shape_notch_mod.pdf, page1 used on input line 52.
+(pdftex.def)             Requested size: 457.54787pt x 230.27559pt.
+
+<shape_notch_mod.pdf, id=414, page=2, 457.549pt x 230.26913pt>
+File: shape_notch_mod.pdf Graphic file (type pdf)
+
+<use shape_notch_mod.pdf, page 2>
+Package pdftex.def Info: shape_notch_mod.pdf, page2 used on input line 55.
+(pdftex.def)             Requested size: 457.54787pt x 230.27559pt.
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[24] <./noise_shaping_mod.pdf, id=426, 447.38977pt x 254.521pt>
+File: ./noise_shaping_mod.pdf Graphic file (type pdf)
+
+<use ./noise_shaping_mod.pdf>
+Package pdftex.def Info: ./noise_shaping_mod.pdf used on input line 445.
+(pdftex.def)             Requested size: 447.38867pt x 254.52037pt.
+File: ./noise_shaping_mod.pdf Graphic file (type pdf)
+ <use ./noise_shaping_mod.pdf>
+Package pdftex.def Info: ./noise_shaping_mod.pdf used on input line 445.
+(pdftex.def)             Requested size: 447.38867pt x 254.52037pt.
+
+(./noise_shaping_mod.pdf_tex
+<noise_shaping_mod.pdf, id=427, page=1, 447.38977pt x 254.521pt>
+File: noise_shaping_mod.pdf Graphic file (type pdf)
+
+<use noise_shaping_mod.pdf, page 1>
+Package pdftex.def Info: noise_shaping_mod.pdf, page1 used on input line 52.
+(pdftex.def)             Requested size: 447.38867pt x 254.52814pt.
+)
+
+LaTeX Warning: Citation 'drive' on page 25 undefined on input line 457.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[25 <./shape_notch_mod.pdf> <./shape_notch_mod.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./shape_notch_mod.pdf): PDF inclusion: 
+multiple pdfs with page group included in a single page
+> <./noise_shaping_mod.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./noise_shaping_mod.pdf): PDF inclusion
+: multiple pdfs with page group included in a single page
+>]
+Underfull \hbox (badness 10000) in paragraph at lines 463--464
+[]\OT1/cmr/m/n/12 Tutorials Point, [][]$\OT1/cmtt/m/n/12 http : / / www . tutor
+ialspoint . com / dip / Concept _ of _
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 474--475
+[]\OT1/cmr/m/n/12 Widrow and Koll^^Sar, \OT1/cmr/m/it/12 Quan-ti-za-tion Noise 
+[][]$\OT1/cmtt/m/n/12 http : / / www . mit . bme . hu / books /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 476--477
+[]\OT1/cmr/m/n/12 Dehner, \OT1/cmr/m/it/12 Noise Op-ti-mized Fil-ter De-sign []
+[]$\OT1/cmtt/m/n/12 https : / / dx . doi . org / 10 . 1016 /
+ []
+
+
+Underfull \hbox (badness 1275) in paragraph at lines 479--481
 []\OT1/cmr/m/n/12 Denis Mar-tynov, \OT1/cmr/m/it/12 Check-ing Dig-i-tal Sys-tem
  [][]$\OT1/cmtt/m/n/12 http : / / github . com / denismartynov /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 269--270
-[]\OT1/cmr/m/n/12 Ben Bar-rowes \OT1/cmr/m/it/12 Mul-ti-ple Pre-ci-sion Tool-bo
-x [][]$\OT1/cmtt/m/n/12 http : / / www . mathworks . com /
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 271--272
-[]\OT1/cmr/m/n/12 John Zweizig, [][]$\OT1/cmtt/m/n/12 https : / / www . lsc-[]g
-roup . phys . uwm . edu / daswg / projects /
+Underfull \hbox (badness 10000) in paragraph at lines 479--481
+\OT1/cmtt/m/n/12 quantization$[][] [][]$http : / / nodus . ligo . caltech . edu
+ : 8080 / 40m / ?mode = full & attach =
  []
 
 
@@ -1031,25 +1463,38 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 273--274
+[26]
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no “ in font cmr12!
+
+Underfull \hbox (badness 10000) in paragraph at lines 503--504
+[]\OT1/cmr/m/n/12 Z-Transform, [][]$\OT1/cmtt/m/n/12 http : / / www . ele . uri
+ . edu / Courses / ele541 / tutorials /
+ []
+
+
+Underfull \hbox (badness 7613) in paragraph at lines 509--510
 []\OT1/cmr/m/n/12 Ayush Pandey, \OT1/cmr/m/it/12 A com-plete col-lec-tion of al
 l plots for all dig-i-tal fil-ters
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 273--274
+Underfull \hbox (badness 10000) in paragraph at lines 509--510
 \OT1/cmr/m/it/12 at Han-ford and Liv-ingston [][]$\OT1/cmtt/m/n/12 https : / / 
 drive . google . com / folderview ? id =
  []
 
 
-Overfull \hbox (5.17273pt too wide) in paragraph at lines 273--274
+Overfull \hbox (11.04767pt too wide) in paragraph at lines 509--510
 \OT1/cmtt/m/n/12 0BzjRW8WwGjzJfkE3cVFzczJVU0JpSkZUTm1DR0dpWF9BWFlNVTh3VGg3UG93d
 HRLTURPZWs &
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 277.
+
+LaTeX Warning: Empty bibliography on input line 513.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 514.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1057,41 +1502,55 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[24]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 277.
- (./Progress_Report_II.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 277.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 277.
-Package rerunfilecheck Info: File `Progress_Report_II.out' has not changed.
-(rerunfilecheck)             Checksum: 25821C421D22353A4EB6BF4C38F69752;1803.
+[27]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 514.
+ (./final_report.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 514.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 514.
+Package rerunfilecheck Info: File `final_report.out' has not changed.
+(rerunfilecheck)             Checksum: E5582B69177CC86F20EA5F5BCA8A9BCE;2244.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.26pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 277.
+
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                final_report
+(biblatex)                and rerun LaTeX afterwards.
+
+Package logreq Info: Writing requests to 'final_report.run.xml'.
+\openout1 = `final_report.run.xml'.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 514.
  ) 
 Here is how much of TeX's memory you used:
- 9028 strings out of 493304
- 135124 string characters out of 6139871
- 234841 words of memory out of 5000000
- 12203 multiletter control sequences out of 15000+600000
+ 14278 strings out of 493304
+ 226171 string characters out of 6139871
+ 655586 words of memory out of 5000000
+ 17333 multiletter control sequences out of 15000+600000
  11235 words of font info for 44 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 68i,11n,98p,1782b,487s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,11n,98p,2297b,801s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmtt12.pfb>
-Output written on Progress_Report_II.pdf (25 pages, 2806446 bytes).
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
+12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb
+>
+Output written on final_report.pdf (28 pages, 2824174 bytes).
 PDF statistics:
- 476 PDF objects out of 1000 (max. 8388607)
- 397 compressed objects within 4 object streams
- 109 named destinations out of 1000 (max. 500000)
- 307 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 587 PDF objects out of 1000 (max. 8388607)
+ 502 compressed objects within 6 object streams
+ 167 named destinations out of 1000 (max. 500000)
+ 396 words of extra memory for PDF output out of 10000 (max. 10000000)
 

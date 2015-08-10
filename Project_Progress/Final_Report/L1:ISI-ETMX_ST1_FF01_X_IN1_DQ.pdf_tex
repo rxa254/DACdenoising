@@ -1,0 +1,79 @@
+%% Creator: Inkscape inkscape 0.48.4, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{1092bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.56263736)%
+    \put(0,0){\includegraphics[width=\unitlength]{L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf}}%
+    \put(0.44139231,0.2133822){\makebox(0,0)[lb]{\smash{frequency, Hz}}}%
+    \put(0.14578755,0.23296703){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.16410256,0.23956044){\makebox(0,0)[lb]{\smash{-1}}}%
+    \put(0.32307692,0.23296703){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.34139194,0.23956044){\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0.4989011,0.23296703){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.51721612,0.23956044){\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.67472527,0.23296703){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.69304029,0.23956044){\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0.85054945,0.23296703){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.86886447,0.23956044){\makebox(0,0)[lb]{\smash{3}}}%
+    \put(0.07663004,0.30732615){\rotatebox{90}{\makebox(0,0)[lb]{\smash{amplitude arb/sqrt(Hz)}}}}%
+    \put(0.08351648,0.25347985){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.1018315,0.26007326){\makebox(0,0)[lb]{\smash{-15}}}%
+    \put(0.08351648,0.32893773){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.1018315,0.33553114){\makebox(0,0)[lb]{\smash{-10}}}%
+    \put(0.09084249,0.40512821){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.10915751,0.41172161){\makebox(0,0)[lb]{\smash{-5}}}%
+    \put(0.09450549,0.48058608){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.11282051,0.48717949){\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0.41904762,0.18705736){\makebox(0,0)[lb]{\smash{L1:ISI-ETMX-ST1-FF01-X-IN1-DQ}}}%
+    \put(0.41904762,0.1726496){\makebox(0,0)[lb]{\smash{output df2}}}%
+    \put(0.41904762,0.15824176){\makebox(0,0)[lb]{\smash{output bqf}}}%
+    \put(0.41904762,0.14383392){\makebox(0,0)[lb]{\smash{noise df2}}}%
+    \put(0.41904762,0.12942615){\makebox(0,0)[lb]{\smash{noise bqf}}}%
+  \end{picture}%
+\endgroup%

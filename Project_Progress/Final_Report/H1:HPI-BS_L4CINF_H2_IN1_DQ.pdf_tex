@@ -1,0 +1,79 @@
+%% Creator: Inkscape inkscape 0.48.4, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{1092bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.56263736)%
+    \put(0,0){\includegraphics[width=\unitlength]{H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf}}%
+    \put(0.44139231,0.19286938){\makebox(0,0)[lb]{\smash{frequency, Hz}}}%
+    \put(0.14578755,0.21245421){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.16410256,0.21904762){\makebox(0,0)[lb]{\smash{-1}}}%
+    \put(0.32307692,0.21245421){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.34139194,0.21904762){\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0.4989011,0.21245421){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.51721612,0.21904762){\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.67472527,0.21245421){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.69304029,0.21904762){\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0.85054945,0.21245421){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.86886447,0.21904762){\makebox(0,0)[lb]{\smash{3}}}%
+    \put(0.07663004,0.29633714){\rotatebox{90}{\makebox(0,0)[lb]{\smash{amplitude arb/sqrt(Hz)}}}}%
+    \put(0.08351648,0.23443223){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.1018315,0.24102564){\makebox(0,0)[lb]{\smash{-15}}}%
+    \put(0.08351648,0.31721612){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.1018315,0.32380952){\makebox(0,0)[lb]{\smash{-10}}}%
+    \put(0.09084249,0.4007326){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.10915751,0.40732601){\makebox(0,0)[lb]{\smash{-5}}}%
+    \put(0.09450549,0.48351648){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.11282051,0.49010989){\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0.42637363,0.16654454){\makebox(0,0)[lb]{\smash{H1:HPI-BS-L4CINF-H2-IN1-DQ}}}%
+    \put(0.42637363,0.15213678){\makebox(0,0)[lb]{\smash{output df2}}}%
+    \put(0.42637363,0.13772894){\makebox(0,0)[lb]{\smash{output bqf}}}%
+    \put(0.42637363,0.1233211){\makebox(0,0)[lb]{\smash{noise df2}}}%
+    \put(0.42637363,0.10891333){\makebox(0,0)[lb]{\smash{noise bqf}}}%
+  \end{picture}%
+\endgroup%

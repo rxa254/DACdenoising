@@ -1,0 +1,83 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{1092bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.56263736)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf}}%
+    \put(0.49670366,0.08517707){\makebox(0,0)[lb]{\smash{index}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf}}%
+    \put(0.15311355,0.1047619){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.17142857,0.11135531){\makebox(0,0)[lb]{\smash{-1}}}%
+    \put(0.33846154,0.1047619){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.35677656,0.11135531){\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0.52234432,0.1047619){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.54065934,0.11135531){\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.70622711,0.1047619){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.72454212,0.11135531){\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0.89010989,0.1047619){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.90842491,0.11135531){\makebox(0,0)[lb]{\smash{3}}}%
+    \put(0.08615385,0.30989033){\rotatebox{90}{\makebox(0,0)[lb]{\smash{SNR}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf}}%
+    \put(0.1003663,0.11941392){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.11868132,0.12600733){\makebox(0,0)[lb]{\smash{5}}}%
+    \put(0.09304029,0.18681319){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.11135531,0.19340659){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.09304029,0.25494505){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.11135531,0.26153846){\makebox(0,0)[lb]{\smash{15}}}%
+    \put(0.09304029,0.32234432){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.11135531,0.32893773){\makebox(0,0)[lb]{\smash{20}}}%
+    \put(0.09304029,0.38974359){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.11135531,0.396337){\makebox(0,0)[lb]{\smash{25}}}%
+    \put(0.09304029,0.45714286){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.11135531,0.46373626){\makebox(0,0)[lb]{\smash{30}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf}}%
+    \put(0.52600733,0.05897436){\makebox(0,0)[lb]{\smash{snr}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf}}%
+  \end{picture}%
+\endgroup%
