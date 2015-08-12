@@ -1,0 +1,39 @@
+function plot_shape(signal, output_1, output_2, noise_1, noise_2, fs)
+    % Remove mean
+  
+    signal = detrend(signal);
+    output_1 = detrend(output_1);
+    output_2 = detrend(output_2);
+    noise_1 = detrend(noise_1);
+    noise_2 = detrend(noise_2);
+%     length(signal)
+%     length(output_df2)
+%     length(noise_df2)
+
+    nfft = length(signal)/2;
+    
+    % Calculate psd
+    [psd_input,f] = pwelch(signal, hanning(nfft), 3*nfft/4, nfft, fs);
+    [psd_output_1,~] = pwelch(output_1, hanning(nfft), 3*nfft/4, nfft, fs);
+    [psd_output_2,~] = pwelch(output_2, hanning(nfft), 3*nfft/4, nfft, fs);
+    [psd_noise_1,~] = pwelch(noise_1, hanning(nfft), 3*nfft/4, nfft, fs);
+    [psd_noise_2,~] = pwelch(noise_2, hanning(nfft), 3*nfft/4, nfft, fs);
+    
+    name=char(abs(randn*100));
+    disp('Plot the result...');
+    scrsz = get(groot,'ScreenSize');
+    figure('Position',[1 1 scrsz(3) scrsz(4)],'Visible','on','PaperPosition',[1 1 scrsz(3) scrsz(4)],'PaperPositionMode','manual');
+    loglog(f, sqrt(psd_input), 'c',f, sqrt(psd_output_1), 'b--',f, sqrt(psd_output_2), 'g--',  ...
+         f, sqrt(psd_noise_1),'r-.',f, sqrt(psd_noise_2),'m-.', 'LineWidth', 3);
+%      loglog(f, sqrt(psd_input), 'c',f, sqrt(psd_output_1), 'b--',f, sqrt(psd_output_2), 'g--',  ...
+%          'LineWidth', 3);
+    grid on;
+    xlabel('frequency, Hz', 'FontSize', 16);
+    ylabel('amplitude arb/sqrt(Hz)', 'FontSize', 16);
+    hLegend=legend('Noise Shaping', 'output without shaping', 'output with shaping', 'noise without shaping', 'noise shaping');
+    set(hLegend,'FontSize', 12, 'Location', 'SouthOutside');
+    set(gca, 'FontSize', 14);
+    axis tight;
+    saveas(gcf,name,'svg');
+
+end

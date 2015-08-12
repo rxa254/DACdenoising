@@ -29,36 +29,18 @@ double quant(double in)
 int noise_shaper(double sample, int num,double* history,double *quantErr,double *sos_shaper)
 {
  
-    double td,quantIn,filterOut;
-    int tdOut1,tdOut2,quantOut;
-    int i,j,k;
-   
-//define input sample
-    td=sample;
+    double quantIn,filterOut;
+    int tdOut2,quantOut;
+
 
 // %     length(td)
    
-
-    
-    
-//     pass_freq=5000;
-//     [b, a] = cheby1(3, 3, pass_freq/(rate_Hz/2), 'high');
-    
-     //allocate table
-   
-    
-    //print the cutoff frequency
-// %     display(strcat('stop band is between ',num2str(band_stop/rate_Hz),' Hz and ',num2str(band_pass/rate_Hz),' Hz'));
-
-    //Initialize Outputs to zero
-    tdOut1=0;
+    //initialize to zero, output.
     tdOut2=0;
     
 //initialize history in the main function and also quantErr
 
-//         % variant 1: ordinary quantization
-    tdOut1 = quant(td);
-    
+
 //         % variant 2: quantization with noise shaping
 //         [filterOut, filterState] = filter(bb, a, quantErr, filterState);
         // Call iir_df2_double over here to filter the quantErr value. Change it so that it returns filterOut and filterState values, filter 
@@ -66,7 +48,7 @@ int noise_shaper(double sample, int num,double* history,double *quantErr,double 
         
     filterOut=iir_filter(quantErr[num-1],sos_shaper,order,history);
         
-    quantIn = td + filterOut;
+    quantIn = sample + filterOut;
     quantOut = quant(quantIn);
     quantErr[num] = quantOut - quantIn;
     tdOut2 = quantOut;
@@ -79,7 +61,7 @@ void main()
 {
     double *sos_shaper,*history,*quantErr,*sos_bqf;
     int cutoff,i,j,k,rate_Hz,time,len;
-    rate_Hz=256;
+    rate_Hz=16.384e3;
     time=32;
     len=rate_Hz*time;
     double *signal,err[len];
@@ -143,6 +125,7 @@ void main()
     sos_bqf = (double*) calloc(4*order+1,sizeof(double));
     for(i=0;i<4*order+1;i++)
     {
+        sos_shaper[i]=0;
         sos_bqf[i]=0;
     }
        
@@ -168,14 +151,11 @@ void main()
 //     sos_shaper[8]=932.146816677966e-003;
 //     
     sos_bqf[0]=sos_shaper[0];
-    sos_bqf[1] = sos_shaper[1] - 1; //start filling in values of sos_bqf
-    //printf("\n\n\n\n\nEntered Loop4\n\n\n");
+    sos_bqf[1] = sos_shaper[1] - 1;
     sos_bqf[2] =sos_shaper[1] - sos_shaper[2] - 1;
     sos_bqf[3] = sos_shaper[3] - sos_shaper[1];
     sos_bqf[4] =sos_shaper[4] - sos_shaper[2] + sos_shaper[3] -sos_shaper[1];
-    //printf("\n\n\n\n\nEntered Loop5\n\n\n");
-    sos_bqf[5] = sos_shaper[5] - 1; //start filling in values of sos_bqf
-    //printf("\n\n\n\n\nEntered Loop4\n\n\n");
+    sos_bqf[5] = sos_shaper[5] - 1; 
     sos_bqf[6] =sos_shaper[5] - sos_shaper[6] - 1;
     sos_bqf[7] = sos_shaper[7] - sos_shaper[5];
     sos_bqf[8] =sos_shaper[8] - sos_shaper[6] + sos_shaper[7] -sos_shaper[5];
@@ -211,10 +191,10 @@ void main()
        printf("%d\t",output[i]);
 //         output[i]=0;
     }
-    for(i=0;i<len;i++)
-    {
-        err[i]=output[i]-signal[i];
-    }
+//     for(i=0;i<len;i++)
+//     {
+//         err[i]=output[i]-signal[i];
+//     }
     fo=fopen("shaped_out.txt","w");
 	//printing output of df2 to the file
     if(fo==NULL)
@@ -224,9 +204,9 @@ void main()
     printf("\n\nWriting Back to file\n");
     for(i=0;i<len;i++)
     {
-        fprintf(fo,"%g\n",err[i]);
+        fprintf(fo,"%d\n",output[i]);
     }
 	fclose(fo);
-    printf("Noise shaping completed and output written to file\n");
+    printf("Noise shaping completed and output written to file for debugging\n");
 	
 }
