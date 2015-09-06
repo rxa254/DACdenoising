@@ -97,17 +97,14 @@ function noise_shaper()
 %     [b, a] = cheby1(4, 3, factor, 'high');
     display(strcat('Cutoff frequency is ',num2str(pass_freq),' Hz'));
     
-%     %Filter Design High Pass IIR%
-%     hpFilt = designfilt('highpassiir', 'FilterOrder', 4, ...
-%              'PassbandFrequency', pass_freq, 'PassbandRipple', 3,...
-%              'SampleRate', rate_Hz);
-%     sos=hpFilt.Coefficients;
-%     
-%     [b,a]=sos2tf(sos);
-%     
-    %Filter Design H(z) =1 %
-    b=10;
-    a=1;
+    hpFilt = designfilt('highpassiir', 'FilterOrder', 4, ...
+             'PassbandFrequency', pass_freq, 'PassbandRipple', 3,...
+             'SampleRate', rate_Hz);
+    sos=hpFilt.Coefficients;
+    
+    [b,a]=sos2tf(sos);
+    
+    
 
     % *********************************************
     % plot the above filter response (impulse response
@@ -150,7 +147,7 @@ function noise_shaper()
     xlabel('f / Hz (Norm)');
     ylabel('dB');
     grid on;
-    title('desired noise shaper frequency response H_{Target}*(z^-1)');
+    title('desired noise shaper frequency response H_{Target}');
 %     Hd = dfilt.df2t(bb,a);
 %     sos2=tf2sos(bb,a);
     % *********************************************
@@ -211,13 +208,13 @@ function noise_shaper()
     fclose(fi);
 
 %%%% PLOT C code output , should be commented when MATLAB code is being tested%%%
-%     fid=fopen('shaped_out.txt','r');
-%     if fid==-1
-%         display('error opening file')
-%     end
-%     tdOut2C=fscanf(fid,'%d',len);
-%     tdOut2C=tdOut2C';
-%     fclose(fid);
+    fid=fopen('shaped_out.txt','r');
+    if fid==-1
+        display('error opening file')
+    end
+    tdOut2C=fscanf(fid,'%d',len);
+    tdOut2C=tdOut2C';
+    fclose(fid);
     
     
     figure(4);

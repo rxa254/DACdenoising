@@ -28,12 +28,12 @@ function plot_shape(signal, output_1, output_2, noise_1, noise_2, fs)
 %      loglog(f, sqrt(psd_input), 'c',f, sqrt(psd_output_1), 'b--',f, sqrt(psd_output_2), 'g--',  ...
 %          'LineWidth', 3);
     grid on;
-    xlabel('frequency, Hz', 'FontSize', 16);
-    ylabel('amplitude arb/sqrt(Hz)', 'FontSize', 16);
-    hLegend=legend('Noise Shaping', 'output without shaping', 'output with shaping', 'noise without shaping', 'noise shaping');
-    set(hLegend,'FontSize', 12, 'Location', 'SouthOutside');
-    set(gca, 'FontSize', 14);
+    xlabel('frequency, Hz', 'FontSize', 24);
+    ylabel('amplitude arb/sqrt(Hz)', 'FontSize', 24);
+    hLegend=legend('Pre-processing Output', 'Noise without shaping', 'noise with shaping matlab', 'noise with shaping C', 'difference in C and MATLAB');
+    set(hLegend,'FontSize', 16, 'Location', 'SouthOutside');
+    set(gca, 'FontSize', 18);
     axis tight;
-    saveas(gcf,name,'svg');
+    saveas(gcf,'Diff_C_MATLAB','svg');
 
 end
