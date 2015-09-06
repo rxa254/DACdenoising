@@ -187,13 +187,14 @@ function noise_shaper()
 %         if(filterState ~= 0), f_in=filterState
 %         end
         
-        [filterOut, filterState] = filter(bb,a, quantErr, filterState);
+        %[filterOut, filterState] = filter(bb,a, quantErr, filterState);
 %             filterOut=sosfilt(SOS,quantErr);
 %         if(filterState ~=0), f=filterState
 %         end
-        quantIn = s + filterOut;
+%         quantIn = s + filterOut;
+        quantIn = s + quantErr;
         quantOut = double(quant(quantIn));
-        quantErr = quantOut - quantIn;
+        quantErr = -quantOut + quantIn;
         tdOut2(ix) = quantOut;
     end
     
@@ -220,21 +221,27 @@ function noise_shaper()
 %     fclose(fid);
     
     
-    figure(4);
-    plot(tdOut2);
-    grid on;
-    title('tdOut2');
-    
-    
-    figure(5);
-    plot(tdOut2-tdOut2C);
-    grid on;
-    title('diff C MATLAB in series values');
-    
-    
-%     plot_shape(tdOut2-td,tdOut2C-td,(tdOut2C-td)-(tdOut2-td),td,td,rate_Hz);
         %****PLOT DATA******%
-    plot_shape(td,td-tdOut1,td-tdOut2,td-tdOut2C,tdOut2-tdOut2C,rate_Hz);
+   %%%% When comparing C And MATLAB %%%%
+   %     figure(4);
+%     plot(tdOut2);
+%     grid on;
+%     title('tdOut2');
+%     
+%     
+%     figure(5);
+%     plot(tdOut2-tdOut2C);
+%     grid on;
+%     title('diff C MATLAB in series values');
+%     
+
+   %plot_shape(td,td-tdOut1,td-tdOut2,td-tdOut2C,tdOut2-tdOut2C,rate_Hz);
+   
+   %%%%%%%%%%%%%%%
+   
+   %%%%Plotting MATLAB Output ONLY %%%%%%%%%
+   plot_shape(td,tdOut1,tdOut2,td-tdOut1,td-tdOut2,rate_Hz);
+   
 %     tdOut2(1:10)
     % *********************************************
     % Plot quantization noise ("-td" subtracts the ideal

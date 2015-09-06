@@ -64,9 +64,9 @@ function demo_noise_shaper()
         % [b, a] = cheby1(3, 3, [29e6/(rate_Hz/2), 34e6/(rate_Hz/2)], 'stop');
         b = [5.24490673e-001 2.71530360e+000 6.25920749e+000 8.12596164e+000 6.25920749e+000 2.71530360e+000 5.24490673e-001];
         a = [1.00000000e+000 4.19916469e+000 7.75267045e+000 7.94032920e+000 4.65817369e+000 1.41707496e+000 1.56552175e-001];
-%         b=10;
-%         a=1;
-        H=tf(b,a,-1,'Variable','z^-1')
+%          b=[0 1];
+%          a=1;
+        H=tf(b,a,-1)%,'Variable','z^-1')
     end
 
     % *********************************************
@@ -100,9 +100,9 @@ function demo_noise_shaper()
     % noise frequency response
     % Note: a unit delay is removed by shortening bb.
     % *********************************************    
-    bb = b / b(1);
-    bb = bb(2:end) - a(2:end);
-    H1=tf(bb,a,-1,'Variable','z^-1')
+    bb = b / b(1)
+    bb = bb(2:end) - a(2:end)
+    H1=tf(bb,a,-1)%,'Variable','z^-1')
     % *********************************************
     % Simulate
     % *********************************************    
@@ -132,7 +132,7 @@ function demo_noise_shaper()
         [filterOut, filterState] = filter(bb, a, quantErr, filterState);
         quantIn = s + filterOut;
         quantOut = quant(quantIn);
-        quantErr = quantOut - quantIn;
+        quantErr = -quantOut + quantIn;
         tdOut2(ix) = quantOut;
     end
     
