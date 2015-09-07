@@ -211,31 +211,31 @@ function noise_shaper()
     fprintf(fi,'%d\n',tdOut2);
     fclose(fi);
 
-%%%% PLOT C code output , should be commented when MATLAB code is being tested%%%
-%     fid=fopen('shaped_out.txt','r');
-%     if fid==-1
-%         display('error opening file')
-%     end
-%     tdOut2C=fscanf(fid,'%d',len);
-%     tdOut2C=tdOut2C';
-%     fclose(fid);
+%%%% Read C code output , should be commented when MATLAB code is being tested%%%
+    fid=fopen('shaped_out.txt','r');
+    if fid==-1
+        display('error opening file')
+    end
+    tdOut2C=fscanf(fid,'%d',len);
+    tdOut2C=tdOut2C';
+    fclose(fid);
     
     
         %****PLOT DATA******%
    %%%% When comparing C And MATLAB %%%%
-   %     figure(4);
-%     plot(tdOut2);
-%     grid on;
-%     title('tdOut2');
-%     
-%     
-%     figure(5);
-%     plot(tdOut2-tdOut2C);
-%     grid on;
-%     title('diff C MATLAB in series values');
-%     
+       figure(4);
+    plot(tdOut2);
+    grid on;
+    title('tdOut2');
+    
+    
+    figure(5);
+    plot(tdOut2-tdOut2C);
+    grid on;
+    title('diff C MATLAB in series values');
+    
 
-   %plot_shape(td,td-tdOut1,td-tdOut2,td-tdOut2C,tdOut2-tdOut2C,rate_Hz);
+%    plot_shape(td,td-tdOut1,td-tdOut2,td-tdOut2C,tdOut2-tdOut2C,rate_Hz);
    
    %%%%%%%%%%%%%%%
    
@@ -279,7 +279,11 @@ function sOut = quant(s)
         sOut=int32(-2^(17));
         display('clipping');
     else
-        sOut=int32(s);
+        if s < 0
+            sOut=ceil(s);
+        else
+            sOut=floor(s);
+        end
     end
 end
 

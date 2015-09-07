@@ -32,7 +32,7 @@ function plot_shape(signal, output_1, output_2, noise_1, noise_2, fs)
     ylabel('amplitude arb/sqrt(Hz)', 'FontSize', 24);
     %%%%%%%%%When Comparing C and MATLAB %%%%%%%
     
-    %hLegend=legend('Pre-processing Output', 'Noise without shaping', 'noise with shaping matlab', 'noise with shaping C', 'difference in C and MATLAB');
+%     hLegend=legend('Pre-processing Output', 'Noise without shaping', 'noise with shaping matlab', 'noise with shaping C', 'difference in C and MATLAB');
     
     %%%%%%%%%%%%%
     

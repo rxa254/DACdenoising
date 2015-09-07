@@ -28,7 +28,7 @@ double quant(double in)
 //The C function implements noise shaping to drive the DAC.
 int noise_shaper(double sample, int num,double* history,double *quantErr,double *sos_shaper)
 {
- 
+    
     double quantIn,filterOut;
     int tdOut2,quantOut;
 
@@ -46,15 +46,19 @@ int noise_shaper(double sample, int num,double* history,double *quantErr,double 
         // Call iir_df2_double over here to filter the quantErr value. Change it so that it returns filterOut and filterState values, filter 
         //array has two elements one, filterOut and other is filterState
         
-    filterOut=iir_filter(quantErr[num-1],sos_shaper,order,history);
+//     filterOut=iir_filter(quantErr[num-1],sos_shaper,order,history);
         
-    quantIn = sample + filterOut;
+//     quantIn = sample + filterOut;
+    if(num==0) quantErr[num-1]=0;
+    quantIn = sample + quantErr[num-1];
+   
     quantOut = quant(quantIn);
-    quantErr[num] = quantOut - quantIn;
+    quantErr[num] = -quantOut + quantIn;
     tdOut2 = quantOut;
 //     end
 
     return tdOut2;
+    
 }
 
 void main()
@@ -161,7 +165,7 @@ void main()
     sos_bqf[8] =sos_shaper[8] - sos_shaper[6] + sos_shaper[7] -sos_shaper[5];
 
     history= (double*) calloc(2*order,sizeof(double));
- 	quantErr=(double*) calloc(len,sizeof(double));
+ 	quantErr=(double*) calloc(len-1,sizeof(double));
     //initialize to zero
    
     for(k=0; k<2*order; k++) 
@@ -171,7 +175,7 @@ void main()
       
 
     }
-    for(k=0; k<len; k++) 
+    for(k=0; k<len-1; k++) 
     {
 
        quantErr[k] = 0;
@@ -183,7 +187,10 @@ void main()
 
     for(i=0;i<len;i++)
     {
+        if(i<len)
+        {
         output[i]=noise_shaper(signal[i],i,history,quantErr,sos_shaper);
+        }
     }
     for(i=0;i<10;i++)
     {
