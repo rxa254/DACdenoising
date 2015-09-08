@@ -78,7 +78,7 @@ function noise_shaper()
     % noise spectrum
     % *********************************************    
   
-    % bandstop filter. Removes quantization noise from a bandwidth of
+    %%%%%%%%%%%% bandstop filter. Removes quantization noise from a bandwidth of
     % rate/4 to rate/3.
     %Order =3 ; 3dB ripple in passband
 %     band_stop=(rate_Hz/120);
@@ -87,24 +87,24 @@ function noise_shaper()
 %     display(strcat('stop band is between ',num2str(band_stop/rate_Hz),' Hz and ',num2str(band_pass/rate_Hz),' Hz'));
 %     b=1;
 %     a=1;
-    %high pass filter
-    factor=0.8;
-    pass_freq=factor*(rate_Hz/2);
+    %&high pass filter
+%     factor=0.8;
+%     pass_freq=factor*(rate_Hz/2);
 %     Hd = designfilt('highpassiir', 'FilterOrder', 4, ...
 %              'PassbandFrequency', 5e3, 'PassbandRipple', 3,...
 %              'SampleRate', rate_Hz);
 %     [b,a]=tf(Hd);
 %     [b, a] = cheby1(4, 3, factor, 'high');
-    display(strcat('Cutoff frequency is ',num2str(pass_freq),' Hz'));
+%     display(strcat('Cutoff frequency is ',num2str(pass_freq),' Hz'));
     
-    %Filter Design High Pass IIR%
-    hpFilt = designfilt('highpassiir', 'FilterOrder', 4, ...
-             'PassbandFrequency', pass_freq, 'PassbandRipple', 3,...
-             'SampleRate', rate_Hz);
-    sos=hpFilt.Coefficients;
-    
-    [b,a]=sos2tf(sos);
-    H1=tf(b,a,-1,'Variable','z^-1');
+%     %Filter Design High Pass IIR%
+%     hpFilt = designfilt('highpassiir', 'FilterOrder', 4, ...
+%              'PassbandFrequency', pass_freq, 'PassbandRipple', 3,...
+%              'SampleRate', rate_Hz);
+%     sos=hpFilt.Coefficients;
+%     
+%     [b,a]=sos2tf(sos);
+%     H1=tf(b,a,-1,'Variable','z^-1');
     
 %     
     %Filter Design H(z) =1 %
@@ -142,15 +142,17 @@ function noise_shaper()
     % noise frequency response
     % Note: a unit delay is removed by shortening bb.
     % *********************************************    
-%     bb = b / b(1);
-%     bb = bb(2:end) - a(2:end);
-%     sos_s=tf2sos(bb,a);
-%     [gain,sos_shape]=sos_shuffle(sos_s)
+    bb = b / b(1);
+    bb = bb(2:end) - a(2:end);
+    sos_s=tf2sos(bb,a);
+    [gain,sos_shape]=sos_shuffle(sos_s)
 
 %     Hz=tf([0 1],[1],-1,'Variable','z^-1');
-    Hz1=tf([1 0],[1],-1)
-    H_filter=(H1+1)/Hz1;
-    [bb,aa]=tfdata(H_filter,'v');
+%     Hz1=tf([1 0],[1],-1);
+%     H_filter=(H1+1)*Hz1;
+%     
+%     [bb,aa]=tfdata(H_filter,'v');
+% %     aa(1)=0.6;
     
 %       
 %     figure(5);
@@ -195,7 +197,7 @@ function noise_shaper()
 %         if(filterState ~= 0), f_in=filterState
 %         end
         
-        [filterOut, filterState] = filter(bb,aa, quantErr, filterState);
+        [filterOut, filterState] = filter(bb,a, quantErr, filterState);
 %             filterOut=sosfilt(SOS,quantErr);
 %         if(filterState ~=0), f=filterState
 %         end
@@ -203,7 +205,7 @@ function noise_shaper()
 %         quantIn = s + quantErr;
         quantOut = double(quant(quantIn));
 %         quantErr = quantOut - quantIn;
-        quantErr = -quantOut + quantIn;
+        quantErr = quantOut - quantIn;
         tdOut2(ix) = quantOut;
     end
     
@@ -221,35 +223,39 @@ function noise_shaper()
     fclose(fi);
 
 %%%% Read C code output , should be commented when MATLAB code is being tested%%%
-%     fid=fopen('shaped_out.txt','r');
-%     if fid==-1
-%         display('error opening file')
-%     end
-%     tdOut2C=fscanf(fid,'%d',len);
-%     tdOut2C=tdOut2C';
-%     fclose(fid);
+    fid=fopen('shaped_out.txt','r');
+    if fid==-1
+        display('error opening file')
+    end
+    tdOut2C=fscanf(fid,'%d',len);
+    tdOut2C=tdOut2C';
+    fclose(fid);
 %     
     
         %****PLOT DATA******%
    %%%% When comparing C And MATLAB %%%%
-%        figure(4);
-%     plot(tdOut2);
-%     grid on;
-%     title('tdOut2');
-%     
-%     
-%     figure(5);
-%     plot(tdOut2-tdOut2C);
-%     grid on;
-%     title('diff C MATLAB in series values');
-%     
+       figure(4);
+    plot(tdOut2);
+    grid on;
+    title('tdOut2');
+      figure(44);
+    plot(tdOut2C);
+    grid on;
+    title('tdOut2C');
+    
+%     diff=tdOut2(1000:2000)-tdOut2C(1000:2000)
+    figure(5);
+    plot(tdOut2-tdOut2C);
+    grid on;
+    title('diff C MATLAB in series values');
+    
 
-%    plot_shape(td,td-tdOut1,td-tdOut2,td-tdOut2C,tdOut2-tdOut2C,rate_Hz);
+   plot_shape(td,td-tdOut1,td-tdOut2,td-tdOut2C,tdOut2-tdOut2C,rate_Hz);
    
    %%%%%%%%%%%%%%%
    
    %%%%Plotting MATLAB Output ONLY %%%%%%%%%
-   plot_shape(td,tdOut1,tdOut2,td-tdOut1,td-tdOut2,rate_Hz);
+%    plot_shape(td,tdOut1,tdOut2,td-tdOut1,td-tdOut2,rate_Hz);
    
 %     tdOut2(1:10)
     % *********************************************
@@ -288,11 +294,7 @@ function sOut = quant(s)
         sOut=int32(-2^(17));
         display('clipping');
     else
-        if s < 0
-            sOut=ceil(s);
-        else
-            sOut=floor(s);
-        end
+       sOut=int32(s);
     end
 end
 

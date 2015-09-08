@@ -78,7 +78,7 @@ function noise_shaper()
     % noise spectrum
     % *********************************************    
   
-    % bandstop filter. Removes quantization noise from a bandwidth of
+    %%%%%%%%%%%% bandstop filter. Removes quantization noise from a bandwidth of
     % rate/4 to rate/3.
     %Order =3 ; 3dB ripple in passband
 %     band_stop=(rate_Hz/120);
@@ -87,24 +87,24 @@ function noise_shaper()
 %     display(strcat('stop band is between ',num2str(band_stop/rate_Hz),' Hz and ',num2str(band_pass/rate_Hz),' Hz'));
 %     b=1;
 %     a=1;
-    %high pass filter
+    %%%%%%%%%%%%%%%%%%%%high pass filter%%%%%%%%%%%%%%%%%%%%
     factor=0.8;
     pass_freq=factor*(rate_Hz/2);
 %     Hd = designfilt('highpassiir', 'FilterOrder', 4, ...
 %              'PassbandFrequency', 5e3, 'PassbandRipple', 3,...
 %              'SampleRate', rate_Hz);
 %     [b,a]=tf(Hd);
-%     [b, a] = cheby1(4, 3, factor, 'high');
-    display(strcat('Cutoff frequency is ',num2str(pass_freq),' Hz'));
+
+%     display(strcat('Cutoff frequency is ',num2str(pass_freq),' Hz'));
     
-    %Filter Design High Pass IIR%
+%     %Filter Design High Pass IIR%
     hpFilt = designfilt('highpassiir', 'FilterOrder', 4, ...
              'PassbandFrequency', pass_freq, 'PassbandRipple', 3,...
              'SampleRate', rate_Hz);
     sos=hpFilt.Coefficients;
     
     [b,a]=sos2tf(sos);
-    H1=tf(b,a,-1,'Variable','z^-1');
+%     H1=tf(b,a,-1,'Variable','z^-1');
     
 %     
     %Filter Design H(z) =1 %
@@ -294,11 +294,7 @@ function sOut = quant(s)
         sOut=int32(-2^(17));
         display('clipping');
     else
-        if s < 0
-            sOut=ceil(s);
-        else
-            sOut=floor(s);
-        end
+       sOut=int32(s);
     end
 end
 

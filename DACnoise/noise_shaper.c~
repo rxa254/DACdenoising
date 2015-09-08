@@ -4,7 +4,7 @@
 
 #include "noise_shaping_filter.c"
 
-#define order 2 //The high pass filter SOS matrix Order
+#define order 3 //The high pass filter SOS matrix Order
 
 double quant(double in)
 {
@@ -21,7 +21,16 @@ double quant(double in)
         printf("Clipping\n");
     }
     else
-        out=(int)in;
+    {
+        if(in<0)
+        {
+            out=(int)(in-0.5);
+        }
+        else
+        {
+            out=(int)(in+0.5)
+        }
+//         out=(int)in;
     
     return out;
 }
@@ -46,14 +55,14 @@ int noise_shaper(double sample, int num,double* history,double *quantErr,double 
         // Call iir_df2_double over here to filter the quantErr value. Change it so that it returns filterOut and filterState values, filter 
         //array has two elements one, filterOut and other is filterState
         
-//     filterOut=iir_filter(quantErr[num-1],sos_shaper,order,history);
+    filterOut=iir_filter(quantErr[num-1],sos_shaper,order,history);
         
-//     quantIn = sample + filterOut;
+    quantIn = sample + filterOut;
     if(num==0) quantErr[num-1]=0;
-    quantIn = sample + quantErr[num];
+//     quantIn = sample + quantErr[num];
    
     quantOut = quant(quantIn);
-    quantErr[num+1] = -quantOut + quantIn;
+    quantErr[num] = quantOut - quantIn;
     tdOut2 = quantOut;
 //     end
 
@@ -133,15 +142,30 @@ void main()
         sos_bqf[i]=0;
     }
        
-    sos_shaper[0]= -7.26916646278976e+000;    
-    sos_shaper[1]=1.69678853197248e+000;
-    sos_shaper[2]=768.485604426078e-003;
-    sos_shaper[3]=-45.7163559823221e-003;
+//     sos_shaper[0]= -7.26916646278976e+000;    
+//     sos_shaper[1]=1.69678853197248e+000;
+//     sos_shaper[2]=768.485604426078e-003;
+//     sos_shaper[3]=-45.7163559823221e-003;
+//     sos_shaper[4]=0.00000000000000e+000;
+//     sos_shaper[5]=1.57237793081728e+000;
+//     sos_shaper[6]=903.801801036295e-003;
+//     sos_shaper[7]=-182.606899798957e-003;
+//     sos_shaper[8]=919.118647398404e-003;
+    
+    sos_shaper[0]= -175.452722729356e-003;
+    sos_shaper[1]=-1.76364342887013e+000;
+    sos_shaper[2]=838.759683598930e-003;
+    sos_shaper[3]=-1.04259152020130e+000;
     sos_shaper[4]=0.00000000000000e+000;
-    sos_shaper[5]=1.57237793081728e+000;
-    sos_shaper[6]=903.801801036295e-003;
-    sos_shaper[7]=-182.606899798957e-003;
-    sos_shaper[8]=919.118647398404e-003;
+    sos_shaper[5]=-1.89110415579484e+000;
+    sos_shaper[6]=989.854849734713e-003;
+    sos_shaper[7]=-1.88487386166615e+000;
+    sos_shaper[8]=981.415668736020e-003;
+    sos_shaper[9]=-1.92469015904608e+000;
+    sos_shaper[10]=991.610502124898e-003;
+    sos_shaper[11]=-1.91642029410082e+000;
+    sos_shaper[12]=984.342490934734e-003;
+    
 
 //     sos_shaper[0]=-1.21288029783148e+000;    
 //     sos_shaper[1]=-1.00983263655467e+000;
@@ -175,7 +199,7 @@ void main()
       
 
     }
-    for(k=0; k<len-1; k++) 
+    for(k=0; k<len; k++) 
     {
 
        quantErr[k] = 0;
