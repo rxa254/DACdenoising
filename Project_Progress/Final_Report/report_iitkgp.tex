@@ -1,9 +1,21 @@
-\documentclass[colorlinks=true,pdfstartview=FitV,linkcolor=blue,
-            citecolor=red,urlcolor=magenta]{ligodoc}
+\documentclass[a4paper,12pt]{article}
 
+%\usepackage[utf8]{inputenc}
+%\usepackage{lipsum}
+\usepackage{amsmath,amsthm}
+\usepackage[english]{babel}
+
+%\usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage{amssymb}
-\usepackage{amsmath}
+
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\usepackage{calc}
+\usepackage{rotating}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{fancyhdr}
+%\usepackage{subfigure}
+\usepackage{hyperref}
 \usepackage{longtable}
 \usepackage{svg}
 \usepackage{float}
@@ -14,24 +26,70 @@
 %\usepackage{subfigure} 
 \usepackage{hyperref}
 
-\ligodccnumber{T}{15}{00351}{-}{v1}% \ligodistribution{AIC, ISC}
-\usepackage[backref=true,
+\usepackage[backref=false,
+			style=numeric-comp,
             sorting=none]{biblatex}
 \bibliography{journals,phd-references}
 
-%\graphicspath{{images1/}}
-\title{Quantization Noise in Advanced LIGO Digital Control Systems}
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\graphicspath{{images/}}
 
-\author{Ayush Pandey, Christopher Wipf, \\Rana Adhikari, Jameson Graef Rollins}
 
 \begin{document}
+
+\begin{titlepage}
+\begin{center}
+\LARGE{Indian Institute of Technology (IIT) Kharagpur}
+	\vskip0.5in
+  \large{Summer Internship Report 2015}
+  \vskip0.2in
+  \bfseries
+	\noindent\rule[0.5ex]{\linewidth}{4pt}
+  
+
+  \vskip.2in
+  \textsc{\Large Quantization Noise in Advanced LIGO Digital Control Systems}
+  \vskip.2in
+\noindent\rule[0.5ex]{\linewidth}{4pt}
+	
+\end{center}
+\vskip1.3in
+\begin{minipage}[t]{7cm}
+\flushleft
+\textsc{Author:}
+
+Ayush Pandey \\12IE32001\\ IIT Kharagpur \\
+\end{minipage}
+\hfill
+\begin{minipage}[t]{7cm}
+\flushright
+\textsc{Supervisor:}
+
+Dr. Christopher Wipf \\PostDoc Scholar \\ California Institute of Technology
+\end{minipage}
+\vskip1.2in
+
+\begin{center}
+\textbf{Department of Electrical Engineering \\ 2015}
+\vskip0.2in
+\includegraphics[scale=0.2]{logo}
+\end{center}
+\end{titlepage}
+
+.\\[2\baselineskip]
 \begin{center}
 \textbf{\LARGE{Preface}}
 \end{center}
 .\\[2\baselineskip]
 This document is a result of research and study done at California Institute of Technology as a part of the Laser Interferometer Gravitational Wave Observatory (LIGO), Summer Undergraduate Research Fellowship (SURF) Program in 2015. Quantization Noise and it's effects have been studied and presented in a way that would take the reader without much pre-requisites on the subject matter, from the basics in the first section describing the quantization process to all kinds of analysis and denoising techniques in the very last section and its application to the LIGO detector. \\
 The project was focused on analyzing Quantization Noise in the Advanced LIGO Digital Control Systems. The theoretical background and a thorough literature review on the quantization noise subject (in general) has been presented in the first few sections of this report (sections \ref{quant} to \ref{analysis}). A brief description of the LIGO detector and it's working principle is given in section \ref{ligo}. Then, based on the theory developed, results on the quantization noise for Advanced LIGO digital filters, (in section \ref{filter}) and for the Digital to Analog Converters used in Advanced LIGO (in section \ref{dac}) have been given. Finally, a denoising technique called Noise Shaping is described to reduce the noise levels due to DACs in a desired frequency band. Simulations and testing results to support the arguments are also given in section \ref{dacdenoising}. \\
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 \section{What is Quantization}
 \label{quant}
 Quantization is a process of mapping continuous set of values into a finite or countably infinite set of values by approximations such as truncation, rounding etc. The function which performs this approximation operation is called a Quantizer. Hence, the input to a quantizer will be a continuous set of values and it will output the quantized values for each sample after performing Quantization. The efficiency of a Quantizer is easily understood to be the accuracy with which it can perform the quantization operation using its approximation technique. The accuracy in this case would simply be a measure of the loss or distortion caused by the Quantizer. This loss in data is known as Quantization Noise or Quantization Error. Intuitively, one can understand that the noise would be equal to the difference between the original input sample and the output of the Quantizer. 
@@ -150,14 +208,14 @@ The following section details about some of the most commonly used filter struct
     		The noise analysis and the measurement of DAC noise have been described in a later section.
 %     
 %
-\section{Noise Estimation}
-The obvious and the best way to measure the quantization noise is to subtract the output (the signal having the quantization noise) from the ideal output. Ideal output is an output which would be the output of the quantizer working at infinite precision. Practically, such an ideal output is never possible and hence perfect calculation of quantization noise is not possible. Though, it is possible to estimate the quantization noise to a level of approximation which can be considered acceptable. \\
-Hence, estimation of noise is done by subtracting the output from another output which is calculated using a higher level of precision than the original output. 
-
-	\paragraph{Digital Filter Noise Estimation} Taking an example of a digital filter which produces outputs at 16 bits, i.e. the precision of its numbers is 16 bits. To estimate the quantization noise for this digital filter, the output of the filter needs to be calculated at a precision better than 16 bits. So, if in this example, the output is calculated at 32 bits then the difference between the two outputs would be a good estimation of the quantization noise that was present in the original (16 bit) output. This estimation technique is intuitive and at the same time can be implemented for simulation and testing easily.
-
-   \paragraph{DAC Noise Estimation}
-	As described above, the DAC performs a truncation operation and hence the noise can be estimated easily. The digital controller filters the input signals at the precision with which the digital controller works. Let's call this precision n. Now, if the DAC hardware works at a precision (say p, where $p<n$), then the digital controller output (n-bit) needs to be truncated by the digital controller itself before feeding it to the DAC. Hence, a truncation operation from n-bits to p-bits is done in the digital controller code. The quantization noise is directly then given by the difference between the digital controller output and the quantized output obtained after truncation to be given to the p-bit DAC.
+%\section{Noise Estimation}
+%The obvious and the best way to measure the quantization noise is to subtract the output (the signal having the quantization noise) from the ideal output. Ideal output is an output which would be the output of the quantizer working at infinite precision. Practically, such an ideal output is never possible and hence perfect calculation of quantization noise is not possible. Though, it is possible to estimate the quantization noise to a level of approximation which can be considered acceptable. \\
+%Hence, estimation of noise is done by subtracting the output from another output which is calculated using a higher level of precision than the original output. 
+%
+%	\paragraph{Digital Filter Noise Estimation} Taking an example of a digital filter which produces outputs at 16 bits, i.e. the precision of its numbers is 16 bits. To estimate the quantization noise for this digital filter, the output of the filter needs to be calculated at a precision better than 16 bits. So, if in this example, the output is calculated at 32 bits then the difference between the two outputs would be a good estimation of the quantization noise that was present in the original (16 bit) output. This estimation technique is intuitive and at the same time can be implemented for simulation and testing easily.
+%
+%   \paragraph{DAC Noise Estimation}
+%	As described above, the DAC performs a truncation operation and hence the noise can be estimated easily. The digital controller filters the input signals at the precision with which the digital controller works. Let's call this precision n. Now, if the DAC hardware works at a precision (say p, where $p<n$), then the digital controller output (n-bit) needs to be truncated by the digital controller itself before feeding it to the DAC. Hence, a truncation operation from n-bits to p-bits is done in the digital controller code. The quantization noise is directly then given by the difference between the digital controller output and the quantized output obtained after truncation to be given to the p-bit DAC.
 \section{Noise Analysis}
 \label{analysis}
 It is trivial that quantization noise will be lower for a system that has a higher resolution. A higher resolution implies that the value of 1 LSB  or q is lower. Another trivial fact is that the maximum quantization error in one quantization operation would always be less than or equal to half of one LSB i.e. $\pm\frac{q}{2}$. The following sections describe in detail the noise analysis for digital filters.
@@ -200,12 +258,12 @@ The Laser Interferometer Gravitational Wave Observatory (LIGO) \cite{LIGO} aims 
 	\subsection{Basic Working Principle}The LIGO setup consists of a Laser interferometer \cite{Interferometer} which is at the heart of detection of the gravitational waves. Gravitational waves have the property of stretching and squeezing the space-time through which they pass. This stretch and squeeze in the space-time changes the distance (length of the interferometer arm) between two points. This displacement produced is measured as strain, which transforms into the constructive or destructive interference between the original wave and the reflected laser light (which is stretched \& squeezed in space-time by presence of a gravitational wave). To achieve reflection, a mirror is kept at the other end of the interferometer in both of its perpendicular arms \cite{Interferometer}. There are many controllers which are used to control and suppress the mirror motion. \cite{Carbone} describes why movement of the mirrors and hence the motion control is necessary. Since, the strain measurement being done is of the order of $10^{-19}$ metres, all kinds of noises and disturbances need to be analyzed and looked into closely so as to maximize the Signal to Noise Ratio (SNR), which is of prime importance in the process of Gravitational wave detection of such a low magnitude (the astronomical strains being measured are one thousand times lesser than the diameter of a proton!). 
 	
 	\subsection{LIGO and Quantization Noise}Quantization noise, is one such noise source among thousands others and this project was dedicated towards the analysis, study and improvements with respect to Quantization Noise. The problem of quantization noise is important to be solved for LIGO because it may be possible that at some places in the digital controllers the noise level might be so high that the signal wouldn't be detected leading to some very important signals being suppressed under the noise.
-\section{Advanced LIGO}
-Advanced Laser Interferometer Gravitational Wave Observatory (aLIGO) is an upgrade over the initial LIGO (iLIGO)\cite{LIGO} setup. Many different kinds of upgrades have been incorporated in the Adanced LIGO. All upgrades have been completed and the detection sensitivity is now 10 times more than the initial LIGO setup. The observations using the upgraded Advanced LIGO are currently underway at Hanford and Livingston. Some major upgrades in the Advanced LIGO have been towards the upgradation of isolation system for mirrors using quadruple pendulum system compared to the single pendulum system in iLIGO. The laser power has been improved, and to support higher laser power the concerned components have also been upgraded. 
-	\subsection{Digital Filters}
-	aLIGO digital filters are designed using the custom-made software called Foton.
-	    \paragraph{About Foton}The Foton is a software designed at LIGO which enables one to design a filter according to the specifications. It has a graphical user interface (GUI) which provides for various types of design methods such as the zero-pole-gain (ZPK) method or design using bode plots among others. Any user can easily design a filter using this GUI and then can save the design in a text file in a format which can be read by simple MATLAB / C codes, as per the needs. These text files can be read by the Foton software as well. Hence, whenever the need arises, a filter can be looked at using the Foton software by mentioning the file name in which the filter bank name exists. In this way, the thousands of digital filters have all been documented in these text files using the Foton software. \\The foton filter design procedure and GUI is a lot like MATLAB's filter design and analysis tool (FDA Tool) in the signal processing toolbox. \\
-	The Foton software provides a complete analysis of a digital filter. For any given filter, its step response, impulse response and ramp response can be visualized. Also, various other parameters such as pole and zero location, transfer function etc. are available. For designing a filter, some common filter designs such as the butterworth, chebyshev and elliptical filter designs are available for use and modifications. \\
+%\section{Advanced LIGO}
+%Advanced Laser Interferometer Gravitational Wave Observatory (aLIGO) is an upgrade over the initial LIGO (iLIGO)\cite{LIGO} setup. Many different kinds of upgrades have been incorporated in the Adanced LIGO. All upgrades have been completed and the detection sensitivity is now 10 times more than the initial LIGO setup. The observations using the upgraded Advanced LIGO are currently underway at Hanford and Livingston. Some major upgrades in the Advanced LIGO have been towards the upgradation of isolation system for mirrors using quadruple pendulum system compared to the single pendulum system in iLIGO. The laser power has been improved, and to support higher laser power the concerned components have also been upgraded. 
+%	\subsection{Digital Filters}
+%	aLIGO digital filters are designed using the custom-made software called Foton.
+%	    \paragraph{About Foton}The Foton is a software designed at LIGO which enables one to design a filter according to the specifications. It has a graphical user interface (GUI) which provides for various types of design methods such as the zero-pole-gain (ZPK) method or design using bode plots among others. Any user can easily design a filter using this GUI and then can save the design in a text file in a format which can be read by simple MATLAB / C codes, as per the needs. These text files can be read by the Foton software as well. Hence, whenever the need arises, a filter can be looked at using the Foton software by mentioning the file name in which the filter bank name exists. In this way, the thousands of digital filters have all been documented in these text files using the Foton software. \\The foton filter design procedure and GUI is a lot like MATLAB's filter design and analysis tool (FDA Tool) in the signal processing toolbox. \\
+%	The Foton software provides a complete analysis of a digital filter. For any given filter, its step response, impulse response and ramp response can be visualized. Also, various other parameters such as pole and zero location, transfer function etc. are available. For designing a filter, some common filter designs such as the butterworth, chebyshev and elliptical filter designs are available for use and modifications. \\
     		\subsection{LIGO Filter Design}
     		
 For the Advanced LIGO digital controllers the filter design was upgraded to a low noise form, in iLIGO, previously the digital filters were implemented in  the direct form II (DF2) structures pertaining to its lower number of additions and multiplications.
@@ -244,47 +302,47 @@ All digital controllers in the Advanced LIGO setup specifically use the floating
 			  \centering
 			  
 			  %\includesvg[width=1.4\textwidth]{H1:HPI-BS_L4CINF_H2_IN1_DQ}
-			  \def\svgscale{0.5}
+			  \def\svgscale{0.3}
 			  \tiny{
 			  \input{H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf_tex}
 			  }
 			  \caption{Analysis for Hanford HPI BS filter}
 			 \label{good}
 		\end{figure}
+%		\begin{figure}[H]
+% 
+%			  \centering
+%			  \def\svgscale{0.3}
+%			  \tiny{
+%			  \input{H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf_tex}
+%			  }
+%			  \caption{Analysis for Hanford SUS ITMX filter}
+%			 %\label{good}
+%		\end{figure}
 		\begin{figure}[H]
  
 			  \centering
-			  \def\svgscale{0.5}
-			  \tiny{
-			  \input{H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf_tex}
-			  }
-			  \caption{Analysis for Hanford SUS ITMX filter}
-			 %\label{good}
-		\end{figure}
-		\begin{figure}[H]
- 
-			  \centering
-			  \def\svgscale{0.5}		 
+			  \def\svgscale{0.3}		 
 			  \tiny{ 
 			  \input{L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf_tex}
 			  }
 			  \caption{Analysis for Livingston ISI ETMX filter}
 			 %\label{good}
 		\end{figure}
+%		\begin{figure}[H]
+% 
+%			  \centering
+%			  \def\svgscale{0.3}
+%			  \tiny{
+%			  \input{L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf_tex}
+%			  }
+%			  \caption{Analysis for Livingston ISI ETMY filter}
+%			 %\label{good}
+%		\end{figure}
 		\begin{figure}[H]
  
 			  \centering
-			  \def\svgscale{0.5}
-			  \tiny{
-			  \input{L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf_tex}
-			  }
-			  \caption{Analysis for Livingston ISI ETMY filter}
-			 %\label{good}
-		\end{figure}
-		\begin{figure}[H]
- 
-			  \centering
-			  \def\svgscale{0.5}
+			  \def\svgscale{0.3}
 			  \tiny{
 			  \input{H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf_tex}
 			  }
@@ -296,45 +354,45 @@ All digital controllers in the Advanced LIGO setup specifically use the floating
 		\begin{figure}[H]
  
 			  \centering
-			  \def\svgscale{0.5}
+			  \def\svgscale{0.3}
 			  \tiny{
 			  \input{H1:LSC-DARM_IN1_DQ.pdf_tex}
 			  }
 			  \caption{Analysis for Hanford LSC DARM filter}
 			 \label{dfbad}
 		\end{figure}
-		\begin{figure}[H]
- 
-			  \centering
-			  \def\svgscale{0.5}
-			  \tiny{
-			  \input{L1:ISI-ETMY_ST1_BLND_RZ_L4C_CUR_IN1_DQ.pdf_tex}
-			  }
-			  \caption{Analysis for Livingston ISI ETMY filter}
-			 %\label{good}
-		\end{figure}
+%		\begin{figure}[H]
+% 
+%			  \centering
+%			  \def\svgscale{0.3}
+%			  \tiny{
+%			  \input{L1:ISI-ETMY_ST1_BLND_RZ_L4C_CUR_IN1_DQ.pdf_tex}
+%			  }
+%			  \caption{Analysis for Livingston ISI ETMY filter}
+%			 %\label{good}
+%		\end{figure}
 		
 		\item For some filters, the DF2 performs equally well as the LNF. This result is shown in figure \ref{bqfdf} and the ones following it. The reason behind this observation is clear from the figures which show the input and output signal as well. The output for these kinds of filters are mostly representing filters which only perform a gain operation (i.e. a simple multiplication).
 		\begin{figure}[H]
  
 			  \centering
-			  \def\svgscale{0.5}
+			  \def\svgscale{0.3}
 			  \tiny{
 			  \input{H1:SUS-ETMX_M0_LOCK_P_IN1_DQ.pdf_tex}
 			  }
 			  \caption{Analysis for Hanford SUS ETMX filter}
 			 \label{bqfdf}
 		\end{figure}
-		\begin{figure}[H]
- 
-			  \centering
-			  \def\svgscale{0.5}
-			  \tiny{
-			  \input{L1:ISI-ETMX_ST1_T240INF_Z3_IN1_DQ.pdf_tex}
-			  }
-			  \caption{Analysis for Livingston ISI ETMX filter}
-			 %\label{bqfdf}
-		\end{figure}
+%		\begin{figure}[H]
+% 
+%			  \centering
+%			  \def\svgscale{0.3}
+%			  \tiny{
+%			  \input{L1:ISI-ETMX_ST1_T240INF_Z3_IN1_DQ.pdf_tex}
+%			  }
+%			  \caption{Analysis for Livingston ISI ETMX filter}
+%			 %\label{bqfdf}
+%		\end{figure}
 	\end{enumerate}
 	\section{Limitations}
 	Some limitations of the analysis are:

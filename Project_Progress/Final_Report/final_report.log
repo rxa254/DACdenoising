@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.26)  12 AUG 2015 22:55
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.26)  24 SEP 2015 19:06
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -634,20 +634,20 @@ File: english.lbx 2013/11/25 v2.8a biblatex localization (PK/JW/AB)
 (./final_report.aux)
 \openout1 = `final_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -678,7 +678,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box37
-Package hyperref Info: Link coloring ON on input line 29.
+Package hyperref Info: Link coloring ON on input line 27.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -688,36 +688,36 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count300
 )
-LaTeX Info: Redefining \ref on input line 29.
-LaTeX Info: Redefining \pageref on input line 29.
-LaTeX Info: Redefining \nameref on input line 29.
+LaTeX Info: Redefining \ref on input line 27.
+LaTeX Info: Redefining \pageref on input line 27.
+LaTeX Info: Redefining \nameref on input line 27.
 
 (./final_report.out) (./final_report.out)
 \@outlinefile=\write4
 \openout4 = `final_report.out'.
 
-LaTeX Font Info:    Try loading font information for U+lasy on input line 29.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 27.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 29.
+LaTeX Font Info:    Try loading font information for U+msa on input line 27.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 29.
+LaTeX Font Info:    Try loading font information for U+msb on input line 27.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <22> not available
-(Font)              size <20.74> substituted on input line 29.
+(Font)              size <20.74> substituted on input line 27.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <22> not available
-(Font)              size <20.74> substituted on input line 29.
+(Font)              size <20.74> substituted on input line 27.
 
 [1
 
@@ -736,23 +736,112 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'final_report.bbl' found.
  (./final_report.bbl)
-Package biblatex Info: Reference section=0 on input line 29.
-Package biblatex Info: Reference segment=0 on input line 29.
+Package biblatex Info: Reference section=0 on input line 27.
+Package biblatex Info: Reference segment=0 on input line 27.
 
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
 
-LaTeX Warning: Citation 'Examples' on page 1 undefined on input line 45.
-
-
-Overfull \hbox (3.18094pt too wide) in paragraph at lines 44--46
-\OT1/cmr/m/n/12 Some other ex-am-ples with re-spect to quan-ti-za-tion in im-ag
-e pro-cess-ing are given in [[]
  []
 
 
-LaTeX Warning: Citation 'Kollar' on page 1 undefined on input line 50.
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
 
 
-LaTeX Warning: Citation 'Kollar' on page 1 undefined on input line 50.
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -764,13 +853,16 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.52 	\begin{equation}
-                       [1]
+l.38     \subsection
+                    {Examples} [1]
 
-LaTeX Warning: Citation 'Kollar' on page 2 undefined on input line 57.
+LaTeX Warning: Citation 'Examples' on page 2 undefined on input line 50.
 
 
-LaTeX Warning: Citation 'Kollar' on page 2 undefined on input line 59.
+Overfull \hbox (3.18094pt too wide) in paragraph at lines 49--51
+\OT1/cmr/m/n/12 Some other ex-am-ples with re-spect to quan-ti-za-tion in im-ag
+e pro-cess-ing are given in [[]
+ []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -780,20 +872,35 @@ Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 68--69
+
+LaTeX Warning: Citation 'Kollar' on page 3 undefined on input line 55.
+
+
+LaTeX Warning: Citation 'Kollar' on page 3 undefined on input line 55.
+
+
+LaTeX Warning: Citation 'Kollar' on page 3 undefined on input line 62.
+
+
+LaTeX Warning: Citation 'Kollar' on page 3 undefined on input line 64.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--71
-
- []
-
-
-LaTeX Warning: Citation 'Quantization' on page 3 undefined on input line 72.
+LaTeX Warning: Citation 'Quantization' on page 4 undefined on input line 77.
 
 (./Quantization_Error_Wave.pdf_tex
-<Quantization_Error_Wave.pdf, id=173, 269.104pt x 145.937pt>
+<Quantization_Error_Wave.pdf, id=196, 269.104pt x 145.937pt>
 File: Quantization_Error_Wave.pdf Graphic file (type pdf)
 
 <use Quantization_Error_Wave.pdf>
@@ -806,46 +913,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[3]
+[4]
 
-LaTeX Warning: Citation 'Git' on page 4 undefined on input line 129.
-
-
-LaTeX Warning: Citation 'Pandey' on page 4 undefined on input line 131.
+LaTeX Warning: Citation 'Git' on page 5 undefined on input line 129.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (7.73332pt too high) has occurred while \output is active []
-
-
-[4 <./Quantization_Error_Wave.pdf>]
-
-LaTeX Warning: Citation 'Z transform' on page 5 undefined on input line 134.
-
-
-LaTeX Warning: Citation 'Oppenheim' on page 5 undefined on input line 135.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 137--138
-
- []
-
-
-LaTeX Warning: Citation 'Oppenheim' on page 5 undefined on input line 139.
-
-
-LaTeX Warning: Citation 'Rahmanian' on page 5 undefined on input line 139.
-
-
-LaTeX Warning: Citation 'Oppenheim' on page 5 undefined on input line 140.
-
-
-LaTeX Warning: Citation 'Rahmanian' on page 5 undefined on input line 140.
-
-
-LaTeX Warning: Citation 'T L Chang' on page 5 undefined on input line 141.
+LaTeX Warning: Citation 'Pandey' on page 5 undefined on input line 131.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -854,15 +927,27 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
+[5 <./Quantization_Error_Wave.pdf>]
 
- []
+LaTeX Warning: Citation 'Z transform' on page 6 undefined on input line 134.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
+LaTeX Warning: Citation 'Oppenheim' on page 6 undefined on input line 135.
 
- []
+
+LaTeX Warning: Citation 'Oppenheim' on page 6 undefined on input line 139.
+
+
+LaTeX Warning: Citation 'Rahmanian' on page 6 undefined on input line 139.
+
+
+LaTeX Warning: Citation 'Oppenheim' on page 6 undefined on input line 140.
+
+
+LaTeX Warning: Citation 'Rahmanian' on page 6 undefined on input line 140.
+
+
+LaTeX Warning: Citation 'T L Chang' on page 6 undefined on input line 141.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -872,42 +957,6 @@ Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
 [6]
-
-LaTeX Warning: Citation 'Kaiser' on page 7 undefined on input line 172.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 172--174
-
- []
-
-
-LaTeX Warning: Citation 'Oppenheim' on page 7 undefined on input line 175.
-
-
-LaTeX Warning: Citation 'Oppenheim' on page 7 undefined on input line 175.
-
-
-LaTeX Warning: Citation 'Kollar' on page 7 undefined on input line 178.
-
-
-LaTeX Warning: Citation 'Matts' on page 7 undefined on input line 178.
-
-
-LaTeX Warning: Citation 'Matts' on page 7 undefined on input line 178.
-
-
-LaTeX Warning: Citation 'Matts' on page 7 undefined on input line 178.
-
-
-LaTeX Warning: Citation 'Zeng' on page 7 undefined on input line 179.
-
-
-LaTeX Warning: Citation 'Chang' on page 7 undefined on input line 180.
-
-
-LaTeX Warning: Citation 'Chang' on page 7 undefined on input line 180.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -916,58 +965,28 @@ Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 [7]
 
-LaTeX Warning: Citation 'Chang' on page 8 undefined on input line 191.
+LaTeX Warning: Citation 'Kaiser' on page 8 undefined on input line 173.
 
 
-LaTeX Warning: Citation 'Mullis' on page 8 undefined on input line 191.
+LaTeX Warning: Citation 'Oppenheim' on page 8 undefined on input line 176.
 
 
-LaTeX Warning: Citation 'Bomar' on page 8 undefined on input line 192.
+LaTeX Warning: Citation 'Oppenheim' on page 8 undefined on input line 176.
 
 
-LaTeX Warning: Citation 'Dehner' on page 8 undefined on input line 192.
+LaTeX Warning: Citation 'Kollar' on page 8 undefined on input line 179.
 
 
-LaTeX Warning: Citation 'Dehner' on page 8 undefined on input line 192.
+LaTeX Warning: Citation 'Matts' on page 8 undefined on input line 179.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--194
-
- []
+LaTeX Warning: Citation 'Matts' on page 8 undefined on input line 179.
 
 
-LaTeX Warning: Citation 'Oppenheim' on page 8 undefined on input line 195.
+LaTeX Warning: Citation 'Matts' on page 8 undefined on input line 179.
 
 
-LaTeX Warning: Citation 'Cerna' on page 8 undefined on input line 195.
-
-
-LaTeX Warning: Citation 'Kanner' on page 8 undefined on input line 195.
-
-
-LaTeX Warning: Citation 'Welch' on page 8 undefined on input line 195.
-
-
-LaTeX Warning: Citation 'LIGO' on page 8 undefined on input line 198.
-
-
-LaTeX Warning: Citation 'GWD' on page 8 undefined on input line 198.
-
-
-LaTeX Warning: Citation 'Interferometer' on page 8 undefined on input line 198.
-
-
-
-LaTeX Warning: Citation 'Interferometer' on page 8 undefined on input line 198.
-
-
-
-LaTeX Warning: Citation 'Carbone' on page 8 undefined on input line 198.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 198--201
-
- []
+LaTeX Warning: Citation 'Zeng' on page 8 undefined on input line 180.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -978,12 +997,37 @@ Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 [8]
 
-LaTeX Warning: Citation 'LIGO' on page 9 undefined on input line 203.
+LaTeX Warning: Citation 'Chang' on page 9 undefined on input line 192.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 206--208
+LaTeX Warning: Citation 'Mullis' on page 9 undefined on input line 192.
 
- []
+
+LaTeX Warning: Citation 'Bomar' on page 9 undefined on input line 193.
+
+
+LaTeX Warning: Citation 'Dehner' on page 9 undefined on input line 193.
+
+
+LaTeX Warning: Citation 'Dehner' on page 9 undefined on input line 193.
+
+
+LaTeX Warning: Citation 'Oppenheim' on page 9 undefined on input line 195.
+
+
+LaTeX Warning: Citation 'Cerna' on page 9 undefined on input line 195.
+
+
+LaTeX Warning: Citation 'Kanner' on page 9 undefined on input line 195.
+
+
+LaTeX Warning: Citation 'Welch' on page 9 undefined on input line 195.
+
+
+LaTeX Warning: Citation 'LIGO' on page 9 undefined on input line 198.
+
+
+LaTeX Warning: Citation 'GWD' on page 9 undefined on input line 198.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -994,25 +1038,18 @@ Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 [9]
 
-LaTeX Warning: Citation 'Matts' on page 10 undefined on input line 211.
+LaTeX Warning: Citation 'Interferometer' on page 10 undefined on input line 200
+.
 
 
-LaTeX Warning: Citation 'Matts' on page 10 undefined on input line 211.
+LaTeX Warning: Citation 'Interferometer' on page 10 undefined on input line 200
+.
 
 
-LaTeX Warning: Citation 'Matts' on page 10 undefined on input line 211.
+LaTeX Warning: Citation 'Carbone' on page 10 undefined on input line 200.
 
 
-LaTeX Warning: Citation 'Matts' on page 10 undefined on input line 219.
-
-
-LaTeX Warning: Citation 'Martynov' on page 10 undefined on input line 220.
-
-
-LaTeX Warning: Citation 'Martynov2' on page 10 undefined on input line 220.
-
-
-LaTeX Warning: Citation 'longdouble' on page 10 undefined on input line 221.
+LaTeX Warning: Citation 'LIGO' on page 10 undefined on input line 204.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1022,27 +1059,48 @@ Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
 [10]
-
-LaTeX Warning: Citation 'Martynov' on page 11 undefined on input line 224.
-
-
-LaTeX Warning: Citation 'Collection' on page 11 undefined on input line 232.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 231--233
+Underfull \hbox (badness 10000) in paragraph at lines 207--209
 
  []
 
-(./H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf_tex
-<H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf, id=243, 1096.095pt x 616.70403pt>
-File: H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf Graphic file (type pdf)
 
-<use H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf>
-Package pdftex.def Info: H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf used on input line 52.
-(pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
-)
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 78--249
- [][] 
+LaTeX Warning: Citation 'Matts' on page 11 undefined on input line 212.
+
+
+LaTeX Warning: Citation 'Matts' on page 11 undefined on input line 212.
+
+
+LaTeX Warning: Citation 'Matts' on page 11 undefined on input line 212.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[11]
+
+LaTeX Warning: Citation 'Matts' on page 12 undefined on input line 221.
+
+
+LaTeX Warning: Citation 'Martynov' on page 12 undefined on input line 222.
+
+
+LaTeX Warning: Citation 'Martynov2' on page 12 undefined on input line 222.
+
+
+LaTeX Warning: Citation 'longdouble' on page 12 undefined on input line 223.
+
+
+LaTeX Warning: Citation 'Martynov' on page 12 undefined on input line 226.
+
+
+LaTeX Warning: Citation 'Collection' on page 12 undefined on input line 234.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 233--235
+
  []
 
 
@@ -1052,8 +1110,20 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[11] (./H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf_tex
-<H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf, id=252, 1096.095pt x 616.70403pt>
+[12] (./H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf_tex
+<H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf, id=273, 1096.095pt x 616.70403pt>
+File: H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf Graphic file (type pdf)
+
+<use H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf>
+Package pdftex.def Info: H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf used on input line 52.
+(pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
+)
+Overfull \hbox (78.29247pt too wide) in paragraph at lines 78--251
+ [][] 
+ []
+
+(./H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf_tex
+<H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf, id=274, 1096.095pt x 616.70403pt>
 File: H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf Graphic file (type pdf)
 
 <use H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf>
@@ -1061,12 +1131,19 @@ Package pdftex.def Info: H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf used on input line 52
 .
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 )
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 74--259
+Overfull \hbox (78.29247pt too wide) in paragraph at lines 74--261
  [][] 
  []
 
-(./L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf_tex
-<L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf, id=253, 1096.095pt x 616.70403pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (7.73332pt too high) has occurred while \output is active []
+
+
+[13] (./L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf_tex
+<L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf, id=284, 1096.095pt x 616.70403pt>
 File: L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf Graphic file (type pdf)
 
 <use L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf>
@@ -1074,7 +1151,7 @@ Package pdftex.def Info: L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf used on input line 5
 2.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 )
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 78--269
+Overfull \hbox (78.29247pt too wide) in paragraph at lines 78--271
  [][] 
  []
 
@@ -1085,9 +1162,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[12 <./H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf>]
+[14 <./H1:HPI-BS_L4CINF_H2_IN1_DQ.pdf>]
 (./L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf_tex
-<L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf, id=268, 1096.095pt x 616.70403pt>
+<L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf, id=295, 1096.095pt x 616.70403pt>
 File: L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf Graphic file (type pdf)
 
 <use L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf>
@@ -1095,7 +1172,7 @@ Package pdftex.def Info: L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf used on input line 5
 2.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 )
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 76--279
+Overfull \hbox (78.29247pt too wide) in paragraph at lines 76--281
  [][] 
  []
 
@@ -1106,9 +1183,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[13 <./H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf>]
+[15 <./H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf>]
 (./H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf_tex
-<H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, id=279, page=1, 1096.095pt x 616.70403pt
+<H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, id=306, page=1, 1096.095pt x 616.70403pt
 >
 File: H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf Graphic file (type pdf)
  <use H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, page 1>
@@ -1116,7 +1193,7 @@ Package pdftex.def Info: H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, page1 used on in
 put line 52.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 
-<H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, id=280, page=2, 1096.095pt x 616.70403pt
+<H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, id=307, page=2, 1096.095pt x 616.70403pt
 >
 File: H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf Graphic file (type pdf)
  <use H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, page 2>
@@ -1124,7 +1201,7 @@ Package pdftex.def Info: H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, page2 used on in
 put line 54.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 
-<H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, id=281, page=3, 1096.095pt x 616.70403pt
+<H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, id=308, page=3, 1096.095pt x 616.70403pt
 >
 File: H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf Graphic file (type pdf)
  <use H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, page 3>
@@ -1132,7 +1209,7 @@ Package pdftex.def Info: H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, page3 used on in
 put line 66.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 
-<H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, id=282, page=4, 1096.095pt x 616.70403pt
+<H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, id=309, page=4, 1096.095pt x 616.70403pt
 >
 File: H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf Graphic file (type pdf)
  <use H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, page 4>
@@ -1140,7 +1217,7 @@ Package pdftex.def Info: H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, page4 used on in
 put line 79.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 
-<H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, id=283, page=5, 1096.095pt x 616.70403pt
+<H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, id=310, page=5, 1096.095pt x 616.70403pt
 >
 File: H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf Graphic file (type pdf)
  <use H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, page 5>
@@ -1148,7 +1225,7 @@ Package pdftex.def Info: H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf, page5 used on in
 put line 81.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 )
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 82--289
+Overfull \hbox (78.29247pt too wide) in paragraph at lines 82--291
  [][] 
  []
 
@@ -1159,31 +1236,31 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[14 <./L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf>]
+[16 <./L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[15 <./L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf>]
+[17 <./L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf>]
 
-LaTeX Warning: Citation 'Matts' on page 16 undefined on input line 293.
+LaTeX Warning: Citation 'Matts' on page 18 undefined on input line 295.
 
 (./H1:LSC-DARM_IN1_DQ.pdf_tex
-<H1:LSC-DARM_IN1_DQ.pdf, id=306, 1096.095pt x 616.70403pt>
+<H1:LSC-DARM_IN1_DQ.pdf, id=332, 1096.095pt x 616.70403pt>
 File: H1:LSC-DARM_IN1_DQ.pdf Graphic file (type pdf)
 
 <use H1:LSC-DARM_IN1_DQ.pdf>
 Package pdftex.def Info: H1:LSC-DARM_IN1_DQ.pdf used on input line 52.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 )
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 80--301
+Overfull \hbox (78.29247pt too wide) in paragraph at lines 80--303
  [][] 
  []
 
 (./L1:ISI-ETMY_ST1_BLND_RZ_L4C_CUR_IN1_DQ.pdf_tex
-<L1:ISI-ETMY_ST1_BLND_RZ_L4C_CUR_IN1_DQ.pdf, id=307, 1096.095pt x 616.70403pt>
+<L1:ISI-ETMY_ST1_BLND_RZ_L4C_CUR_IN1_DQ.pdf, id=333, 1096.095pt x 616.70403pt>
 File: L1:ISI-ETMY_ST1_BLND_RZ_L4C_CUR_IN1_DQ.pdf Graphic file (type pdf)
 
 <use L1:ISI-ETMY_ST1_BLND_RZ_L4C_CUR_IN1_DQ.pdf>
@@ -1191,7 +1268,7 @@ Package pdftex.def Info: L1:ISI-ETMY_ST1_BLND_RZ_L4C_CUR_IN1_DQ.pdf used on inp
 ut line 52.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 )
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 78--311
+Overfull \hbox (78.29247pt too wide) in paragraph at lines 78--313
  [][] 
  []
 
@@ -1202,7 +1279,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[16 <./H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf> <./H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SN
+[18 <./H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf> <./H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SN
 R.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf)
@@ -1226,8 +1303,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[17 <./H1:LSC-DARM_IN1_DQ.pdf>] (./H1:SUS-ETMX_M0_LOCK_P_IN1_DQ.pdf_tex
-<H1:SUS-ETMX_M0_LOCK_P_IN1_DQ.pdf, id=329, 1096.095pt x 616.70403pt>
+[19 <./H1:LSC-DARM_IN1_DQ.pdf>] (./H1:SUS-ETMX_M0_LOCK_P_IN1_DQ.pdf_tex
+<H1:SUS-ETMX_M0_LOCK_P_IN1_DQ.pdf, id=356, 1096.095pt x 616.70403pt>
 File: H1:SUS-ETMX_M0_LOCK_P_IN1_DQ.pdf Graphic file (type pdf)
 
 <use H1:SUS-ETMX_M0_LOCK_P_IN1_DQ.pdf>
@@ -1235,12 +1312,12 @@ Package pdftex.def Info: H1:SUS-ETMX_M0_LOCK_P_IN1_DQ.pdf used on input line 52
 .
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 )
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 78--323
+Overfull \hbox (78.29247pt too wide) in paragraph at lines 78--325
  [][] 
  []
 
 (./L1:ISI-ETMX_ST1_T240INF_Z3_IN1_DQ.pdf_tex
-<L1:ISI-ETMX_ST1_T240INF_Z3_IN1_DQ.pdf, id=330, 1096.095pt x 616.70403pt>
+<L1:ISI-ETMX_ST1_T240INF_Z3_IN1_DQ.pdf, id=357, 1096.095pt x 616.70403pt>
 File: L1:ISI-ETMX_ST1_T240INF_Z3_IN1_DQ.pdf Graphic file (type pdf)
 
 <use L1:ISI-ETMX_ST1_T240INF_Z3_IN1_DQ.pdf>
@@ -1248,7 +1325,7 @@ Package pdftex.def Info: L1:ISI-ETMX_ST1_T240INF_Z3_IN1_DQ.pdf used on input li
 ne 52.
 (pdftex.def)             Requested size: 548.04749pt x 308.35126pt.
 )
-Overfull \hbox (78.29247pt too wide) in paragraph at lines 76--333
+Overfull \hbox (78.29247pt too wide) in paragraph at lines 76--335
  [][] 
  []
 
@@ -1259,22 +1336,22 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[18 <./L1:ISI-ETMY_ST1_BLND_RZ_L4C_CUR_IN1_DQ.pdf>]
+[20 <./L1:ISI-ETMY_ST1_BLND_RZ_L4C_CUR_IN1_DQ.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[19 <./H1:SUS-ETMX_M0_LOCK_P_IN1_DQ.pdf>] (./nshp_mea.pdf_tex
-<nshp_mea.pdf, id=354, page=1, 968.61874pt x 387.4475pt>
+[21 <./H1:SUS-ETMX_M0_LOCK_P_IN1_DQ.pdf>] (./nshp_mea.pdf_tex
+<nshp_mea.pdf, id=380, page=1, 968.61874pt x 387.4475pt>
 File: nshp_mea.pdf Graphic file (type pdf)
 
 <use nshp_mea.pdf, page 1>
 Package pdftex.def Info: nshp_mea.pdf, page1 used on input line 52.
 (pdftex.def)             Requested size: 484.30937pt x 193.72327pt.
 )
-Overfull \hbox (14.55435pt too wide) in paragraph at lines 53--355
+Overfull \hbox (14.55435pt too wide) in paragraph at lines 53--357
  [][] 
  []
 
@@ -1285,9 +1362,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[20 <./L1:ISI-ETMX_ST1_T240INF_Z3_IN1_DQ.pdf>]
+[22 <./L1:ISI-ETMX_ST1_T240INF_Z3_IN1_DQ.pdf>]
 
-LaTeX Warning: Citation 'Git' on page 21 undefined on input line 359.
+LaTeX Warning: Citation 'Git' on page 23 undefined on input line 361.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1296,18 +1373,18 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[21 <./nshp_mea.pdf>] <./NoiseShaping1.pdf, id=382, 435.79555pt x 178.0239pt>
+[23 <./nshp_mea.pdf>] <./NoiseShaping1.pdf, id=408, 435.79555pt x 178.0239pt>
 File: ./NoiseShaping1.pdf Graphic file (type pdf)
 
 <use ./NoiseShaping1.pdf>
-Package pdftex.def Info: ./NoiseShaping1.pdf used on input line 378.
+Package pdftex.def Info: ./NoiseShaping1.pdf used on input line 380.
 (pdftex.def)             Requested size: 435.79448pt x 178.02345pt.
 File: ./NoiseShaping1.pdf Graphic file (type pdf)
  <use ./NoiseShaping1.pdf>
-Package pdftex.def Info: ./NoiseShaping1.pdf used on input line 378.
+Package pdftex.def Info: ./NoiseShaping1.pdf used on input line 380.
 (pdftex.def)             Requested size: 435.79448pt x 178.02345pt.
  (./NoiseShaping1.pdf_tex
-<NoiseShaping1.pdf, id=383, 435.79555pt x 178.0239pt>
+<NoiseShaping1.pdf, id=409, 435.79555pt x 178.0239pt>
 File: NoiseShaping1.pdf Graphic file (type pdf)
  <use NoiseShaping1.pdf>
 Package pdftex.def Info: NoiseShaping1.pdf used on input line 52.
@@ -1319,23 +1396,23 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[22 <./NoiseShaping1.pdf>]
+[24 <./NoiseShaping1.pdf>]
 
-LaTeX Warning: Citation 'Nentwig' on page 23 undefined on input line 408.
+LaTeX Warning: Citation 'Nentwig' on page 25 undefined on input line 402.
 
-(./shaper.pdf_tex <shaper.pdf, id=400, page=1, 966.61125pt x 400.49625pt>
+(./shaper.pdf_tex <shaper.pdf, id=428, page=1, 966.61125pt x 400.49625pt>
 File: shaper.pdf Graphic file (type pdf)
 
 <use shaper.pdf, page 1>
 Package pdftex.def Info: shaper.pdf, page1 used on input line 52.
 (pdftex.def)             Requested size: 483.30562pt x 200.24763pt.
 )
-Overfull \hbox (13.5506pt too wide) in paragraph at lines 53--417
+Overfull \hbox (13.5506pt too wide) in paragraph at lines 53--411
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 420--421
+Underfull \hbox (badness 10000) in paragraph at lines 414--415
 
  []
 
@@ -1349,30 +1426,30 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[23 <./shaper.pdf>]
+[25 <./shaper.pdf>]
 
-LaTeX Warning: Citation 'Christou' on page 24 undefined on input line 427.
+LaTeX Warning: Citation 'Christou' on page 26 undefined on input line 421.
 
-<./shape_notch_mod.pdf, id=412, 457.549pt x 230.26913pt>
+<./shape_notch_mod.pdf, id=440, 457.549pt x 230.26913pt>
 File: ./shape_notch_mod.pdf Graphic file (type pdf)
 
 <use ./shape_notch_mod.pdf>
-Package pdftex.def Info: ./shape_notch_mod.pdf used on input line 433.
+Package pdftex.def Info: ./shape_notch_mod.pdf used on input line 427.
 (pdftex.def)             Requested size: 457.54787pt x 230.26857pt.
 File: ./shape_notch_mod.pdf Graphic file (type pdf)
  <use ./shape_notch_mod.pdf>
-Package pdftex.def Info: ./shape_notch_mod.pdf used on input line 433.
+Package pdftex.def Info: ./shape_notch_mod.pdf used on input line 427.
 (pdftex.def)             Requested size: 457.54787pt x 230.26857pt.
 
 (./shape_notch_mod.pdf_tex
-<shape_notch_mod.pdf, id=413, page=1, 457.549pt x 230.26913pt>
+<shape_notch_mod.pdf, id=441, page=1, 457.549pt x 230.26913pt>
 File: shape_notch_mod.pdf Graphic file (type pdf)
 
 <use shape_notch_mod.pdf, page 1>
 Package pdftex.def Info: shape_notch_mod.pdf, page1 used on input line 52.
 (pdftex.def)             Requested size: 457.54787pt x 230.27559pt.
 
-<shape_notch_mod.pdf, id=414, page=2, 457.549pt x 230.26913pt>
+<shape_notch_mod.pdf, id=442, page=2, 457.549pt x 230.26913pt>
 File: shape_notch_mod.pdf Graphic file (type pdf)
 
 <use shape_notch_mod.pdf, page 2>
@@ -1385,27 +1462,33 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[24] <./noise_shaping_mod.pdf, id=426, 447.38977pt x 254.521pt>
+[26] <./noise_shaping_mod.pdf, id=452, 447.38977pt x 254.521pt>
 File: ./noise_shaping_mod.pdf Graphic file (type pdf)
 
 <use ./noise_shaping_mod.pdf>
-Package pdftex.def Info: ./noise_shaping_mod.pdf used on input line 445.
+Package pdftex.def Info: ./noise_shaping_mod.pdf used on input line 439.
 (pdftex.def)             Requested size: 447.38867pt x 254.52037pt.
 File: ./noise_shaping_mod.pdf Graphic file (type pdf)
  <use ./noise_shaping_mod.pdf>
-Package pdftex.def Info: ./noise_shaping_mod.pdf used on input line 445.
+Package pdftex.def Info: ./noise_shaping_mod.pdf used on input line 439.
 (pdftex.def)             Requested size: 447.38867pt x 254.52037pt.
 
 (./noise_shaping_mod.pdf_tex
-<noise_shaping_mod.pdf, id=427, page=1, 447.38977pt x 254.521pt>
+<noise_shaping_mod.pdf, id=453, page=1, 447.38977pt x 254.521pt>
 File: noise_shaping_mod.pdf Graphic file (type pdf)
 
 <use noise_shaping_mod.pdf, page 1>
 Package pdftex.def Info: noise_shaping_mod.pdf, page1 used on input line 52.
 (pdftex.def)             Requested size: 447.38867pt x 254.52814pt.
 )
+Underfull \hbox (badness 10000) in paragraph at lines 435--446
 
-LaTeX Warning: Citation 'drive' on page 25 undefined on input line 457.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 435--446
+
+ []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1414,7 +1497,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[25 <./shape_notch_mod.pdf> <./shape_notch_mod.pdf
+[27 <./shape_notch_mod.pdf> <./shape_notch_mod.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./shape_notch_mod.pdf): PDF inclusion: 
 multiple pdfs with page group included in a single page
@@ -1423,31 +1506,35 @@ multiple pdfs with page group included in a single page
 pdfTeX warning: /usr/bin/pdflatex (file ./noise_shaping_mod.pdf): PDF inclusion
 : multiple pdfs with page group included in a single page
 >]
-Underfull \hbox (badness 10000) in paragraph at lines 463--464
+
+LaTeX Warning: Citation 'drive' on page 28 undefined on input line 449.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 455--456
 []\OT1/cmr/m/n/12 Tutorials Point, [][]$\OT1/cmtt/m/n/12 http : / / www . tutor
 ialspoint . com / dip / Concept _ of _
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--475
+Underfull \hbox (badness 10000) in paragraph at lines 466--467
 []\OT1/cmr/m/n/12 Widrow and Koll^^Sar, \OT1/cmr/m/it/12 Quan-ti-za-tion Noise 
 [][]$\OT1/cmtt/m/n/12 http : / / www . mit . bme . hu / books /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 476--477
+Underfull \hbox (badness 10000) in paragraph at lines 468--469
 []\OT1/cmr/m/n/12 Dehner, \OT1/cmr/m/it/12 Noise Op-ti-mized Fil-ter De-sign []
 []$\OT1/cmtt/m/n/12 https : / / dx . doi . org / 10 . 1016 /
  []
 
 
-Underfull \hbox (badness 1275) in paragraph at lines 479--481
+Underfull \hbox (badness 1275) in paragraph at lines 471--473
 []\OT1/cmr/m/n/12 Denis Mar-tynov, \OT1/cmr/m/it/12 Check-ing Dig-i-tal Sys-tem
  [][]$\OT1/cmtt/m/n/12 http : / / github . com / denismartynov /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 479--481
+Underfull \hbox (badness 10000) in paragraph at lines 471--473
 \OT1/cmtt/m/n/12 quantization$[][] [][]$http : / / nodus . ligo . caltech . edu
  : 8080 / 40m / ?mode = full & attach =
  []
@@ -1459,20 +1546,20 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[26]
+[28]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
 
-Underfull \hbox (badness 10000) in paragraph at lines 503--504
+Underfull \hbox (badness 10000) in paragraph at lines 495--496
 []\OT1/cmr/m/n/12 Z-Transform, [][]$\OT1/cmtt/m/n/12 http : / / www . ele . uri
  . edu / Courses / ele541 / tutorials /
  []
 
 
-LaTeX Warning: Empty bibliography on input line 514.
+LaTeX Warning: Empty bibliography on input line 506.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 515.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 507.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1480,13 +1567,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (7.73332pt too high) has occurred while \output is active []
 
 
-[27]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 515.
+[29]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 507.
  (./final_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 515.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 515.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 507.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 507.
 Package rerunfilecheck Info: File `final_report.out' has not changed.
-(rerunfilecheck)             Checksum: E5582B69177CC86F20EA5F5BCA8A9BCE;2244.
+(rerunfilecheck)             Checksum: 207DC0A8561C35DD29ED59BE1A5B2336;2444.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1496,6 +1583,9 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Warning: There were undefined references.
 
 
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                final_report
 (biblatex)                and rerun LaTeX afterwards.
@@ -1503,16 +1593,16 @@ Package biblatex Warning: Please (re)run Biber on the file:
 Package logreq Info: Writing requests to 'final_report.run.xml'.
 \openout1 = `final_report.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 515.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 507.
  ) 
 Here is how much of TeX's memory you used:
- 14276 strings out of 493304
- 226152 string characters out of 6139871
- 655586 words of memory out of 5000000
- 17332 multiletter control sequences out of 15000+600000
+ 14289 strings out of 493304
+ 226295 string characters out of 6139871
+ 654586 words of memory out of 5000000
+ 17341 multiletter control sequences out of 15000+600000
  11235 words of font info for 44 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 68i,11n,98p,2297b,801s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,11n,98p,1439b,801s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
@@ -1524,11 +1614,12 @@ lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
 12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb
->
-Output written on final_report.pdf (28 pages, 2821682 bytes).
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+
+Output written on final_report.pdf (30 pages, 2828460 bytes).
 PDF statistics:
- 583 PDF objects out of 1000 (max. 8388607)
- 499 compressed objects within 5 object streams
- 166 named destinations out of 1000 (max. 500000)
- 396 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 614 PDF objects out of 1000 (max. 8388607)
+ 526 compressed objects within 6 object streams
+ 170 named destinations out of 1000 (max. 500000)
+ 420 words of extra memory for PDF output out of 10000 (max. 10000000)
 

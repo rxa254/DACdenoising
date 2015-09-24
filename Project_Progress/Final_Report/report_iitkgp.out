@@ -1,0 +1,35 @@
+\BOOKMARK [1][-]{section.1}{What is Quantization}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Examples}{section.1}% 2
+\BOOKMARK [1][-]{section.2}{Modeling Quantization Noise}{}% 3
+\BOOKMARK [2][-]{subsection.2.1}{Quantizing Theorem I and II}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.2}{PQN Model: Additive Noise Approximation}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.3}{Assumptions}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Noise Sources}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{Analog to Digital Controller}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Digital Filters}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.3}{Digital to Analog Converter}{section.3}% 10
+\BOOKMARK [1][-]{section.4}{Noise Analysis}{}% 11
+\BOOKMARK [2][-]{subsection.4.1}{Digital Filter Noise Analysis}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.2}{Noise Analysis in Frequency Domain}{section.4}% 13
+\BOOKMARK [1][-]{section.5}{LIGO}{}% 14
+\BOOKMARK [2][-]{subsection.5.1}{Basic Working Principle}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.2}{LIGO and Quantization Noise}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.3}{LIGO Filter Design}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.4}{LIGO DAC}{section.5}% 18
+\BOOKMARK [1][-]{section.6}{Part I: Filter Noise}{}% 19
+\BOOKMARK [2][-]{subsection.6.1}{Estimation}{section.6}% 20
+\BOOKMARK [2][-]{subsection.6.2}{Analysis}{section.6}% 21
+\BOOKMARK [2][-]{subsection.6.3}{Results}{section.6}% 22
+\BOOKMARK [1][-]{section.7}{Limitations}{}% 23
+\BOOKMARK [1][-]{section.8}{Part II : DAC Noise}{}% 24
+\BOOKMARK [2][-]{subsection.8.1}{Estimation and Analysis}{section.8}% 25
+\BOOKMARK [2][-]{subsection.8.2}{Results}{section.8}% 26
+\BOOKMARK [2][-]{subsection.8.3}{DAC denoising Techniques}{section.8}% 27
+\BOOKMARK [1][-]{section.9}{Noise Shaping}{}% 28
+\BOOKMARK [2][-]{subsection.9.1}{Algorithm}{section.9}% 29
+\BOOKMARK [2][-]{subsection.9.2}{Generalized Noise Shaping Algorithm for aLIGO DAC}{section.9}% 30
+\BOOKMARK [2][-]{subsection.9.3}{Applications}{section.9}% 31
+\BOOKMARK [2][-]{subsection.9.4}{Simulation}{section.9}% 32
+\BOOKMARK [1][-]{section.10}{Conclusions and Future Work}{}% 33
+\BOOKMARK [2][-]{subsection.10.1}{Part I: Digital Filters}{section.10}% 34
+\BOOKMARK [2][-]{subsection.10.2}{Part II: DAC}{section.10}% 35
