@@ -12,12 +12,11 @@
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{fancyhdr}
 %\usepackage{subfigure} 
-\usepackage{hyperref}
+%\usepackage{hyperref}
 
 \ligodccnumber{T}{15}{00351}{-}{v1}% \ligodistribution{AIC, ISC}
-\usepackage[backref=true,
-            sorting=none]{biblatex}
-\bibliography{journals,phd-references}
+%\usepackage[backend=bibtex]{biblatex}
+%\bibliography{database} 
 
 %\graphicspath{{images1/}}
 \title{Quantization Noise in Advanced LIGO Digital Control Systems}
@@ -29,74 +28,67 @@
 \textbf{\LARGE{Preface}}
 \end{center}
 .\\[2\baselineskip]
-This document is a result of research and study done at California Institute of Technology as a part of the Laser Interferometer Gravitational Wave Observatory (LIGO), Summer Undergraduate Research Fellowship (SURF) Program in 2015. Quantization Noise and it's effects have been studied and presented in a way that would take the reader without much pre-requisites on the subject matter, from the basics in the first section describing the quantization process to all kinds of analysis and denoising techniques in the very last section and its application to the LIGO detector. \\
-The project was focused on analyzing Quantization Noise in the Advanced LIGO Digital Control Systems. The theoretical background and a thorough literature review on the quantization noise subject (in general) has been presented in the first few sections of this report (sections \ref{quant} to \ref{analysis}). A brief description of the LIGO detector and it's working principle is given in section \ref{ligo}. Then, based on the theory developed, results on the quantization noise for Advanced LIGO digital filters, (in section \ref{filter}) and for the Digital to Analog Converters used in Advanced LIGO (in section \ref{dac}) have been given. Finally, a denoising technique called Noise Shaping is described to reduce the noise levels due to DACs in a desired frequency band. Simulations and testing results to support the arguments are also given in section \ref{dacdenoising}. \\
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+The project was focused on analyzing quantization noise in the Advanced LIGO digital control systems. The theoretical background and a thorough literature review on the quantization noise subject (in general) has been presented in the first few sections of this report (sections \ref{quant} to \ref{analysis}). A brief description of the LIGO detector and it's working principle is given in section \ref{ligo}. Based on the theory developed in these sections, results on the quantization noise levels for Advanced LIGO digital filters, (in section \ref{filter}) and for the digital to analog converters used in Advanced LIGO (in section \ref{dac}) have been given. Finally, a denoising technique called noise shaping is described to reduce the noise levels due to DACs in a desired frequency band. Simulations and testing results to support the arguments are also given in section \ref{dacdenoising}. \\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 \section{What is Quantization}
 \label{quant}
-Quantization is a process of mapping continuous set of values into a finite or countably infinite set of values by approximations such as truncation, rounding etc. The function which performs this approximation operation is called a Quantizer. Hence, the input to a quantizer will be a continuous set of values and it will output the quantized values for each sample after performing Quantization. The efficiency of a Quantizer is easily understood to be the accuracy with which it can perform the quantization operation using its approximation technique. The accuracy in this case would simply be a measure of the loss or distortion caused by the Quantizer. This loss in data is known as Quantization Noise or Quantization Error. Intuitively, one can understand that the noise would be equal to the difference between the original input sample and the output of the Quantizer. 
+Quantization is a process of mapping continuous set of values into a finite or countably infinite set of values by approximations such as truncation, rounding etc. The function which performs this approximation operation is called a quantizer. The loss in data in this process is known as quantization noise or quantization error which is equal to the difference between the original input sample and the output of the quantizer. 
     \subsection{Examples}
-    Though for this project and application we are concerned only by quantization noise in signal processing, but quantization is a well studied topic with respect to various other fields such as image processing, audio processing etc. Apart from these, quantization is something which is observable in daily life as well in the form of digital watches, weight measurements and so on. \\
     In signal processing, quantization can occur when two signals are added, for eg:
     \begin{align}
     (1.25)  + (2.34500000199999) &= 3.5950000012 
-    	\intertext{when the correct answer is 3.59500000199999, giving an error of approximately. The error in multiplication operation can be deduced similarly.}
+    	\intertext{when the correct answer is 3.59500000199999, giving an error of approximately $10^{-12}$. The error in multiplication operation can be deduced similarly.}
     	Error &= 10^{-12}
-    	\intertext{Other than the mathematical operations, quantization noise also occurs on rounding operations such as : }    	
+    	\intertext{quantization noise also occurs on rounding operations such as : }    	
     	round(12.34544567)&=12.3454457 
     	\intertext{and for truncation of numbers to accommodate numbers in limited precision:}
     	truncate(13.456)&=13
     	\end{align}
-    	Some other examples with respect to quantization in image processing are given in \cite{Examples}.
-    	
+    	Some other examples with respect to quantization in image processing are given in \cite{Examples}. 	
 %    
 \section{Modeling Quantization Noise}
-Let x be the input signal to the quantizer and x' be the output given by the quantizer. Let quantization noise be given by $\rho$ which is the difference between the output (or quantized input) and the input. Quantization operation is a nonlinear operation, shown by the fact that the input-output waveform of any quantizer looks like a staircase (or some other non-linear function depending on the quantizer function). Modeling of such a non-linear $\rho$ can be done in various ways but before that some basic concepts and theorems need to be kept in mind which are mentioned in brief in the following section. 
-\subsection{Quantizing Theorem I and II} Widrow and Koll\'ar in \cite{Kollar} have described the statistical theory of Quantization. It has been explained that the quantization noise in a digital control system or for that matter any other digital signal processing application could be modeled by some mathematical algorithm. Two theorems on Quantization Noise from \cite{Kollar} are summarized below:\\
-The Quantizing Theorems I states that if the CF (Characteristic Function, $\phi(t)$) of the Probability Density Function (PDF) of the the quantizer input x is band limited such that:
+Let $x$ be the input signal to the quantizer and $x'$ be the output given by the quantizer. Let quantization noise be given by $\rho$ which is the difference between the output (or quantized input) and the input. Quantization operation is a nonlinear operation, shown by the fact that the input-output waveform of any quantizer looks like a staircase (or some other non-linear function depending on the quantizer function). Modeling of such a nonlinear $\rho$ can be done in various ways but before that some basic concepts and theorems need to be kept in mind which are mentioned in brief in the following section. 
+\subsection{Quantizing Theorem I and II} Widrow and Koll\'ar, in \cite{Kollar} have described the statistical theory of quantization. It has been explained that the quantization noise in a digital control system or for that matter any other digital signal processing application could be modeled by some mathematical algorithm. Two theorems on quantization noise from \cite{Kollar} are summarized below:\\
+The Quantizing Theorem I (QT I) states that if the characteristic function (CF), $\phi(t)$ (the fourier transform of the Probability Density Function (PDF) of a random variable) of the the quantizer input $x$ is band limited such that:
 	\begin{equation}
 		\phi_x(t) = 0 ; |t| >\pi/q  
 	\end{equation}
-where q is equal to 1 Least Significant Bit (LSB), then the CF of the input to the quantizer maybe derived uniquely from the CF of the output x', the same statement follows for PDF of x and x'. In essence, the theorem states that the PDF's of input and output of the Quantizer are uniquely related to each other.\\
-The Quantizing Theorem II on the other hand puts forward an important and a stronger result that the moment of the quantized variable x' (the output of quantizer) is equal to the moment of the sum of the input and a uniformly distributed noise which has a zero mean and mean square equal to $\frac{q^{2}}{12}$. \\
-The details of these theorem along with their proofs have been covered in detail in \cite{Kollar}, the book on Quantization Noise.
+where $q$ is equal to 1 Least Significant Bit (LSB), then the CF of the input to the quantizer maybe derived uniquely from the CF of the output $x'$, the same statement follows for PDF of $x$ and $x'$. In essence, the theorem states that the PDF's of input and output of the quantizer are uniquely related to each other.\\
+The Quantizing Theorem II (QT II) on the other hand puts forward an important and a stronger result that the moment of the quantized variable $x'$ (the output of quantizer) is equal to the moment of the sum of the input and a uniformly distributed noise which has a zero mean and mean square equal to $\frac{q^{2}}{12}$. \\
+The details of these theorems along with their proofs have been covered in detail in \cite{Kollar}, the book on Quantization Noise.
 \subsection{PQN Model: Additive Noise Approximation} To model the quantization noise, $\rho$ in a form that is easy to analyze, we take help of the principle from statistics which states that the PDF of the sum, when two statistically independent signals are added together, is equal to the convolution of the PDF's of the individual signals. This implies that the CF of the sum would be the product of the two individual CF's (due to the duality property of fourier transform).
-Hence, the PDF of Quantizer output x' $f_{x'}(x)$, which is a discrete signal, is equal to the samples of the smooth PDF of the the input signal added with a uniform noise n, $f_{x+n}(x)$. These two PDF's correspond to each other in such a way that the moments of the two are equal when quantizing theorems QT I and QT II are satisfied. (This is the analogy between Sampling and Quantization, that Sampling of a signal is discretization on time scale (X axis) and quantization is discretization of the pdf (Y axis)!). In this case, the quantizer can be replaced by Pseudo Quantization Noise model (PQN), which is an additive uniform noise model. This replacement by additive noise holds to a very good approximation for Gaussian signals for $\sigma > q$ and even for higher values of q ($\sigma = q$). For other distributions, the approximation model is valid to a good approximation for low values of q. ($\sigma$ is the standard deviation of the PDF of the signal). There are other kinds of modeling techniques for floating point quantization and various other complex modeling techniques. The book \cite{Kollar} is being referred to the reader for all such analysis.
+Hence, the PDF of quantizer output $x', f_{x'}(x)$, which is a discrete signal, is equal to the samples of the smooth PDF of the the input signal added with a uniform noise n, $f_{x+n}(x)$. These two PDF's correspond to each other in such a way that the moments of the two are equal when quantizing theorems QT I and QT II are satisfied. (This is the analogy between sampling and quantization, that sampling of a signal is discretization on time scale (X axis) and quantization is discretization of the pdf (Y axis)). In this case, the quantizer can be replaced by Pseudo Quantization Noise model (PQN), which is an additive uniform noise model. This replacement by additive noise holds to a very good approximation for gaussian signals for $\sigma >= q$ where $\sigma$ is the standard deviation of the PDF of the signal. There are other kinds of modeling techniques for floating point quantization and various other complex modeling techniques. The book \cite{Kollar} is being referred to the reader for all such analysis.
 	\subsection{Assumptions}
-Some assumptions need to be made to enable us to replace the quantization noise source with white an additive PQN model in the control loop. Also, for multiple quantizers in the same loop it is assumed that the two quantization noises are uncorrelated to each other.
-We shall also assume that the signal is always scaled such that the quantizers are not underloaded or overloaded, thus assuming the absence of limit cycles and highly nonlinear behaviors in our modeling.
+	The PQN model is a linear noise model and hence is easy to work with for quantization noise. Some assumptions made, for it to be valid are:
+	\begin{enumerate}
+		\item Two different quantization noise sources in a control system should be uncorrelated to each other and also to the signal.
+		\item The signal is always scaled such that the quantizers are not underloaded or overloaded.
+		\item Highly nonlinear behaviours and limit cycles are absent.
 
+	\end{enumerate}
 
-\section{Noise Sources}
+\section{Quantization Noise: Sources, Estimation and Analysis}
+\label{analysis}
 	\subsection{Analog to Digital Controller}
 	%write that this is out of scope of this project
-	In a mixed signal control system, an ADC is used to convert the output analog signal into digital for processing in the digital controller. ADC is a hardware which samples the analog signal values at a frequency which should be more than twice the sampling frequency of the signal (Nyquist Sampling Theorem). After Sampling, the signal is discretized in its amplitude, which is called the Quantization of signal. It is here that the signal is actually converted into discrete values which is then called the converted digital form of the signal. There are various ways to improve upon the design of an ADC for a better quantization noise performance.\\
+	In a mixed signal control system, an ADC is used to convert the output analog signal into digital for processing in the digital controller. ADC is a hardware which samples the analog signal values at a frequency which should be more than twice the sampling frequency of the signal (Nyquist sampling theorem). After sampling, the signal is discretized in its amplitude, which is called the quantization of signal. It is here that the signal is actually converted into discrete values which is then called the converted digital form of the signal. There are various ways to improve upon the design of an ADC for a better quantization noise performance.\\
 	
-	Although, ADC performance improvements and rigorous noise analysis is out of scope for this project but basic simulations and a literature review was done to cover completely the quantization noise sources in the control system. The following section describes modeling of an ADC:
-	\paragraph{Quantizer Model: An ADC Example}
- 	For an example on Quantization noise in ADCs, \cite{Quantization}, let us take a ramp input signal. A ramp is an input signal which is a straight line when drawn on a 2D plane, i.e., y=x.\\
-One kind of quantizer model can be given by:
+	Although, ADC performance improvements and rigorous noise analysis was out of scope for this project but basic simulations and a literature review was done to cover completely the quantization noise sources in the control system. The following section describes a general quantizer model which performs rounding operation and could be used as an ADC quantizer:
+	\paragraph{Quantizer Model: An Example}
+ 	For an example on quantization, \cite{Quantization}, let us take a ramp input signal. A ramp is an input signal which is a straight line when drawn on a 2D plane, i.e., $y=x$.\\
+A kind of quantizer model is given by:
 \begin{equation}
 Q(x)=k.q.sgn(x).\left\lfloor\left|\frac{x}{q}\right|+\frac{1}{2}\right\rfloor
 \end{equation}
- where,\\ k is any arbitrary scaling factor\\
- q is equal to 1 Least Significant Bit (LSB) which shows the resolution of the ADC
+ where,\\ $k$ is any arbitrary scaling factor\\
+ $q$ is equal to 1 Least Significant Bit (LSB) which shows the resolution of the ADC
  and, \\
- x is the input to which Q(x) is the output.
+ $x$ is the input to which $Q(x)$ is the output.
  
    
 The output of the quantizer will be a staircase waveform around the ramp input. 
-%	\begin{figure}[H]
-% 
-%  		\centering
-%		\includesvg{NoiseShaping1}
-%% 		\def\svgscale{0.5}
-%% 		\tiny{
-% 		%\input{magic.pdf_tex}
-% 		%}
-%	  	\caption{Quantizer Output}
-% 	 	\label{tread}
-%	\end{figure}
+%
 The error between input and output can be approximated as (the difference between input and output) shown in Figure \ref{error}. Root Mean Square (RMS) of the error can then be derived to finally be able to calculate the SNR (Signal to Noise Ratio) of the ADC which would give an idea about the noise level due to the ADC.
 
 	\begin{figure}[H]
@@ -106,7 +98,7 @@ The error between input and output can be approximated as (the difference betwee
  		\tiny{
  		\input{Quantization_Error_Wave.pdf_tex}
  		}
-	  	\caption{The Approximated Wave Form for the Quantization Error taken from Analog.com}
+	  	\caption{The approximated wave form for the quantization error taken from analog.com}
  	 	\label{error}
 	\end{figure}
 
@@ -119,67 +111,29 @@ e(t)&=\left(\frac{q}{T}\right).t + q .\left(\frac{1}{2}-\frac{t_{2}}{T}\right)\\
 \intertext{For the quantization error the RMS is given by: }
 e_{rms}^{2}&=\left|\bar{e^{2}(t)}\right|=\frac{1}{T}.\int_{t1}^{t2} \left|e(t)\right|^{2} dt\\
 \intertext{Simplifying,}
-e_{rms}^{2}&=\frac{1}{T}.\int_{t1}^{t2} \left(\frac{q^{2}}{T^{2}}\right).t^{2} dt  -\frac{1}{T}.\int_{t1}^{t2} q^{2}.\left(\frac{(t_{1}+t_{2})^{2}}{4T^{2}}\right) dt
-\intertext{On solving we get (Skipping the simple algebraic manipulations) that the RMS of the error is given by:}
-e_{rms}&=\frac{q}{\sqrt{12}}
+e_{rms}^{2}&=\frac{1}{T}.\int_{t1}^{t2} \left(\frac{q^{2}}{T^{2}}\right).t^{2} dt  -\frac{1}{T}.\int_{t1}^{t2} q^{2}.\left(\frac{(t_{1}+t_{2})^{2}}{4T^{2}}\right) dt\\
+\intertext{On solving we get (skipping the simple algebraic manipulations) that the RMS of 
+the error is given by:}
 \label{rms}
+e_{rms}&=\frac{q}{\sqrt{12}}
 \end{align}
 where q is the LSB of the quantizer representing the resolution of the taken ADC.
 
-On simulation of the above in MATLAB and calculating the RMS, we observe that the RMS of the error is indeed equal to as given in equation \ref{rms}. The script files for the same are available for reference on the GitHub Repository at the URL mentioned in \cite{Git}.
+On simulation of the above in MATLAB and calculating the RMS, we observe that the RMS of the error is indeed equal to as given in equation \ref{rms}. The script files for the same are available for reference on the Github repository at the URL mentioned in \cite{Git}.
 \\
 Now, to improve the noise performance and analysis for ADCs various techniques have been suggested. Mostly, the inner hardware of the ADC needs to be changed to improve noise performance. Also, dither signal is added to the input to randomize the input signal so that the noise and the input independence is followed to a better approximation. Some analysis on dithering signals\cite{Pandey} was also done in this study, but as mentioned previously, ADCs and ADC noise were not the primary focus of the project and hence were not studied in detail.
     \subsection{Digital Filters}
     %Add basic details on digital filters
-    Digital Filters, also known as Compensators in a control system, perform mathematical operations on the input to produce desired outputs. The design is represented in terms of transfer function, say H(z), where z is the z-transform variable. For more on z-transform and transfer fuctions, refer \cite{Z transform}. \\
-    A transfer function is a unique representation for given position of poles and zeros on the z-plane. The implementation of a given transfer function can be done in infinitely different ways, depending on different State Space descriptions or the so-called different SOS (second order sections) matrices. Various different filter structures are described in detail in \cite{Oppenheim}. The quantization noise, our primary concern in this project, also depends on the filter form realization. Intuitively, by different realization of filter (the filter structure), we basically mean different order in which the mathematical operations (additions, multiplications etc.) are performed by the filter. 
+    Digital filters, also known as compensators in a control system, perform mathematical operations on the input to produce desired outputs. The design is represented in terms of transfer function, say H(z), where z is the z-transform variable. For more on z-transform and transfer fuctions, refer \cite{Z transform}. \\
+    
+    A transfer function is a unique representation for given position of poles and zeros on the z-plane. The implementation of a given transfer function can be done in infinitely different ways, depending on different state space descriptions or the so-called different SOS (second order sections) matrices. Various different filter structures are described in detail in \cite{Oppenheim}. The quantization noise, our primary concern in this project, also depends on the filter form realization. Intuitively, by different realization of filter (the filter structure), we basically mean different order in which the mathematical operations (additions, multiplications etc.) are performed by the filter. 
     \paragraph{Structure}
-The following section details about some of the most commonly used filter structures along with their important features.
+The following section details about some of the most commonly used filter structures along with their important features and trade-offs.
 		\begin{enumerate}
 		\item Direct Form I: The direct form I is an implementation of the difference equation describing the filter, as is. The roundoff noise for this realization has been found to be much more compared to other structures which has been proved in \cite{Oppenheim}. The advantage of having direct form I structure is in the applications where least hardware complexity is required. DF I leads to lowest chip area required for implementation on a Digital Signal Processor \cite{Rahmanian}.
 		\item Direct Form II : The number of multiplications and delay registers are least for this form. \cite{Oppenheim} shows the quantization noise analysis for fixed point implementation. DF II form minimizes the coefficient sensitivities of the filter with respect to the quantization error which is proved in \cite{Rahmanian}.
-		\item State-Space Representation of Digital Filters is used widely to realize low noise form structures. The major disadvantage of using low noise form filters described in state space notation, is that it requires a very high computational time to realize these filters, i.e. a complexity of $\mathbb{O}((N+1)^{2})$ for an Nth order filter\cite{T L Chang}, while others such as DF2 are realized in linear time complexity.
-		\end{enumerate}
-	    
-    
-    
-	\subsection{Digital to Analog Converter}
-    		\paragraph{Truncation}
-    		A DAC converts the digital signal from the controller to analog, to be fed to the actuators or other analog parts of the control systems. This conversion introduces quantization noise due to the limited precision of the DAC hardware. Hence, if the precision of the DAC is p bits for an n-bit precise digital signal ($n>p$), the n-bit number is truncated to p-bit precision before giving it to the DAC for conversion to analog. This truncation operation (decrease in precision) leads to quantization noise called the DAC Quantization Noise. \\
-    		The DAC is hence a major source of quantization noise in the control system since usually p is very less than n. Commonly, n=64 while p=16 or 18.\\
-    		The noise analysis and the measurement of DAC noise have been described in a later section.
-%     
-%
-\section{Noise Estimation}
-The obvious and the best way to measure the quantization noise is to subtract the output (the signal having the quantization noise) from the ideal output. Ideal output is an output which would be the output of the quantizer working at infinite precision. Practically, such an ideal output is never possible and hence perfect calculation of quantization noise is not possible. Though, it is possible to estimate the quantization noise to a level of approximation which can be considered acceptable. \\
-Hence, estimation of noise is done by subtracting the output from another output which is calculated using a higher level of precision than the original output. 
-
-	\paragraph{Digital Filter Noise Estimation} Taking an example of a digital filter which produces outputs at 16 bits, i.e. the precision of its numbers is 16 bits. To estimate the quantization noise for this digital filter, the output of the filter needs to be calculated at a precision better than 16 bits. So, if in this example, the output is calculated at 32 bits then the difference between the two outputs would be a good estimation of the quantization noise that was present in the original (16 bit) output. This estimation technique is intuitive and at the same time can be implemented for simulation and testing easily.
-
-   \paragraph{DAC Noise Estimation}
-	As described above, the DAC performs a truncation operation and hence the noise can be estimated easily. The digital controller filters the input signals at the precision with which the digital controller works. Let's call this precision n. Now, if the DAC hardware works at a precision (say p, where $p<n$), then the digital controller output (n-bit) needs to be truncated by the digital controller itself before feeding it to the DAC. Hence, a truncation operation from n-bits to p-bits is done in the digital controller code. The quantization noise is directly then given by the difference between the digital controller output and the quantized output obtained after truncation to be given to the p-bit DAC.
-\section{Noise Analysis}
-\label{analysis}
-It is trivial that quantization noise will be lower for a system that has a higher resolution. A higher resolution implies that the value of 1 LSB  or q is lower. Another trivial fact is that the maximum quantization error in one quantization operation would always be less than or equal to half of one LSB i.e. $\pm\frac{q}{2}$. The following sections describe in detail the noise analysis for digital filters.
-
-	\subsection{Digital Filter Noise Analysis}
-    There are some basic trade-offs in the design of filter which are mentioned as follows: 
-		\begin{enumerate}
-		\item The Hardware Complexity in the Design of the filter (the chip area required of a DSP), though this doesn't play any role if specialized DSP chips are not in use and implementation is being done on a computer. 
-		\item The time complexity, i.e. the computational time the filter takes in calculations and the complexity of the structure algorithm.
-		\item Quantization noise level in the filter and its effects.
-		\item Sensitivity to disturbances and perturbations of coefficients. 
-		\end{enumerate}
-\cite{Kaiser} showed for direct form filters that if poles and zeros are tightly clustered on the z-plane, then even small coefficient quantization errors may cause large shifts in the position of poles and zeros and hence changing the response of the filter and even tending to become unstable. 
-%add more on digital filter noise analysis
-	\paragraph{Fixed Point Precision Noise Analysis}
-	\cite{Oppenheim} describes in detail the noise in fixed-point precision calculations. Quantization noise in fixed point precision is both well researched and not relevant to this project because the calculations are being performed in floating point in the digital controllers being studied in this project, and hence the details are being skipped here and \cite{Oppenheim} is referred for all such analysis.
-	\paragraph{Floating-Point Precision Noise analysis}
-For floating point representations, a key point to keep in mind is that the quantization noise can no more be assumed to be independent of the input signal. In fact, the noise is directly dependent on what input is being given to the filter. Also, the noise cannot be assumed to be white in this representation and hence the noise analysis in floating point precision is a difficult task. An advantage due to the use of an exponent in the floating point representation is that the Overflow condition is eliminated and hence the complexity of the structure reduces as we don't need to care about the overflow during the calculations.\\
-The book by Widrow and Koll\'ar on Quantization Noise in Chapter 12, \cite{Kollar} looks at floating point quantization in depth and provides detailed floating-point noise analysis. Some direct formula to calculate quantization noise level in different filter structures have been given in \cite{Matts}. The presentation \cite{Matts} shows that noise is lower in a state space representation of a filter realized analogous to the analog biquad filter, compared to the Direct Form II  (which is widely considered as the best filter structure). This "biquad filter" involves one more addition operation than the DF2 filter and hence is just a little more computationally complex than DF2. This filter structure having low noise has been referred to as a "biquad filter" in \cite{Matts}.
-For floating point precision some very important results are available in the literature already existing. \cite{Zeng} mentions two theorems proving that the floating point quantization noise level is independent both of the ordering of sections in a cascade form and the ordering of poles and zeros between sections. The paper assumes that ordering of calculations and the poles and zeros within a section remain the same throughout.
-
-Any filter can be represented in the general State variable representation as:
+		\cite{Kaiser} showed for direct form filters that if poles and zeros are tightly clustered on the z-plane, then even small coefficient quantization errors may cause large shifts in the position of poles and zeros and hence changing the response of the filter and even tending to become unstable.
+		\item State space representation of digital filters is given by:
 \begin{align}
 x_{k+1} &= Ax_{k} + Bu_{k} \\
 y_{k} &= Ax_{k} + Du_{k} \\
@@ -189,19 +143,29 @@ y_{k} &= C'T_{k} + Du_{k}
 \end{align}
 
 where $A'=T^{-1}AT; B'=T^{-1}B; C'^{t}=C^{t}T$
-\\To implement a filter as shown above, a time complexity of $\mathbb{O}((N+1)^{2})$ is required and hence these filters are not widely used. Moreover, as shown in \cite{Chang}, error feedback could be used to achieve super low noise forms. This is hard to implement practically as we don't have the error signal accessible to feed back. \cite{Mullis} shows how the error feedback helps in minimizing the error.
-Another important result that comes from the literature is that when extra bits are used in floating point representation for the accumulation register, the optimization methods developed for fixed point analysis can be applied 'as is' for floating point representation\cite{Bomar}. This is one of the reasons why \cite{Dehner} can be used for  optimization using reordering of poles and zeros for floating point even though the analysis given in \cite{Dehner} is for fixed point precision.
-	\subsection{Noise Analysis in Frequency Domain}
-All signals are sampled at a particular frequency 'fs'. The noise is random but its characteristics can be pinned down on proper analysis in the frequency domain. Fourier analysis reveals the frequency components that a signal is made up of \cite{Oppenheim}. The power spectral density (PSD) \cite{Cerna} gives a major piece of information as the SNR can be calculated directly by taking the ratio of the PSDs of the output and the noise signals. The approach to calculate PSD involves taking the Fourier transform of the autocorrelation fucntion. There are various ways which affect the analysis and are described in detail in \cite{Kanner}. The power spectrum density for the noise, the input and the output is calculated using Welch's method \cite{Welch} and plotted on the same log log plot for proper analysis. 
+\\To implement a filter as shown above, a time complexity of $\mathbb{O}((N+1)^{2})$ is required (direct form filters can be realised in linear time complexity) and hence these filters are not widely used. Moreover, as shown in \cite{Chang}, error feedback could be used to achieve super low noise forms in state variable representations. This is hard to implement practically as we don't have the error signal accessible to feed back. \cite{Mullis} shows how the error feedback helps in minimizing the error. Hence, state space representations of digital filters are used to achieve low noise forms but the time complexity trade off plays a major role in the choice of filter structure.
+		\end{enumerate}
+	 To estimate the quantization noise in digital filters, the output of the filter is subtracted from another output which is calculated using a higher level of precision than the original output. Other than the design of the filter, the precision at which it works plays a very important role. Two highly used precision types are described below:
+\paragraph{Fixed Point Precision}
+	\cite{Oppenheim} describes in detail the noise in fixed-point precision calculations. Quantization noise in fixed point precision is both well researched and not relevant to this project because the calculations are being performed in floating point in the Advanced LIGO digital controllers, and hence the details are being skipped here and \cite{Oppenheim} is referred for all such analysis.
+	\paragraph{Floating Point Precision}
+For floating point representations, a key point to keep in mind is that the quantization noise can no more be assumed to be independent of the input signal. In fact, the noise is directly dependent on what input is being given to the filter. Also, the noise cannot be assumed to be white in this representation and hence the noise analysis in floating point precision is a difficult task. An advantage due to the use of an exponent in the floating point representation is that the overflow condition is eliminated.\\
+The book by Widrow and Koll\'ar on quantization noise in Chapter 12, \cite{Kollar} looks at floating point quantization in depth and provides detailed floating-point noise analysis. Some direct formula to calculate quantization noise level in different filter structures have been given in \cite{Matts}. The presentation \cite{Matts} shows that noise is lower in a state space representation of a filter realized analogous to the analog biquad filter, compared to the Direct Form II  (which is widely considered as the best filter structure). This "biquad filter" involves one more addition operation than the DF2 filter and hence is just a little more computationally complex than DF2. This filter structure having low noise has been referred to as a "biquad filter" in \cite{Matts}.
+For floating point precision some very important results are available in the literature already existing. \cite{Zeng} mentions two theorems proving that the floating point quantization noise level is independent both of the ordering of sections in a cascade form and the ordering of poles and zeros between sections. The paper assumes that ordering of calculations and the poles and zeros within a section remain the same throughout.
+\\
+ 
+	\subsection{Digital to Analog Converter}    		
+    		A DAC converts the digital signal from the controller to analog, to be fed to the actuators or other analog parts of the control systems. This conversion introduces quantization noise due to the limited precision of the DAC hardware. Hence, if the precision of the DAC is p bits for an n-bit precise digital signal ($n>p$), the n-bit number is truncated to p-bit precision before giving it to the DAC for conversion to analog. This truncation operation (decrease in precision) leads to quantization noise called the DAC quantization noise. To estimate it, since both the truncated filter output and the original filter output are available in the digital controller code, a direct subtraction operation results in the noise. Commonly, n=64 while p=16 and hence the DAC is a major source of quantization noise in a control system.
+
 \section{LIGO}
 \label{ligo}
-The Laser Interferometer Gravitational Wave Observatory (LIGO) \cite{LIGO} aims to detect gravitational waves \cite{GWD} which would give us an opportunity to get access to completely new and exciting astronomical insights and scientific research. Just like electromagnetic waves, gravitational waves have been predicted to have a frequency spectrum. The study of this frequency spectrum of gravitational waves along with many other new frontiers could lead to a completely different perception about science and astronomy. The existence of gravitational waves was first predicted by Einstein in his theory of general relativity. The detection (or the failure of it!) would help in establishing a stronger background in this field and would even prove (or disprove!, as the case maybe) Einstein's theory. Though the latter is almost impossible, as indirect detection of Gravitational waves has been done but LIGO aims to directly detect the gravitational waves. Other than this, if Gravitational waves are detected, various new information would be available about a host of different kind of astrophysical bodies. Apart from all these exciting results one can expect from LIGO, it also boasts of largest sustained ultra-high vacuum in the world (8x the vacuum of space) and being the most sensitive detector ever built.
+The Laser Interferometer Gravitational Wave Observatory (LIGO) \cite{LIGO} aims to detect gravitational waves (GW) \cite{GWD} which would give us an opportunity to get access to completely new and exciting astronomical insights and scientific research. GWs are emitted by accelerating masses but due to their weak magnitudes only the most violent and massive events in the universe emit gravitational waves which could be detected by the LIGO detector. Some of these sources include binary stars or black holes orbiting around each other (Continuous GW), neutron star or black hole system merger (Inspiral GW), supernovae or gamma ray bursts (Burst GW) etc. Just like electromagnetic waves, gravitational waves have been predicted to have a frequency spectrum. The study of this frequency spectrum of gravitational waves along with many other new frontiers could lead to a completely different perception about science and astronomy. The existence of gravitational waves was first predicted by Einstein in his theory of general relativity in 1913. The detection (or the failure of it!) would help in establishing a stronger background in this field and would even prove (or disprove!, as the case maybe) Einstein's theory. Though the latter is almost impossible, as indirect detection of gravitational waves has alreaady been done but LIGO aims to directly detect the gravitational waves. GWs carry unique information about the most violent events in the universe, more importantly the events which can't be accessed by electromagnetic waves. Hence, gravitational waves will usher in a new area of astronomy as all of our astronomy in the past has been based on EM waves. The detection of GWs is bound to answer some of the most sought after questions in physics such as the formation of black holes, behaviour of matter under extreme temperature and pressure and many more. 
 
-	\subsection{Basic Working Principle}The LIGO setup consists of a Laser interferometer \cite{Interferometer} which is at the heart of detection of the gravitational waves. Gravitational waves have the property of stretching and squeezing the space-time through which they pass. This stretch and squeeze in the space-time changes the distance (length of the interferometer arm) between two points. This displacement produced is measured as strain, which transforms into the constructive or destructive interference between the original wave and the reflected laser light (which is stretched \& squeezed in space-time by presence of a gravitational wave). To achieve reflection, a mirror is kept at the other end of the interferometer in both of its perpendicular arms \cite{Interferometer}. There are many controllers which are used to control and suppress the mirror motion. \cite{Carbone} describes why movement of the mirrors and hence the motion control is necessary. Since, the strain measurement being done is of the order of $10^{-19}$ metres, all kinds of noises and disturbances need to be analyzed and looked into closely so as to maximize the Signal to Noise Ratio (SNR), which is of prime importance in the process of Gravitational wave detection of such a low magnitude (the astronomical strains being measured are one thousand times lesser than the diameter of a proton!). 
+	\subsection{Basic Working Principle}The LIGO setup consists of a laser interferometer \cite{Interferometer} which is at the heart of detection of the gravitational waves. Gravitational waves have the property of stretching and squeezing the space-time through which they pass. This stretch and squeeze in the space-time changes the distance (length of the interferometer arm) between two points. This displacement produced is measured as strain, which transforms into the constructive or destructive interference between the original wave and the reflected laser light (which is stretched \& squeezed in space-time by presence of a gravitational wave). To achieve reflection, a mirror is kept at the other end of the interferometer in both of its perpendicular arms \cite{Interferometer}. There are many controllers which are used to control and suppress the mirror motion. \cite{Carbone} describes why movement of the mirrors and hence the motion control is necessary. \cite{Interferometer} details more on the working principle of the LIGO interferometer.
 	
-	\subsection{LIGO and Quantization Noise}Quantization noise, is one such noise source among thousands others and this project was dedicated towards the analysis, study and improvements with respect to Quantization Noise. The problem of quantization noise is important to be solved for LIGO because it may be possible that at some places in the digital controllers the noise level might be so high that the signal wouldn't be detected leading to some very important signals being suppressed under the noise.
+	\subsection{LIGO and Quantization Noise} The problem of quantization noise is important to be solved for LIGO because it may be possible that at some places in the digital controllers the noise level might be so high that the signal wouldn't be detected leading to some very important signals being suppressed under the noise.
 \section{Advanced LIGO}
-Advanced Laser Interferometer Gravitational Wave Observatory (aLIGO) is an upgrade over the initial LIGO (iLIGO)\cite{LIGO} setup. Many different kinds of upgrades have been incorporated in the Adanced LIGO. All upgrades have been completed and the detection sensitivity is now 10 times more than the initial LIGO setup. The observations using the upgraded Advanced LIGO are currently underway at Hanford and Livingston. Some major upgrades in the Advanced LIGO have been towards the upgradation of isolation system for mirrors using quadruple pendulum system compared to the single pendulum system in iLIGO. The laser power has been improved, and to support higher laser power the concerned components have also been upgraded. 
+Advanced Laser Interferometer Gravitational Wave Observatory (aLIGO) is an upgrade over the initial LIGO (iLIGO)\cite{LIGO} setup. Many different kinds of upgrades have been incorporated in the Adanced LIGO. The observations using the upgraded Advanced LIGO are currently underway at Hanford and Livingston. Some major upgrades in the Advanced LIGO have been focused on the seismic isolation of the mirrors using quadruple pendulum system compared to the single pendulum system in iLIGO. The active seismic isolation system using feedforward control also underwent many upgrades. The aLIGO uses increased laser power and signal recycling compared to the initial setup. All kinds of upgrades mean that there are many more degrees of freedom to control and hence the digital controller is much more complex in the aLIGO compared to the iLIGO.
 	\subsection{Digital Filters}
 	aLIGO digital filters are designed using the custom-made software called Foton.
 	    \paragraph{About Foton}The Foton is a software designed at LIGO which enables one to design a filter according to the specifications. It has a graphical user interface (GUI) which provides for various types of design methods such as the zero-pole-gain (ZPK) method or design using bode plots among others. Any user can easily design a filter using this GUI and then can save the design in a text file in a format which can be read by simple MATLAB / C codes, as per the needs. These text files can be read by the Foton software as well. Hence, whenever the need arises, a filter can be looked at using the Foton software by mentioning the file name in which the filter bank name exists. In this way, the thousands of digital filters have all been documented in these text files using the Foton software. \\The foton filter design procedure and GUI is a lot like MATLAB's filter design and analysis tool (FDA Tool) in the signal processing toolbox. \\
@@ -212,33 +176,57 @@ For the Advanced LIGO digital controllers the filter design was upgraded to a lo
 But, as described above, state-space representations lead to low noise forms, increasing the computational time in the process. \cite{Matts} went on this line and suggested the use of a kind of biquad filter derived from state-space representation but only using one addition extra compared to DF2, in the process. The noise analysis shown in \cite{Matts} proves that this indeed is a better choice for the digital filter structure as it provides for great increase in the SNR compared to the computation time penalty suffered. The aLIGO upgrade changed all digital filters from DF2 form to the low noise form as suggested by \cite{Matts}.
 
 	\subsection{LIGO DAC}
-	The aLIGO DAC is a 18-bit DAC. Off-the-shelf DACs are usually 16-bit precise DACs, but pertaining to the higher precision needs of the LIGO detector and the controller, an 18 bit DAC is in use in the aLIGO. This 18-bit DAC is made using a 16-bit and a 2-bit DAC together. These DACs work on integer 18-bit precision hence the floating values which are 64 bit precise are truncated to 18-bit precise integers. The quantization error during this operation is a big problem for various kinds of filter designs of aLIGO and hence analysis and mitigation techniques are important. 
+	The aLIGO DAC is a 18-bit DAC made using a 16-bit and a 2-bit DAC together. These DACs work on integer 18-bit precision hence the floating values which are 64 bit precise are truncated to 18-bit precise integers. The quantization error during this operation is a big problem for various kinds of filter designs of aLIGO and hence analysis and mitigation techniques are important. 
 
 \section{Part I: Filter Noise}
 \label{filter}
 	\subsection{Estimation}
-	
-All digital controllers in the Advanced LIGO setup specifically use the floating point double precision representation of numbers. A good analysis has been done by \cite{Matts} for floating-point representation wherein, calculations for various digital filter forms have been provided. \\
-	To measure single precision noise \cite{Martynov} suggested a way, by taking the difference between the single precision output and the double precision signal output. The double precision output noise is so less compared to the single precision noise that the difference output is equal to single precision quantization error. Hence, in essence, approximating double precision to be a perfect representation (i.e. with no quantization error). Since, all digital filters are already implemented in double precision in the LIGO setup, single precision noise is of no use. To obtain double precision noise, in this code, an extrapolation is done to estimate the approximate quantization noise occurring in digital filters implemented in double precision. The approximation method has been described by Denis in \cite{Martynov2}. An empirically obtained factor equal to $10^{-7}$ is multiplied to the quantization noise values obtained for single precision. But, as is obvious that this is not the best way to achieve the estimation and isn't very foolproof.\\
- So, this project improves upon the already existent technique by calculating the same output using the long double precision which is better than double for most \cite{longdouble} compilers, and then subtracting the two outputs, which would result in the quantization noise occurring in double precision filter implementation directly. 
+	\label{est}
+Section \ref{analysis} gave an overview of quantization noise analysis in general and for digital filters with varying structures and precision levels. 
+\cite{Martynov} implemented noise estimation for digital filters on these lines, by taking the difference between the single precision output and the double precision signal output. The double precision output noise is so less compared to the single precision noise that the difference output can be estimated to be equal to single precision quantization error.  Since, all digital filters are already implemented in double precision in the LIGO setup, single precision noise is of no use. To obtain double precision noise, in \cite{Martynov}, an extrapolation is done to estimate the approximate quantization noise occurring in digital filters implemented in double precision. The approximation method has been described by Denis in \cite{Martynov2}. An empirically obtained factor equal to $10^{-7}$ is multiplied to the quantization noise values obtained for single precision. But, as is obvious that this is not the best way to achieve the estimation and isn't very foolproof.\\
+ So, this project improves upon the already existent technique by calculating the same output using the long double precision which is better than double for most \cite{longdouble} compilers, and then subtracting the two outputs, which would directly result in the quantization noise occurring in double precision filter implementation. 
 		
 	\subsection{Analysis}
-	For digital filter noise analysis, the following improvements were made to the previously existing analysis tool developed by Denis Martynov \cite{Martynov}.
+	For digital filter noise analysis, the following improvements were made to the previously existing analysis tool developed by Denis \cite{Martynov}.
 	\begin{enumerate}
-		\item Accurate Noise Calculation
-		\item SNR Warning message(s) on screen and SNR Plots
-		\item Fast and Optimized Code: takes far less time compared to previous implementation. 
+		\item Accurate noise calculation (See section \ref{est})
+		\item SNR warning message(s) on screen and SNR plots were incorporated in the new code.
+		\item Faster code: Takes far less time compared to previous implementation since the 32 second sampling time is skipped for the filters which are switched on but the input to them is all zero. In the long run of checking thousands of digital filters, saving 32 seconds on all the filters with zero data completes the analysis much faster.
 	\end{enumerate}
 
-	One complete software tool was developed by incorporating all the changes and improvements described above which could automatically analyze quantization noise for all the digital filters. The software tool is a MATLAB function which can be called without giving any arguments. Once called, it starts checking all the filters one by one on its own until the end of the list. So, basically analyzing all the digital filters is just one click away. The list that this function looks into is a list of filter bank module names mentioned in the Foton's description of the filters. \\
+	One complete software tool was developed by incorporating all the changes and improvements described above which would automatically analyze quantization noise for all the digital filters. The software tool is a MATLAB function which can be called without giving any arguments. Once called, it starts checking all the filters one by one on its own until the end of the list. So, basically analyzing all the digital filters is just one click away. The list that this function looks into is a list of filter bank module names mentioned in the Foton's description of the filters. \\
 	NDS servers were used to login remotely to the sites to analyze the digital filters of the aLIGO sites at Livingston and Hanford. Proper log files were generated for errors along with the PSD plots which were saved to the disk for future reference. The complete saved collection of vector graphics of the plots is available for reference at \cite{Collection}.  \\
 	
 	\subsection{Results}
-		\paragraph{Testing at the 40m Interferometer Prototype}
-	The tool developed was run to check all the digital filters implemented in the 40m Interferometer at Caltech.
-		\paragraph{Testing at aLIGO sites} Some results:
+		\paragraph{Testing at the 40m interferometer prototype}
+	The tool developed was run to check all the digital filters implemented in the 40m interferometer at Caltech. There are far less number of digital filters implemented in the 40m compared to the aLIGO sites. All the filters that were switched on and working at the time of testing had a signal to noise ratio (SNR) of more than $10^{3}$ atleast for the whole frequency range. A plot of one such filter is shown in the following figure.
+		\begin{figure}[H]
+ 
+			  \centering
+			  
+%			  \includesvg[width=1.4\textwidth]{C1LSCASC}
+			  \def\svgscale{0.35}
+			  \tiny{
+			  \input{C1LSCASC.pdf_tex}
+			  }
+%			  \caption{Analysis for Caltech 40m LSC ASC filter}
+			
+		\end{figure}
+		\begin{figure}[H]
+ 
+			  \centering
+			   \label{40mfilt}
+%			  \includesvg[width=1.4\textwidth]{legend_C1LSCASC}
+			  \def\svgscale{0.7}
+			  \tiny{
+			  \input{legend_C1LSCASC.pdf_tex}
+			  }
+			  \caption{Analysis for Caltech 40m LSC ASC filter}
+%			 \label{good}
+		\end{figure}
+		\paragraph{Testing at aLIGO sites} Some results are listed below:
 	\begin{enumerate}
-		\item More than $90\%$ of the filters are "safe". The quantization noise PSD levels for these filters are orders of magnitude below the output PSD level. This type of response was observed for the complete frequency range except at very high frequency (near the twice of Nyquist frequency) where the output of the filter is usually rolled off to lower magnitudes. Some assorted results for some of the filters from both aLIGO sites are shown in the figure \ref{good} and the ones following it. Figure \ref{good_snr} shows the SNR distribution. This type of SNR was common for these kinds of filters, realized in the Low Noise Form.
+		\item For the low noise form "biquad filter" realization, the SNR for more than 90\% of the filters analyzed was observed to be more than $10^{10}$ for all frequencies. Even for others, SNR was atleast $10^{3}$. This type of response was observed for the complete frequency range except at very high frequencies (near the Nyquist frequency) where the output of the filter is usually rolled off to lower magnitudes. Some assorted results for some of the filters from both aLIGO sites are shown in the figure \ref{good} and the ones following it.
 		\begin{figure}[H]
  
 			  \centering
@@ -251,47 +239,49 @@ All digital controllers in the Advanced LIGO setup specifically use the floating
 			  \caption{Analysis for Hanford HPI BS filter}
 			 \label{good}
 		\end{figure}
+		The filter shown in figure \ref{good} is representative of a collection of hundreds of filters which do not execute anything other than a gain multiplication operation. As expected, the quantization noise level is more than $10^{12}$ orders of magnitude below the output. The filter is a part of HPI subsystem of the aLIGO detector at Hanford.
 		\begin{figure}[H]
- 
+ 			
 			  \centering
 			  \def\svgscale{0.5}
 			  \tiny{
 			  \input{H1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf_tex}
 			  }
 			  \caption{Analysis for Hanford SUS ITMX filter}
-			 %\label{good}
+			 \label{good_sus}
 		\end{figure}
+		Suspension subsytem's digital controller consists of some complex filters and one of those has been shown in figure \ref{good_sus}. As mentioned above, the SNR falls down steeply as the output of the filter is rolled off at higher frequencies. But at lower frequencies, we observe that the SNR is maintained at more than atleast $10^{6}$, which is good. The following figure shows the quantization noise level for the same filter at Livingston site. 
 		\begin{figure}[H]
- 
+% 			\includesvg[width=1.4\textwidth]{L1:SUS-ITMX_M0_DAMP_P_IN1_DQ}
 			  \centering
 			  \def\svgscale{0.5}		 
 			  \tiny{ 
-			  \input{L1:ISI-ETMX_ST1_FF01_X_IN1_DQ.pdf_tex}
+			  \input{L1:SUS-ITMX_M0_DAMP_P_IN1_DQ.pdf_tex}
 			  }
-			  \caption{Analysis for Livingston ISI ETMX filter}
+			  \caption{Analysis for Livingston SUS ITMX filter}
 			 %\label{good}
 		\end{figure}
-		\begin{figure}[H]
- 
-			  \centering
-			  \def\svgscale{0.5}
-			  \tiny{
-			  \input{L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf_tex}
-			  }
-			  \caption{Analysis for Livingston ISI ETMY filter}
-			 %\label{good}
-		\end{figure}
-		\begin{figure}[H]
- 
-			  \centering
-			  \def\svgscale{0.5}
-			  \tiny{
-			  \input{H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf_tex}
-			  }
-			  \caption{SNR distribution for HPI ITMY filter}
-			 \label{good_snr}
-		\end{figure}
-		
+%		\begin{figure}[H]
+% 
+%			  \centering
+%			  \def\svgscale{0.5}
+%			  \tiny{
+%			  \input{L1:ISI-ETMY_ST1_ISO_RY_IN1_DQ.pdf_tex}
+%			  }
+%			  \caption{Analysis for Livingston ISI ETMY filter}
+%			 %\label{good}
+%		\end{figure}
+%		\begin{figure}[H]
+% 
+%			  \centering
+%			  \def\svgscale{0.5}
+%			  \tiny{
+%			  \input{H1:HPI-ITMY_L4CINF_H4_IN1_DQ_SNR.pdf_tex}
+%			  }
+%			  \caption{SNR distribution for HPI ITMY filter}
+%			 \label{good_snr}
+%		\end{figure}
+%		
 		\item For a few filters, the DF2 quantization noise level is even above the output for a range of frequencies.  Though this is an alarming observation, but this does not affect the aLIGO digital control system at all because all digital filters have been implemented in the low noise form. This result further strengthens and proves the results shown by \cite{Matts} and others. For these filters, the low noise form quantization noise level is considerably lower and the filter is safe. Some results are shown in the figure \ref{dfbad} and the ones following it.
 		\begin{figure}[H]
  
@@ -314,7 +304,7 @@ All digital controllers in the Advanced LIGO setup specifically use the floating
 			 %\label{good}
 		\end{figure}
 		
-		\item For some filters, the DF2 performs equally well as the LNF. This result is shown in figure \ref{bqfdf} and the ones following it. The reason behind this observation is clear from the figures which show the input and output signal as well. The output for these kinds of filters are mostly representing filters which only perform a gain operation (i.e. a simple multiplication).
+		\item For some filters, the DF2 performs equally well as the LNF. This result is shown in figure \ref{bqfdf} and the one following it. As is clear from the figures, these filters are only performing a gain operation which results in the similar performance of the two kinds of filter structures.
 		\begin{figure}[H]
  
 			  \centering
@@ -337,12 +327,14 @@ All digital controllers in the Advanced LIGO setup specifically use the floating
 		\end{figure}
 	\end{enumerate}
 	\section{Limitations}
+	\label{limitations}
 	Some limitations of the analysis are:
 		\begin{enumerate}
-			\item Only Data Acquisition Channels: As all work is being done remotely, hence only the channels for which the data is stored on a hard disk is available. So, only the channels ending in \textunderscore DQ are being analyzed.
-			\item Only Recorded Input Channels analyzed.
-			\item User friendliness of the tool isn't that great yet but is being improved and certainly it would be a good tool to check quantization noise in the coming time.
-			\item Memory Size being used by the software tool is higher.
+			\item Only data acquisition (DAQ) channels: As all work is being done remotely, hence only the channels for which the data is stored on a hard disk is available. So, only the channels ending in \textunderscore DQ have been analyzed.
+			\item Only the filter channels which have been recorded to the disk were analyzed.
+			\item Various filters in the digital controller build up their outputs slowly via the history values, this project doesn't detect quantization noise problems for such cases as it has been assumed here that initially all data is zero.
+%			\item User friendliness of the tool isn't that great yet but is being improved and certainly it would be a good tool to check quantization noise in the coming time.
+			\item Memory size being used by the software tool is higher than before due to the file handling mechanisms involved instead of mex for C-MATLAB interaction.
 		\end{enumerate}	
 \section{Part II : DAC Noise}
 \label{dac}
@@ -354,31 +346,23 @@ All digital controllers in the Advanced LIGO setup specifically use the floating
   		\tiny{
   		\input{nshp_mea.pdf_tex}
   		}
-  		\caption{DAC Noise Measurement}
+  		\caption{DAC noise measurement}
 		\label{mea}
 		\end{figure}
 		The difference between the two gives us the noise. This noise can then be analyzed in the frequency domain, like before, by plotting the PSD for the input, output and the noise. \\As described earlier, that the DAC noise is a major limiting factor in the digital controller as it truncates from a highly precise 64 bits to 18 bit integer precision. This fact was observed in the analysis, as the DAC noise floor was observed to be well above the digital filter noise floor. 
 		\\The code developed for DAC noise analysis and visualization on MATLAB is available on \cite{Git} and can be used for DAC noise analysis for all kinds of signals. 
     \subsection{Results}
-    The already known or rather predicted DAC noise problem, was realized again through the DAC noise analysis done in this project. The DAC noise floor is well above the output level and is limiting the signals for a wide range of frequencies for some signals. A good DAC denoising technique is needed to prevent such high noise levels. 
-    \subsection{DAC denoising Techniques}
-    Some techniques existent in the Digital Signal processing theory to improve DAC performance are :
-    
-    		\begin{enumerate}
-    			\item DAC Hardware Improvement
-    			\item DAC Noise Shaping
-    			\item DAC of higher precision
-    		\end{enumerate}
+    The already known or rather predicted DAC noise problem, was realized again through the DAC noise analysis done in this project. The DAC noise floor is well above the output level and is limiting the signals for a wide range of frequencies for some signals. A good DAC denoising technique is needed to prevent such high noise levels. One such technique called noise shaping has been described in the following sections.
 \section{Noise Shaping}
 \label{dacdenoising}
-	Noise Shaping is a technique used to modify the frequency spectrum of the error signal in such a way that the noise power of the spectrum is more in the undesirable frequency band which leads to a higher SNR in the desirable frequency band. This technique is perfect for our implementation as the frequency band of interest for gravitational wave detection is fixed and is $<$ 100Hz. Hence, with the same DAC hardware, very low noise levels in this frequency band can be achieved using Noise shaping. An algorithm was developed to implement noise shaping technique in the DAC code. 
+	Noise Shaping is a technique used to modify the frequency spectrum of the error signal in such a way that the noise power of the spectrum is more in the undesirable frequency band which leads to a higher SNR in the desirable frequency band. This technique is perfect for our implementation as the frequency band of interest for gravitational wave detection is fixed and is $<$ 100Hz. Hence, with the same DAC hardware, very low noise levels in this frequency band can be achieved using noise shaping. An algorithm was developed to implement noise shaping technique in the DAC code. 
 
     \subsection{Algorithm}
-    \paragraph{A general example}Consider the given system (see figure \ref{nshp}) where the input (denoted by x) which is double precision, is fed into the quantizer. The quantizer rounds it off and feeds to the DAC according to the DAC's resolution, hence incurring quantization error. To shape the quantization error, e (quantization error) is fed back as shown. The output of the quantizer is denoted by x' and the following equations explain how noise shaping is achieved.
+    \paragraph{A general example}Consider the given system (see figure \ref{nshp}) where the input (denoted by $x$) which is double precision, is fed into the quantizer. The quantizer rounds it off and feeds to the DAC according to the DAC's resolution, hence incurring quantization error. To shape the quantization error, $e$ (quantization error) is fed back as shown. The output of the quantizer is denoted by $x'$ and the following equations explain how noise shaping is achieved.
 	\begin{figure}[H]
   		\centering
   		\includesvg{NoiseShaping1}
-  		\caption{An explainatory Block Diagram Example for Noise Shaping in DAC}
+  		\caption{An explainatory block diagram example for noise shaping in DAC}
 		\label{nshp}
 	\end{figure}
 From the block diagram (in time domain), we have,
@@ -393,14 +377,26 @@ From the block diagram (in time domain), we have,
 		\label{shp2}
 		X'(z)&=Y(z)-E(z)
 	\end{align}
-Now from equations \ref{shp} and \ref{shp2}, we get the final result which shows how quantization error is added to the input to form the output x', and since we have fed the error back we will see how the quantization noise is now shaped according to the transfer function we chose (in this case 1/z):
+Now from equations \ref{shp} and \ref{shp2}, we get the final result which shows how quantization error is added to the input to form the output $x'$, and since we have fed the error back we will see how the quantization noise is now shaped according to the transfer function we chose (in this case $1/z$):
 \begin{equation}
 X'(z)=X(z)+E(z)(1-\frac{1}{z})
 \end{equation}
-The noise is shaped by a factor of $\frac{z-1}{z}$ which has a zero at z=1 and a pole at z=0. This means that at the frequency corresponding to z=0, the gain will be high and at frequency corresponding to z=1 the gain will be low since a zero is occurring there. In essence, we have a one-pole digital filter in front of us resulting due to the feedback of the error. In this way, noise shaping can be achieved to increase the SNR in the desired frequency band by choosing any arbitrary shaping filter (with some restrictions).
+The noise is shaped by a factor of $\frac{z-1}{z}$ which has a zero at $z=1$ and a pole at $z=0$. This means that at the frequency corresponding to $z=0$, the gain will be high and at frequency corresponding to $z=1$ the gain will be low since a zero is occurring there. In essence, we have a one-pole digital filter in front of us resulting due to the feedback of the error. In this way, noise shaping can be achieved to increase the SNR in the desired frequency band by choosing any arbitrary shaping filter (with some restrictions).
+\\
+This was implemented in a code in MATLAB for simulation. The plot in figure \ref{simple_matlab} shows the result which verifies the theoretical fact that the noise should have a high pass shape.
+	\begin{figure}[H]
+%		\includesvg[width=1.4\textwidth]{Simple_Noise_Shaping_MATLAB}
+  		\centering
+		\def\svgscale{0.45}
+  		\tiny{
+  		\input{Simple_Noise_Shaping_MATLAB.pdf_tex}
+  		}
+  		\caption{Error feedback leading to high pass shaped noise: MATLAB simulation}
+		\label{simple_matlab}
+	\end{figure}
 	\subsection{Generalized Noise Shaping Algorithm for aLIGO DAC}
 	Using the above mentioned concept, a generalized noise shaping algorithm was developed and simulated on MATLAB. This noise shaping algorithm was designed such that it provided the elegance to the user by providing the option to design any arbitrary noise shaping filter to achieve any arbitrary shape of the noise \cite{Nentwig}. So, for example, if a designer fancies the noise to be very low for a particular notch design in the filter design, then the noise shaping filter can be designed to be a notch filter of that frequency. This would lead to noise being shaped such that the noise would be very low at the given notch frequency. In this way, any arbitrary shape could be given to the noise, which is a very useful result and something which could be very helpful in various ways. \\The way this is achieved is shown below:
-	After the delay element in the above description, if a $H_{shaper}$ filter is put, then following similar analysis arbitrary noise shape could be achieved. The block diagram for the same is shown in the figure \ref{shaper}.
+	After the delay element in the above description, if a $H_{shaper}$ filter is put, then following similar analysis, an arbitrary noise shape could be achieved. The block diagram for the same is shown in the figure \ref{shaper}.
 	\begin{figure}[H]
 
   		\centering
@@ -408,7 +404,7 @@ The noise is shaped by a factor of $\frac{z-1}{z}$ which has a zero at z=1 and a
   		\tiny{
   		\input{shaper.pdf_tex}
   		}
-  		\caption{Generalized Noise Shaping Block Diagram}
+  		\caption{Generalized noise shaping block diagram}
 		\label{shaper}
 	\end{figure}
 	Following the analysis shown above, the following expression results: \\
@@ -424,86 +420,33 @@ The noise is shaped by a factor of $\frac{z-1}{z}$ which has a zero at z=1 and a
 	\begin{figure}[H]
 
   		\centering
-  		\includesvg{shape_notch_mod}
-%  		\def\svgscale{0.5}
-%  		\tiny{
-%  		\input{shape_notch_mod.pdf_tex}
-%  		}
-  		\caption{Notch Shaped Quantization Noise}
+%  		\includesvg{notch_shape_matlab_better}
+  		\def\svgscale{0.5}
+  		\tiny{
+  		\input{notch_shape_matlab_better.pdf_tex}
+  		}
+  		\caption{Notch shaped quantization noise : Simulation in MATLAB}
 		\label{notch}
 	\end{figure}
 	A more applicable filter would be a high pass filter for implementation in LIGO. The figure \ref{highp} shows how the quantization noise level is very low for lower frequencies which is compensated by very high noise level in the higher frequency band. \\ \\
 	\begin{figure}[H]
 
   		\centering
-  		\includesvg{noise_shaping_mod}
-%  		\def\svgscale{0.5}
-%  		\tiny{
-%  		\input{noise_shaping_mod.pdf_tex}
-%  		}
-  		\caption{High Pass Shaped Quantization Noise : Good for GW Detection}
+%  		\includesvg{MATLAB_noise}
+  		\def\svgscale{0.5}
+  		\tiny{
+  		\input{MATLAB_noise.pdf_tex}
+  		}
+  		\caption{High pass shaped quantization noise which is good for use in GW detection : Simulation in MATLAB}
 		\label{highp}
 	\end{figure}
 \section{Conclusions and Future Work}
- \subsection{Part I: Digital Filters} A favorable conclusion and a positive note is that more than $90\%$ of the filters don't have any problem with quantization noise level, when the filters are realized in the LNF structure.\\
-	The complete analysis is available at \cite{drive}. It has all the plots for the thousands of filters analyzed using the software tool.
-There still remains a lot to be done with respect to achieving a complete digital controller analysis as only the signals recorded to the disk were analyzed in the project. The future work would demand a complete in-depth analysis of all filters and all kinds of signals. 
+ \subsection{Part I: Digital Filters} A favorable conclusion that can be drawn out of the project is that majority of the filters (>90\%) had a signal to noise ratio of more than $10^{10}$ for all frequencies. Even for other filters among those that were checked (also see section \ref{limitations}) an SNR of more than $10^3$ (atleast) was observed for all frequencies except near the nyquist frequency where the output is usually rolled off to zero.\\
+	The complete analysis is available at \cite{Collection}. It has all the plots for the thousands of filters analyzed using the software tool.
+There still remains a lot to be done with respect to achieving a complete digital controller analysis as already mentioned in the limitations (in section \ref{limitations}). Hence, the future work would demand a complete in-depth analysis of all filters and all kinds of signals in the controller (even those which are not the final inputs and outputs) along with a solution to the filter history problem. 
 	\subsection{Part II: DAC} The DAC noise problem was a known fact, and the denoising algorithm in the name of noise shaping presented could be a really helpful technique not just for DAC denoising but also for various other kinds of noise shaping requirements that the filter designer might want. The future work requires a complete development and implementation of the noise shaping technique in the real time code to reap advantages of the results shown in the simulations. 
-  	
-\begin{thebibliography}{100}  
-
-\bibitem{Examples} Tutorials Point, \url{http://www.tutorialspoint.com/dip/Concept_of_Quantization.htm}
-\bibitem{LIGO} B. P. Abott et. al.,  
-				\emph{LIGO: the laser Interferometer Gravitational Wave Observatory} 							\url{http://dx.doi.org/10.1088/0034-4885/72/7/076901}
-\bibitem{GWD} \emph{On Gravitational Wave Detection: }
-			\url{https://nodus.ligo.caltech.edu:30889/wiki/doku.php?id=gw_detection_101_for_surf}
-
-\bibitem{Interferometer} Frederick J Raab, \emph{Overview of LIGO Instrumentation}
-
-\bibitem{Carbone} L. Carbone et al., \emph{Sensors and Actuators for the Advanced LIGO Mirror Suspensions}
-									\url{http://arxiv.org/pdf/1205.5643v1/}
-									
-\bibitem{Kollar} Widrow and Koll\'ar, \emph{Quantization Noise} 				\url{http://www.mit.bme.hu/books/quantization}
-
-\bibitem{Dehner} Dehner, \emph{Noise Optimized Filter Design} 		\url{https://dx.doi.org/10.1016/s0165-1684(03)00075-6}
-
-
-\bibitem{Martynov} Denis Martynov, \emph{Checking Digital System} \url{http://github.com/denismartynov/quantization}
-\url{http://nodus.ligo.caltech.edu:8080/40m/?mode=full&attach=1&reverse=0&npp=510&Author=den&subtext=digital}  
-\bibitem{MyGit} Software Tool Code, \url{http://github.com/ayush9pandey/quantization}
-
-\bibitem{Bomar} Bomar, \emph{Roundoff Noise Analysis of State-Space Digital Filters implemented on Floating-Point Digital Signal Processors}
-
-\bibitem{T L Chang} T. L. Chang, \emph{A Unified Analysis of Roundoff Noise Reduction in Digital Filters}
-\bibitem{Zeng} Bing Zeng, \emph{Analysis of Floating-Point Roundoff errors using dummy multiplier coefficient sensitivities}
-\bibitem{Rahmanian} S. Rahmanian, \emph{An Optimal Structure for Implementation of Digital Filters}
-\bibitem{Kaiser} Kaiser, \emph{An approach to implement Digital Filters}
-\bibitem{Chang} Chang, \emph{Comparison of Roundoff Noise variances in several low round off noise digital filter structures}
-\bibitem{Matts} Matthew Evans, \emph{Digital Filter Noise}
-\bibitem{Mullis}C T Mullis, \emph{Roundoff Noise in digital filters: Frequency transformations and invariants}
-\bibitem{Widrow} Widrow, \emph{Chapter 12, Basics of Floating-Point Quantization, Quantization Noise Book}
-\bibitem{Oppenheim} Oppenheim and Schafer, \emph{Discrete-Time Signal Processing}
-
-\bibitem{Quantization} Quantization of Signals, \url{http://en.wikipedia.org/wiki/Quantization_(signal_processing)}
-\bibitem{Git} DAC Denoising \url{http://github.com/rxa254/DACdenoising/}
-
-\bibitem{Pandey} Ayush Pandey, \emph{Progress Report I : Quantization Noise in Digital Control Systems} 
-\bibitem{longdouble} Wikipedia : Long Double Precision, \url{https://en.wikipedia.org/wiki/Long_double}
-\bibitem{Kanner} Jonah Kanner \url{https://dcc.ligo.org/LIGO-G1500862}
-\bibitem{Cerna} Michael Cerna and Audrey F. Harvey (2000) \emph{The Fundamentals of FFT-Based Signal Analysis and Measurement}
-\bibitem{Welch} Welch (1967),  \emph{The Use of Fast Fourier Transform for the Estimation of Power Spectra: A Method Based on Time Averaging Over Short, Modified Periodograms} , IEEE Transactions on Audio Electroacoustics, AU-15, 70–73.
-\bibitem{Z transform} Z-Transform, \url{http://www.ele.uri.edu/Courses/ele541/tutorials/ztransforms/}
-
-\bibitem{Martynov2} Denis Martynov, \url{http://nodus.ligo.caltech.edu:8080/40m/?mode=full&attach=1&reverse=0&npp=510&Author=den&subtext=digital}  
-
-
-
-\bibitem{Collection} Ayush Pandey, \emph{A complete collection of all plots for all digital filters at Hanford and Livingston}
-\url{https://dcc.ligo.org/T1500351-v1}
-\bibitem{Nentwig} Markus Nentwig, \url{http://www.dsprelated.com/showarticle/184.php}
-\bibitem{Christou}Cameron Nicklaus Christou,\emph{Optimal Dither and Noise Shaping in Image Processing}
-\end{thebibliography}      
-\printbibliography
+    
+\input{bibliography_ordered.tex}
 \end{document} % The document ends here
 %
 %

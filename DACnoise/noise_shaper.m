@@ -81,9 +81,9 @@ function noise_shaper()
     %%%%%%%%%%%% bandstop filter. Removes quantization noise from a bandwidth of
     % rate/4 to rate/3.
     %Order =3 ; 3dB ripple in passband
-%     band_stop=(rate_Hz/120);
-%     band_pass=(rate_Hz/100);
-%     [b, a] = cheby1(3, 3, [band_stop/(rate_Hz/10), band_pass/(rate_Hz/10)], 'stop');
+    band_stop=(rate_Hz/120);
+    band_pass=(rate_Hz/100);
+    [b, a] = cheby1(3, 3, [band_stop/(rate_Hz/10), band_pass/(rate_Hz/10)], 'stop');
 %     display(strcat('stop band is between ',num2str(band_stop/rate_Hz),' Hz and ',num2str(band_pass/rate_Hz),' Hz'));
 %     b=1;
 %     a=1;
@@ -98,12 +98,12 @@ function noise_shaper()
 %     display(strcat('Cutoff frequency is ',num2str(pass_freq),' Hz'));
     
 %     %Filter Design High Pass IIR%
-    hpFilt = designfilt('highpassiir', 'FilterOrder', 4, ...
-             'PassbandFrequency', pass_freq, 'PassbandRipple', 3,...
-             'SampleRate', rate_Hz);
-    sos=hpFilt.Coefficients;
-    
-    [b,a]=sos2tf(sos);
+%     hpFilt = designfilt('highpassiir', 'FilterOrder', 4, ...
+%              'PassbandFrequency', pass_freq, 'PassbandRipple', 3,...
+%              'SampleRate', rate_Hz);
+%     sos=hpFilt.Coefficients;
+%     
+%     [b,a]=sos2tf(sos);
 %     H1=tf(b,a,-1,'Variable','z^-1');
     
 %     
@@ -223,39 +223,39 @@ function noise_shaper()
     fclose(fi);
 
 %%%% Read C code output , should be commented when MATLAB code is being tested%%%
-    fid=fopen('shaped_out.txt','r');
-    if fid==-1
-        display('error opening file')
-    end
-    tdOut2C=fscanf(fid,'%d',len);
-    tdOut2C=tdOut2C';
-    fclose(fid);
+%     fid=fopen('shaped_out.txt','r');
+%     if fid==-1
+%         display('error opening file')
+%     end
+%     tdOut2C=fscanf(fid,'%d',len);
+%     tdOut2C=tdOut2C';
+%     fclose(fid);
+% %     
 %     
-    
-        %****PLOT DATA******%
-   %%%% When comparing C And MATLAB %%%%
-       figure(4);
-    plot(tdOut2);
-    grid on;
-    title('tdOut2');
-      figure(44);
-    plot(tdOut2C);
-    grid on;
-    title('tdOut2C');
-    
+%         %****PLOT DATA******%
+%    %%%% When comparing C And MATLAB %%%%
+%        figure(4);
+%     plot(tdOut2);
+%     grid on;
+%     title('tdOut2');
+%       figure(44);
+%     plot(tdOut2C);
+%     grid on;
+%     title('tdOut2C');
+%     
 %     diff=tdOut2(1000:2000)-tdOut2C(1000:2000)
-    figure(5);
-    plot(tdOut2-tdOut2C);
-    grid on;
-    title('diff C MATLAB in series values');
-    
-
-   plot_shape(td,td-tdOut1,td-tdOut2,td-tdOut2C,tdOut2-tdOut2C,rate_Hz);
+%     figure(5);
+%     plot(tdOut2-tdOut2C);
+%     grid on;
+%     title('diff C MATLAB in series values');
+%     
+% 
+%    plot_shape(td,td-tdOut1,td-tdOut2,td-tdOut2C,tdOut2-tdOut2C,rate_Hz);
    
    %%%%%%%%%%%%%%%
    
    %%%%Plotting MATLAB Output ONLY %%%%%%%%%
-%    plot_shape(td,tdOut1,tdOut2,td-tdOut1,td-tdOut2,rate_Hz);
+   plot_shape(td,tdOut1,tdOut2,td-tdOut1,td-tdOut2,rate_Hz);
    
 %     tdOut2(1:10)
     % *********************************************

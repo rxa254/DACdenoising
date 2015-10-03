@@ -1,0 +1,87 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'MATLAB_noise.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{1092bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.56263736)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{MATLAB_noise.pdf}}%
+    \put(0.46446923,0.13645912){\makebox(0,0)[lb]{\smash{frequency, Hz}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{MATLAB_noise.pdf}}%
+    \put(0.14652015,0.15604396){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.16483516,0.16263736){\makebox(0,0)[lb]{\smash{-1}}}%
+    \put(0.2996337,0.15604396){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.31794872,0.16263736){\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0.45128205,0.15604396){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.46959707,0.16263736){\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.6021978,0.15604396){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.62051282,0.16263736){\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0.75384615,0.15604396){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.77216117,0.16263736){\makebox(0,0)[lb]{\smash{3}}}%
+    \put(0.08249084,0.26593421){\rotatebox{90}{\makebox(0,0)[lb]{\smash{amplitude arb/sqrt(Hz)}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{MATLAB_noise.pdf}}%
+    \put(0.08937729,0.17802198){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.10769231,0.18461538){\makebox(0,0)[lb]{\smash{-15}}}%
+    \put(0.08937729,0.27619048){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.10769231,0.28278388){\makebox(0,0)[lb]{\smash{-10}}}%
+    \put(0.0967033,0.37509158){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.11501832,0.38168498){\makebox(0,0)[lb]{\smash{-5}}}%
+    \put(0.1003663,0.47399267){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.11868132,0.48058608){\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{MATLAB_noise.pdf}}%
+    \put(0.46739927,0.11013429){\makebox(0,0)[lb]{\smash{Noise Shaping}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{MATLAB_noise.pdf}}%
+    \put(0.46739927,0.09572652){\makebox(0,0)[lb]{\smash{output without shaping}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{MATLAB_noise.pdf}}%
+    \put(0.46739927,0.08131868){\makebox(0,0)[lb]{\smash{output with shaping}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{MATLAB_noise.pdf}}%
+    \put(0.46739927,0.06691084){\makebox(0,0)[lb]{\smash{noise without shaping}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{MATLAB_noise.pdf}}%
+    \put(0.46739927,0.05250308){\makebox(0,0)[lb]{\smash{noise shaping}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{MATLAB_noise.pdf}}%
+  \end{picture}%
+\endgroup%

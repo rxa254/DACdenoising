@@ -4,35 +4,30 @@
 \BOOKMARK [2][-]{subsection.2.1}{Quantizing Theorem I and II}{section.2}% 4
 \BOOKMARK [2][-]{subsection.2.2}{PQN Model: Additive Noise Approximation}{section.2}% 5
 \BOOKMARK [2][-]{subsection.2.3}{Assumptions}{section.2}% 6
-\BOOKMARK [1][-]{section.3}{Noise Sources}{}% 7
+\BOOKMARK [1][-]{section.3}{Quantization Noise: Sources, Estimation and Analysis}{}% 7
 \BOOKMARK [2][-]{subsection.3.1}{Analog to Digital Controller}{section.3}% 8
 \BOOKMARK [2][-]{subsection.3.2}{Digital Filters}{section.3}% 9
 \BOOKMARK [2][-]{subsection.3.3}{Digital to Analog Converter}{section.3}% 10
-\BOOKMARK [1][-]{section.4}{Noise Estimation}{}% 11
-\BOOKMARK [1][-]{section.5}{Noise Analysis}{}% 12
-\BOOKMARK [2][-]{subsection.5.1}{Digital Filter Noise Analysis}{section.5}% 13
-\BOOKMARK [2][-]{subsection.5.2}{Noise Analysis in Frequency Domain}{section.5}% 14
-\BOOKMARK [1][-]{section.6}{LIGO}{}% 15
-\BOOKMARK [2][-]{subsection.6.1}{Basic Working Principle}{section.6}% 16
-\BOOKMARK [2][-]{subsection.6.2}{LIGO and Quantization Noise}{section.6}% 17
-\BOOKMARK [1][-]{section.7}{Advanced LIGO}{}% 18
-\BOOKMARK [2][-]{subsection.7.1}{Digital Filters}{section.7}% 19
-\BOOKMARK [2][-]{subsection.7.2}{LIGO Filter Design}{section.7}% 20
-\BOOKMARK [2][-]{subsection.7.3}{LIGO DAC}{section.7}% 21
-\BOOKMARK [1][-]{section.8}{Part I: Filter Noise}{}% 22
-\BOOKMARK [2][-]{subsection.8.1}{Estimation}{section.8}% 23
-\BOOKMARK [2][-]{subsection.8.2}{Analysis}{section.8}% 24
-\BOOKMARK [2][-]{subsection.8.3}{Results}{section.8}% 25
-\BOOKMARK [1][-]{section.9}{Limitations}{}% 26
-\BOOKMARK [1][-]{section.10}{Part II : DAC Noise}{}% 27
-\BOOKMARK [2][-]{subsection.10.1}{Estimation and Analysis}{section.10}% 28
-\BOOKMARK [2][-]{subsection.10.2}{Results}{section.10}% 29
-\BOOKMARK [2][-]{subsection.10.3}{DAC denoising Techniques}{section.10}% 30
-\BOOKMARK [1][-]{section.11}{Noise Shaping}{}% 31
-\BOOKMARK [2][-]{subsection.11.1}{Algorithm}{section.11}% 32
-\BOOKMARK [2][-]{subsection.11.2}{Generalized Noise Shaping Algorithm for aLIGO DAC}{section.11}% 33
-\BOOKMARK [2][-]{subsection.11.3}{Applications}{section.11}% 34
-\BOOKMARK [2][-]{subsection.11.4}{Simulation}{section.11}% 35
-\BOOKMARK [1][-]{section.12}{Conclusions and Future Work}{}% 36
-\BOOKMARK [2][-]{subsection.12.1}{Part I: Digital Filters}{section.12}% 37
-\BOOKMARK [2][-]{subsection.12.2}{Part II: DAC}{section.12}% 38
+\BOOKMARK [1][-]{section.4}{LIGO}{}% 11
+\BOOKMARK [2][-]{subsection.4.1}{Basic Working Principle}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.2}{LIGO and Quantization Noise}{section.4}% 13
+\BOOKMARK [1][-]{section.5}{Advanced LIGO}{}% 14
+\BOOKMARK [2][-]{subsection.5.1}{Digital Filters}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.2}{LIGO Filter Design}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.3}{LIGO DAC}{section.5}% 17
+\BOOKMARK [1][-]{section.6}{Part I: Filter Noise}{}% 18
+\BOOKMARK [2][-]{subsection.6.1}{Estimation}{section.6}% 19
+\BOOKMARK [2][-]{subsection.6.2}{Analysis}{section.6}% 20
+\BOOKMARK [2][-]{subsection.6.3}{Results}{section.6}% 21
+\BOOKMARK [1][-]{section.7}{Limitations}{}% 22
+\BOOKMARK [1][-]{section.8}{Part II : DAC Noise}{}% 23
+\BOOKMARK [2][-]{subsection.8.1}{Estimation and Analysis}{section.8}% 24
+\BOOKMARK [2][-]{subsection.8.2}{Results}{section.8}% 25
+\BOOKMARK [1][-]{section.9}{Noise Shaping}{}% 26
+\BOOKMARK [2][-]{subsection.9.1}{Algorithm}{section.9}% 27
+\BOOKMARK [2][-]{subsection.9.2}{Generalized Noise Shaping Algorithm for aLIGO DAC}{section.9}% 28
+\BOOKMARK [2][-]{subsection.9.3}{Applications}{section.9}% 29
+\BOOKMARK [2][-]{subsection.9.4}{Simulation}{section.9}% 30
+\BOOKMARK [1][-]{section.10}{Conclusions and Future Work}{}% 31
+\BOOKMARK [2][-]{subsection.10.1}{Part I: Digital Filters}{section.10}% 32
+\BOOKMARK [2][-]{subsection.10.2}{Part II: DAC}{section.10}% 33

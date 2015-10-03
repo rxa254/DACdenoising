@@ -1,0 +1,83 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'notch_shape_matlab_better.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{1092bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.56263736)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{notch_shape_matlab_better.pdf}}%
+    \put(0.41685018,0.23164835){\makebox(0,0)[lb]{\smash{frequency, Hz}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{notch_shape_matlab_better.pdf}}%
+    \put(0.13699634,0.25934066){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.15970696,0.26813187){\makebox(0,0)[lb]{\smash{-1}}}%
+    \put(0.28498168,0.25934066){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.30769231,0.26813187){\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0.43076923,0.25934066){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.45347985,0.26813187){\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.57655678,0.25934066){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.5992674,0.26813187){\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0.72234432,0.25934066){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.74505495,0.26813187){\makebox(0,0)[lb]{\smash{3}}}%
+    \put(0.06485956,0.27838842){\rotatebox{90}{\makebox(0,0)[lb]{\smash{amplitude arb/sqrt(Hz)}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{notch_shape_matlab_better.pdf}}%
+    \put(0.07399267,0.35311355){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.0967033,0.36190476){\makebox(0,0)[lb]{\smash{-10}}}%
+    \put(0.08791209,0.49304029){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.11062271,0.5018315){\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{notch_shape_matlab_better.pdf}}%
+    \put(0.42490842,0.19951158){\makebox(0,0)[lb]{\smash{Pre-processing Output}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{notch_shape_matlab_better.pdf}}%
+    \put(0.42490842,0.18070821){\makebox(0,0)[lb]{\smash{Output without shaping}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{notch_shape_matlab_better.pdf}}%
+    \put(0.42490842,0.16190476){\makebox(0,0)[lb]{\smash{output with shaping}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{notch_shape_matlab_better.pdf}}%
+    \put(0.42490842,0.14310132){\makebox(0,0)[lb]{\smash{noise without shaping}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{notch_shape_matlab_better.pdf}}%
+    \put(0.42490842,0.12429795){\makebox(0,0)[lb]{\smash{noise with shaping}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{notch_shape_matlab_better.pdf}}%
+  \end{picture}%
+\endgroup%
