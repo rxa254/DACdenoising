@@ -6,19 +6,19 @@
 
 #define order 2 //The high pass filter SOS matrix Order
 
-double quant(double in)
+int quant(long double in)
 {
     //clipping quantizer model for 18bit conversion from double to drive the DAC
     int out;
     if(in>=pow(2,17)-1)
     {
         out=(int)(pow(2,17)-1);
-        printf("Clipping11\n");
+        printf("Clipping +\n");
     }
     else if (in<=-pow(2,17))
     {
         out=(int)-pow(2,17);
-        printf("Clipping\n");
+        printf("Clipping -\n");
     }
     else
     {
@@ -32,14 +32,14 @@ double quant(double in)
         }
     }
 //         out=(int)in;
-    
+//     printf("\n%d",out);
     return out;
 }
 //The C function implements noise shaping to drive the DAC.
-int noise_shaper(double sample, int num,double* history,double *quantErr,double *sos_shaper)
+int noise_shaper(long double sample, int num,long double* history,long double *quantErr,long double *sos_shaper)
 {
     
-    double quantIn,filterOut;
+    long double quantIn,filterOut;
     int tdOut2,quantOut;
 
 
@@ -55,13 +55,15 @@ int noise_shaper(double sample, int num,double* history,double *quantErr,double 
 //         [filterOut, filterState] = filter(bb, a, quantErr, filterState);
         // Call iir_df2_double over here to filter the quantErr value. Change it so that it returns filterOut and filterState values, filter 
         //array has two elements one, filterOut and other is filterState
-    if(num==0) quantErr[num-1]=0;
-    filterOut=iir_filter(quantErr[num-1],sos_shaper,order,history);
-        
-    quantIn = sample + filterOut;
- 
-//     quantIn = sample + quantErr[num];
+//     printf("before filter: noise : %Lg\n",quantErr[num]);
+     if(num==0) quantErr[num-1]=0;
+    filterOut=iir_filter_longdouble(quantErr[num-1],sos_shaper,order,history);
+//       printf("after filter: out: %Lg\n",filterOut); 
+    quantIn = sample +filterOut;
+    
    
+//     quantIn = sample + quantErr[num];
+    
     quantOut = quant(quantIn);
     quantErr[num] = quantOut - quantIn;
     tdOut2 = quantOut;
@@ -73,7 +75,7 @@ int noise_shaper(double sample, int num,double* history,double *quantErr,double 
 
 void main()
 {
-    double *sos_shaper,*history,*quantErr,*sos_bqf;
+    long double *sos_shaper,*history,*quantErr,*sos_bqf,*signal_ld;
     int cutoff,i,j,k,rate_Hz,time,len;
     rate_Hz=16.384e3;
     time=32;
@@ -82,11 +84,13 @@ void main()
     int output[len];
     
     signal = (double*) calloc(len,sizeof(double));
+    signal_ld = (long double*) calloc(len,sizeof(long double));
 //     output = (int*) calloc(len,sizeof(double));
     
     for(i=0;i<len;i++)
     {
         signal[i]=0;
+        signal_ld[i]=0;
         output[i]=0;
     }
     FILE *fp,*fo;
@@ -135,8 +139,8 @@ void main()
 //     bb = bb(2:end) - a(2:end);
   
 
-    sos_shaper = (double*) calloc(4*order+1,sizeof(double));
-    sos_bqf = (double*) calloc(4*order+1,sizeof(double));
+    sos_shaper = (long double*) calloc(4*order+1,sizeof(long double));
+    sos_bqf = (long double*) calloc(4*order+1,sizeof(long double));
     for(i=0;i<4*order+1;i++)
     {
         sos_shaper[i]=0;
@@ -193,8 +197,8 @@ void main()
     sos_bqf[7] = sos_shaper[7] - sos_shaper[5];
     sos_bqf[8] =sos_shaper[8] - sos_shaper[6] + sos_shaper[7] -sos_shaper[5];
 
-    history= (double*) calloc(2*order,sizeof(double));
- 	quantErr=(double*) calloc(len-1,sizeof(double));
+    history= (long double*) calloc(2*order,sizeof(long double));
+ 	quantErr=(long double*) calloc(len-1,sizeof(long double));
     //initialize to zero
    
     for(k=0; k<2*order; k++) 
@@ -208,6 +212,7 @@ void main()
     {
 
        quantErr[k] = 0;
+       signal_ld[k]=signal[k];
       
 
     }
@@ -218,7 +223,7 @@ void main()
     {
         if(i<len)
         {
-        output[i]=noise_shaper(signal[i],i,history,quantErr,sos_shaper);
+        output[i]=noise_shaper(signal_ld[i],i,history,quantErr,sos_shaper);
         }
     }
     for(i=0;i<10;i++)
@@ -231,12 +236,13 @@ void main()
 //     {
 //         err[i]=output[i]-signal[i];
 //     }
-    fo=fopen("shaped_out.txt","w");
+    fo=fopen("shaped_out_long.txt","w");
 	//printing output of df2 to the file
     if(fo==NULL)
 	{
 		printf("\nError Reading File Signal \n");
 	}
+        
     printf("\n\nWriting Back to file\n");
     for(i=0;i<len;i++)
     {

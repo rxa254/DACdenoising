@@ -1,6 +1,6 @@
 function noise_shaper()
     close all;
-    load('saved_out_DARM_decreased.mat');
+%     load('saved_out_DARM_decreased.mat');
     
     % sampling rate
 %     rate_Hz = 524.288e3; 
@@ -13,13 +13,13 @@ function noise_shaper()
     % signal duration in seconds
     gcl_s = 32;
     len=gcl_s*rate_Hz;
-%     fi=fopen('take_signal_shape.bin','rb');
-%     if fi==-1
-%         display('error reading file');
-%         return
-%     end
-%     [save_out,~]=fread(fi,len,'real*8');
-%     fclose(fi);
+    fi=fopen('take_signal_shape.bin','rb');
+    if fi==-1
+        display('error reading file');
+        return
+    end
+    [save_out,~]=fread(fi,len,'real*8');
+    fclose(fi);
 %     
     td=save_out';
 %     td=resample(td,16384,rate_Hz);
@@ -81,12 +81,11 @@ function noise_shaper()
     %%%%%%%%%%%% bandstop filter. Removes quantization noise from a bandwidth of
     % rate/4 to rate/3.
     %Order =3 ; 3dB ripple in passband
-    band_stop=(rate_Hz/120);
-    band_pass=(rate_Hz/100);
-    [b, a] = cheby1(3, 3, [band_stop/(rate_Hz/10), band_pass/(rate_Hz/10)], 'stop');
+%     band_stop=(rate_Hz/120);
+%     band_pass=(rate_Hz/100);
+%     [b, a] = cheby1(3, 3, [band_stop/(rate_Hz/10), band_pass/(rate_Hz/10)], 'stop');
 %     display(strcat('stop band is between ',num2str(band_stop/rate_Hz),' Hz and ',num2str(band_pass/rate_Hz),' Hz'));
-%     b=1;
-%     a=1;
+
     %%%%%%%%%%%%%%%%%%%%high pass filter%%%%%%%%%%%%%%%%%%%%
     factor=0.8;
     pass_freq=factor*(rate_Hz/2);
@@ -97,31 +96,29 @@ function noise_shaper()
 
 %     display(strcat('Cutoff frequency is ',num2str(pass_freq),' Hz'));
     
-%     %Filter Design High Pass IIR%
-%     hpFilt = designfilt('highpassiir', 'FilterOrder', 4, ...
-%              'PassbandFrequency', pass_freq, 'PassbandRipple', 3,...
-%              'SampleRate', rate_Hz);
-%     sos=hpFilt.Coefficients;
-%     
-%     [b,a]=sos2tf(sos);
+    %Filter Design High Pass IIR%
+    hpFilt = designfilt('highpassiir', 'FilterOrder', 4, ...
+             'PassbandFrequency', pass_freq, 'PassbandRipple', 3,...
+             'SampleRate', rate_Hz);
+    sos=hpFilt.Coefficients;
+    
+    [b,a]=sos2tf(sos);
 %     H1=tf(b,a,-1,'Variable','z^-1');
     
 %     
-    %Filter Design H(z) =1 %
-%     b=10;
-%     a=1;
+
 
     % *********************************************
     % plot the above filter response (impulse response
     % from quantizer error to output)
     % *********************************************    
-    pulse = zeros(1, 100);
-    pulse(1) = 1;
-    pulse = filter(b, a, pulse);
-    figure(33);
-    stem(pulse);
-    title('h_{Target}');
-    
+%     pulse = zeros(1, 100);
+%     pulse(1) = 1;
+%     pulse = filter(b, a, pulse);
+%     figure(33);
+%     stem(pulse);
+%     title('h_{Target}');
+%     
     % *********************************************
     % plot the filter response
     % *********************************************    
@@ -130,12 +127,12 @@ function noise_shaper()
 %     zInv = exp(-2i * pi * fNorm_Hz); 
 %     H = polyval(b, zInv) ./ polyval(a, zInv);
     
-    figure(2);
-    freqz(b,a);
-    xlabel('f / Hz (Norm)');
-    ylabel('dB');
-    grid on;
-    title('desired noise shaper frequency response H_{Target}');
+%     figure(2);
+%     freqz(b,a);
+%     xlabel('f / Hz (Norm)');
+%     ylabel('dB');
+%     grid on;
+%     title('desired noise shaper frequency response H_{Target}');
 
     % *********************************************
     % Derive the noise shaper filter from the desired
@@ -145,7 +142,7 @@ function noise_shaper()
     bb = b / b(1);
     bb = bb(2:end) - a(2:end);
     sos_s=tf2sos(bb,a);
-    [gain,sos_shape]=sos_shuffle(sos_s)
+    [gain,sos_shape]=sos_shuffle(sos_s);
 
 %     Hz=tf([0 1],[1],-1,'Variable','z^-1');
 %     Hz1=tf([1 0],[1],-1);
@@ -187,7 +184,7 @@ function noise_shaper()
 %     l=length(a)
 %     SOS=tf2sos(bb,a);
 
-    for ix = 1 : numel(td);
+    for ix = 1 : len;
         s = td(ix);
         
         % variant 1: ordinary quantization
@@ -223,39 +220,50 @@ function noise_shaper()
     fclose(fi);
 
 %%%% Read C code output , should be commented when MATLAB code is being tested%%%
-%     fid=fopen('shaped_out.txt','r');
-%     if fid==-1
-%         display('error opening file')
-%     end
-%     tdOut2C=fscanf(fid,'%d',len);
-%     tdOut2C=tdOut2C';
-%     fclose(fid);
+    fid=fopen('shaped_out.txt','r');
+    if fid==-1
+        display('error opening file')
+    end
+    tdOut2C=fscanf(fid,'%d',len);
+    tdOut2C=tdOut2C';
+    fclose(fid);
+    
+    %%Read Higher precision C Code output%%
+    fid=fopen('shaped_out_long.txt','r');
+    if fid==-1
+        display('error opening file')
+    end
+    tdOut2Cl=fscanf(fid,'%d',len);
+    tdOut2Cl=tdOut2Cl';
+    fclose(fid);
 % %     
 %     
 %         %****PLOT DATA******%
-%    %%%% When comparing C And MATLAB %%%%
-%        figure(4);
-%     plot(tdOut2);
-%     grid on;
-%     title('tdOut2');
-%       figure(44);
-%     plot(tdOut2C);
-%     grid on;
-%     title('tdOut2C');
-%     
-%     diff=tdOut2(1000:2000)-tdOut2C(1000:2000)
-%     figure(5);
-%     plot(tdOut2-tdOut2C);
-%     grid on;
-%     title('diff C MATLAB in series values');
-%     
-% 
-%    plot_shape(td,td-tdOut1,td-tdOut2,td-tdOut2C,tdOut2-tdOut2C,rate_Hz);
+% %    %%%% When comparing C And MATLAB %%%%
+       figure(4);
+    plot(tdOut2-tdOut2C);
+    grid on;
+    title('tdOut2-tdOut2C');
+      figure(44);
+    plot(tdOut2-tdOut2Cl);
+    grid on;
+    title('tdOut2-tdOut2Cl');
+
+      figure(46);
+    plot(tdOut2C-tdOut2Cl);
+    grid on;
+    title('diff between the two C codes');
+    
+%     diff=tdOut2(1000:2000)-tdOut2C(1000:2000);
+
+    
+
+   plot_shape(td-tdOut2,td-tdOut2C,td-tdOut2Cl,td,td,rate_Hz);
    
    %%%%%%%%%%%%%%%
    
    %%%%Plotting MATLAB Output ONLY %%%%%%%%%
-   plot_shape(td,tdOut1,tdOut2,td-tdOut1,td-tdOut2,rate_Hz);
+%    plot_shape(td,tdOut1,tdOut2,td-tdOut1,td-tdOut2,rate_Hz);
    
 %     tdOut2(1:10)
     % *********************************************
@@ -304,34 +312,34 @@ end
 
 % *********************************************
 % frequency corresponding to each FFT bin
-% *********************************************
-function fb = freqbase(n)
-    fb = 0:(n - 1);
-    fb = fb + floor(n / 2);
-    fb = mod(fb, n);
-    fb = fb - floor(n / 2);
-    
-    fb = fb / n; % now [0..0.5[, [-0.5..0[
-end
-
-% *********************************************
+% % *********************************************
+% function fb = freqbase(n)
+%     fb = 0:(n - 1);
+%     fb = fb + floor(n / 2);
+%     fb = mod(fb, n);
+%     fb = fb - floor(n / 2);
+%     
+%     fb = fb / n; % now [0..0.5[, [-0.5..0[
+% end
+% 
+% % *********************************************
 % The wanted signal is periodic, but noise shaping does
 % not preserve the periodicity because of the noise shaper's
 % inherent small oscillations.
 % The error is localized to the first and last sample
 % Therefore, apply some gentle windowing to head
 % and tail of the signal.
-% *********************************************
-function seq = dowindow(seq)
-%     size(seq)
-    nWin=10^((numel(num2str(length(seq)))-2));
-%     nWin=1000;
-    win = linspace(0, 1, nWin+1);
-%     size(win)
-    win = win(2:end);
-%     size(win)
-    win = (1-cos(pi*win))/2;
-%     size(win)
-    seq(1:nWin) = seq(1:nWin) .* win;
-    seq(end-nWin+1:end) = seq(end-nWin+1:end) .* fliplr(win);   
-end
+% % *********************************************
+% function seq = dowindow(seq)
+% %     size(seq)
+%     nWin=10^((numel(num2str(length(seq)))-2));
+% %     nWin=1000;
+%     win = linspace(0, 1, nWin+1);
+% %     size(win)
+%     win = win(2:end);
+% %     size(win)
+%     win = (1-cos(pi*win))/2;
+% %     size(win)
+%     seq(1:nWin) = seq(1:nWin) .* win;
+%     seq(end-nWin+1:end) = seq(end-nWin+1:end) .* fliplr(win);   
+% end

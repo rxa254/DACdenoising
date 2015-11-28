@@ -29,7 +29,7 @@ function check_digital_system(name, channel, filter_bank)
     module_parameters = read_module_params(channel);
 
     % Filters that are switched on
-    online_filters = find_online_filters(modules(filter_bank), module_parameters);
+    online_filters = find_online_filters(modules(filter_bank), module_parameters)
 
     % Download data from the channel
     clear data
@@ -46,12 +46,12 @@ function check_digital_system(name, channel, filter_bank)
         if module_parameters.OFFSET_SW
             data = data - module_parameters.OFFSET;
         end
-	
-	[output_df2,output_bqf,noise_df2,noise_bqf]=estimate_noise_file(data',online_filters);
+
         % Calculate digital noise
-        %[output_df2, output_bqf, noise_df2, noise_bqf] = estimate_noise(data', online_filters);
-	%bypassing estimate noise, instead reading from a file and calling calculate noise
-	
+        length(double(data'))
+        
+        [output_df2, output_bqf, noise_df2, noise_bqf] = estimate_noise(double(data'), online_filters);
+
         % Multiply filter output by module GAIN
         output_df2 = output_df2 * module_parameters.GAIN;
         output_bqf = output_bqf * module_parameters.GAIN;
