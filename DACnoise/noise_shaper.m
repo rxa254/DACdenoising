@@ -256,7 +256,11 @@ function noise_shaper()
     
 %     diff=tdOut2(1000:2000)-tdOut2C(1000:2000);
 
-    
+    %Measurement of Relative Error in this filtering code%
+    e_matlab=abs(tdOut2-tdOut2l)/abs(tdOut2l);
+    e_c=abs(tdOut2C-tdOut2l)/abs(tdOut2l);
+    for i=1:len
+        k=e_matlab(i)/e_matlab(i-1);
 
    plot_shape(td-tdOut2,td-tdOut2C,td-tdOut2Cl,td,td,rate_Hz);
    
