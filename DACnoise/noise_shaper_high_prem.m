@@ -1,7 +1,7 @@
 function noise_shaper_high_prem()
     close all;
 %     load('saved_out_DARM_decreased.mat');
-     mp.Digits(1);
+     mp.Digits(34);
     % sampling rate
 %     rate_Hz = 524.288e3; 
     rate_Hz = mp('16.384e3');
@@ -139,7 +139,7 @@ function noise_shaper_high_prem()
 
     
 
-   plot_shape(td-tdOut2,td-tdOut2C,td-tdOut2Cl,td,td,rate_Hz);
+   plot_shape(double(td-tdOut2),double(td-tdOut2C),double(td-tdOut2Cl),double(td,td,rate_Hz));
    
    %%%%%%%%%%%%%%%
    

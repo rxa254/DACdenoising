@@ -240,27 +240,42 @@ function noise_shaper()
 %     
 %         %****PLOT DATA******%
 % %    %%%% When comparing C And MATLAB %%%%
-       figure(4);
-    plot(tdOut2-tdOut2C);
-    grid on;
-    title('tdOut2-tdOut2C');
-      figure(44);
-    plot(tdOut2-tdOut2Cl);
-    grid on;
-    title('tdOut2-tdOut2Cl');
-
-      figure(46);
-    plot(tdOut2C-tdOut2Cl);
-    grid on;
-    title('diff between the two C codes');
+%        figure(4);
+%     plot(tdOut2-tdOut2C);
+%     grid on;
+%     title('tdOut2-tdOut2C');
+%       figure(44);
+%     plot(tdOut2-tdOut2Cl);
+%     grid on;
+%     title('tdOut2-tdOut2Cl');
+% 
+%       figure(46);
+%     plot(tdOut2C-tdOut2Cl);
+%     grid on;
+%     title('diff between the two C codes');
     
 %     diff=tdOut2(1000:2000)-tdOut2C(1000:2000);
-
+    
     %Measurement of Relative Error in this filtering code%
-    e_matlab=abs(tdOut2-tdOut2l)/abs(tdOut2l);
-    e_c=abs(tdOut2C-tdOut2l)/abs(tdOut2l);
-    for i=1:len
-        k=e_matlab(i)/e_matlab(i-1);
+    e_matlab=abs(tdOut2-tdOut2Cl)/abs(tdOut2Cl);
+    e_c=abs(tdOut2C-tdOut2Cl)/abs(tdOut2Cl);
+    e_matlab0=abs(tdOut2(:,1)-tdOut2Cl(:,1))/abs(tdOut2Cl(:,1));
+    e_c0=abs(tdOut2C(:,1)-tdOut2Cl(:,1))/abs(tdOut2Cl(:,1));
+    const_matlab=e_matlab/e_matlab0;
+    const_c=e_c/e_c0;
+    e_matlab0
+    e_c0
+    
+    figure(9);
+    plot(const_matlab);
+    grid on;
+    title('const_matlab');
+    
+    figure(10);
+    plot(const_c);
+    grid on;
+    title('const_c');
+    
 
    plot_shape(td-tdOut2,td-tdOut2C,td-tdOut2Cl,td,td,rate_Hz);
    
